@@ -1,0 +1,111 @@
+@font-face {
+  font-family: 'Zilap Orion';
+  src: url('/fonts/ZilapOrion.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nexa Bold';
+  src: url('/fonts/NexaBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BankGothic Md BT';
+  src: url('/fonts/BankGothicMdBT.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1A1A1A;
+  font-family: sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 
+  "3D metallic gold" button styling:
+  - Vertical gradient from bright gold (#F1C40F) to deeper gold (#C19A36).
+  - Subtle border and box-shadow for depth.
+  - Two radial highlights (via ::before and ::after) to simulate reflections.
+*/
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 30px;
+  border-radius: 10px;
+  color: #000;
+  text-decoration: none;
+  font-family: 'Nexa Bold', sans-serif;
+
+  /* Base gradient */
+  background: linear-gradient(180deg, #F1C40F 0%, #C19A36 100%);
+  border: 1px solid #B8860B;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+  /* Animation & overflow */
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out, background 0.2s ease-in-out;
+}
+
+.button:hover {
+  transform: scale(1.1);
+  /* Slightly darken the lower color on hover for a more pronounced effect */
+  background: linear-gradient(180deg, #F1C40F 0%, #B8860B 100%);
+}
+
+/* 
+  Pseudo-elements for light reflections:
+  Adjust the radial-gradient positions, sizes, and opacities as desired.
+*/
+.button::before,
+.button::after {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.button::before {
+  /* Bright highlight near the top-left */
+  background: radial-gradient(
+    circle at 30% 25%, 
+    rgba(255, 255, 255, 0.4) 0%, 
+    rgba(255, 255, 255, 0) 40%
+  );
+}
+
+.button::after {
+  /* Subtle highlight near bottom-right */
+  background: radial-gradient(
+    circle at 70% 80%, 
+    rgba(255, 255, 255, 0.2) 0%, 
+    rgba(255, 255, 255, 0) 50%
+  );
+}
+
+/* Global icon spacing for buttons */
+.button-icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
