@@ -1,111 +1,442 @@
-@font-face {
-  font-family: 'Zilap Orion';
-  src: url('/fonts/ZilapOrion.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Zilap Orion';
+    src: url('/fonts/ZilapOrion.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Nexa Bold';
+    src: url('/fonts/NexaBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'BankGothic Md BT';
+    src: url('/fonts/BankGothicMdBT.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  /* Fluid Typography */
+  :root {
+    /* Base font size - scales between 12px at 320px viewport and 20px at 1200px viewport */
+    font-size: clamp(12px, calc(12px + 8 * (100vw - 320px) / 880), 20px);
+    
+    /* Define font size variables with updated minimums */
+    --font-size-xs: clamp(0.75rem, calc(0.75rem + 0.3vw), 1rem);
+    --font-size-sm: clamp(1rem, calc(1rem + 0.3vw), 1.2rem);
+    --font-size-base: clamp(1.25rem, calc(1.25rem + 0.5vw), 1.5rem);    /* Min 1.25rem for body text */
+    --font-size-lg: clamp(1.4rem, calc(1.4rem + 0.6vw), 1.8rem);
+    --font-size-xl: clamp(1.5rem, calc(1.5rem + 0.8vw), 2.2rem);        /* Min 1.5rem for H4 */
+    --font-size-2xl: clamp(1.5rem, calc(1.5rem + 1.2vw), 2.8rem);       /* Min 1.5rem for H3 */
+    --font-size-3xl: clamp(1.75rem, calc(1.75rem + 1.5vw), 3.5rem);     /* Min 1.75rem for H2 */
+    --font-size-4xl: clamp(1.75rem, calc(1.75rem + 2vw), 4rem);         /* Min 1.75rem for H1 */
+
+    /* Define spacing variables that also scale with viewport */
+    --space-xs: clamp(0.5rem, calc(0.5rem + 0.3vw), 1rem);
+    --space-sm: clamp(0.75rem, calc(0.75rem + 0.5vw), 1.5rem);
+    --space-md: clamp(1rem, calc(1rem + 0.8vw), 2rem);
+    --space-lg: clamp(1.5rem, calc(1.5rem + 1.5vw), 3.5rem);
+    --space-xl: clamp(2rem, calc(2rem + 3vw), 6rem);
+  }
+
+  /* Apply fluid typography to heading elements */
+  h1 {
+    font-size: var(--font-size-4xl);
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: var(--font-size-3xl);
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: var(--font-size-2xl);
+    line-height: 1.3;
+  }
+
+  h4 {
+    font-size: var(--font-size-xl);
+    line-height: 1.4;
+  }
+
+  p, li, a, button, input, textarea {
+    font-size: var(--font-size-base);
+  }
+
+  /* Custom styles for all buttons in the portfolio */
+  button, .button, [class*='btn'], [type='button'], [type='submit'] {
+    font-size: 1.25rem !important;
+    font-family: 'Nexa Bold', sans-serif !important;
+  }
 }
 
-@font-face {
-  font-family: 'Nexa Bold';
-  src: url('/fonts/NexaBold.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+@layer components {
+  .text-small {
+    font-size: var(--font-size-sm);
+  }
+
+  /* Global style for number-flow element */
+  number-flow {
+    display: block;
+    font-size: 2rem;
+    color: #fff;
+    min-height: 1em;
+  }
+
+  /* Global styles */
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Add animated floating stars/particles */
+  @keyframes float {
+    0% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-15px) translateX(10px); }
+    100% { transform: translateY(0px) translateX(0px); }
+  }
+
+  @keyframes pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+    100% { opacity: 0.3; }
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.8; }
+  }
+
+  .star {
+    position: fixed;
+    width: 1px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  body {
+    background-color: #1A1A1A;
+    background-image: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250' viewBox='0 0 250 250'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"),
+      radial-gradient(circle at 50% 50%, #252525 0%, #1A1A1A 25%, #101010 100%);
+    background-size: auto, 100% 100%;
+    background-position: center;
+    background-repeat: repeat, no-repeat;
+    background-attachment: fixed;
+    font-family: sans-serif;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    
+    /* Add CSS variables for mouse tracking */
+    --mouse-x: 0;
+    --mouse-y: 0;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    background: 
+      radial-gradient(
+        circle at 
+        calc(15% + var(--parallax-offset, 0px) + (var(--mouse-x, 0) * 10px)) 
+        calc(15% - var(--parallax-offset, 0px) + (var(--mouse-y, 0) * 10px)), 
+        rgba(124, 58, 237, 0.08) 0%, 
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 
+        calc(85% - var(--parallax-offset, 0px) - (var(--mouse-x, 0) * 10px)) 
+        calc(85% + var(--parallax-offset, 0px) - (var(--mouse-y, 0) * 10px)), 
+        rgba(16, 185, 129, 0.06) 0%, 
+        transparent 40%
+      );
+    pointer-events: none;
+    transition: background-position 0.1s ease-out;
+  }
+
+  /* Add subtle floating animated particles */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: 
+      radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0) 5%),
+      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0) 5%),
+      radial-gradient(circle at 40% 70%, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0) 5%),
+      radial-gradient(circle at 60% 50%, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0) 5%);
+    background-size: 100% 100%;
+    mix-blend-mode: screen;
+    opacity: 0.8;
+    z-index: -2;
+    transform: translateY(calc(var(--parallax-offset, 0px) * -1));
+    pointer-events: none;
+  }
+
+  /* Interactive animated gradient overlay */
+  .bg-gradient-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+      135deg, 
+      rgba(124, 58, 237, 0.03) 0%, 
+      rgba(16, 185, 129, 0.03) 50%, 
+      rgba(90, 30, 180, 0.03) 100%
+    );
+    z-index: -3;
+    pointer-events: none;
+    animation: gradientShift 15s ease infinite;
+    opacity: 0.8;
+    transform: translateX(calc(var(--mouse-x, 0) * -5px)) translateY(calc(var(--mouse-y, 0) * -5px));
+    transition: transform 0.3s ease-out;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Make container a positioning context but not restrict the background */
+  .container {
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Badge styling fix */
+  [data-slot="badge"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-family: 'Nexa Bold', sans-serif;
+    font-size: 1rem; /* Updated from 0.8rem to be more consistent with font size system */
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    text-transform: none;
+    transition: all 0.2s ease;
+    background-color: #7c3aed;
+    color: white;
+  }
+  
+  /* Badge with inline styles should respect those styles */
+  [data-slot="badge"][style] {
+    background-color: var(--badge-bg-color, #7c3aed) !important;
+    color: var(--badge-text-color, white) !important;
+  }
+
+  /* Button styling fix - more specific to match your original design */
+  [data-slot="button"] {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: 'Nexa Bold', sans-serif !important;
+    font-size: 1.25rem !important; /* Updated to match minimum size requirement */
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    transition: all 0.2s ease;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Default button style with gradient background - shadcn default variant */
+  [data-slot="button"]:not([class*="variant-"]) {
+    background: linear-gradient(to bottom, #7c3aed, #6025c0);
+  }
+  
+  /* Hover effect for buttons */
+  [data-slot="button"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Active effect for buttons */
+  [data-slot="button"]:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Style for outlined buttons */
+  [data-slot="button"][class*="variant-outline"] {
+    background: transparent;
+    border: 2px solid #7c3aed;
+    color: #7c3aed;
+  }
+
+  /* Style for secondary buttons */
+  [data-slot="button"][class*="variant-secondary"] {
+    background: linear-gradient(to bottom, #333333, #1a1a1a);
+    color: white;
+  }
+
+  /* Style for destructive buttons */
+  [data-slot="button"][class*="variant-destructive"] {
+    background: linear-gradient(to bottom, #e11d48, #be123c);
+    color: white;
+  }
+
+  /* Page transition overlay */
+  .page-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0e0e0e;
+    z-index: 9999;
+    transform: translateY(100%);
+    pointer-events: none;
+  }
 }
 
-@font-face {
-  font-family: 'BankGothic Md BT';
-  src: url('/fonts/BankGothicMdBT.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
 }
 
-/* Global styles */
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #1A1A1A;
-  font-family: sans-serif;
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-.container {
-  padding: 0 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* 
-  "3D metallic gold" button styling:
-  - Vertical gradient from bright gold (#F1C40F) to deeper gold (#C19A36).
-  - Subtle border and box-shadow for depth.
-  - Two radial highlights (via ::before and ::after) to simulate reflections.
-*/
-.button {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 30px;
-  border-radius: 10px;
-  color: #000;
-  text-decoration: none;
-  font-family: 'Nexa Bold', sans-serif;
-
-  /* Base gradient */
-  background: linear-gradient(180deg, #F1C40F 0%, #C19A36 100%);
-  border: 1px solid #B8860B;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-
-  /* Animation & overflow */
-  overflow: hidden;
-  transition: transform 0.2s ease-in-out, background 0.2s ease-in-out;
-}
-
-.button:hover {
-  transform: scale(1.1);
-  /* Slightly darken the lower color on hover for a more pronounced effect */
-  background: linear-gradient(180deg, #F1C40F 0%, #B8860B 100%);
-}
-
-/* 
-  Pseudo-elements for light reflections:
-  Adjust the radial-gradient positions, sizes, and opacities as desired.
-*/
-.button::before,
-.button::after {
-  content: "";
-  position: absolute;
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0;
-  border-radius: inherit;
-  pointer-events: none;
-}
-
-.button::before {
-  /* Bright highlight near the top-left */
-  background: radial-gradient(
-    circle at 30% 25%, 
-    rgba(255, 255, 255, 0.4) 0%, 
-    rgba(255, 255, 255, 0) 40%
-  );
-}
-
-.button::after {
-  /* Subtle highlight near bottom-right */
-  background: radial-gradient(
-    circle at 70% 80%, 
-    rgba(255, 255, 255, 0.2) 0%, 
-    rgba(255, 255, 255, 0) 50%
-  );
-}
-
-/* Global icon spacing for buttons */
-.button-icon {
-  margin-right: 8px;
-  font-size: 1.2rem;
+@layer utilities {
+  :root {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+  }
 }

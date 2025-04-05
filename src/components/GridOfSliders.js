@@ -4,8 +4,9 @@ import Slider from 'react-slick';
 import LazyVideo from './LazyVideo';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Carousel, CarouselItem } from '@/components/ui/carousel'; // Import shadcn carousel components
 
-// Sample data: place images in /images/travel/..., videos in /videos/, etc.
+// Sample data: passionsData as before…
 const passionsData = [
   {
     title: "Travel Memories",
@@ -47,38 +48,67 @@ const passionsData = [
     ],
   },
   {
-    title: "Art & Music",
+    title: "Learning New Skills",
     items: [
       {
         mediaType: "image",
-        src: "/images/art/art1.jpg",
-        title: "Abstract Painting",
+        src: "/images/newskill1.jpg",
+        title: "3D Printing",
       },
       {
         mediaType: "image",
-        src: "/images/art/art2.jpg",
-        title: "Street Graffiti",
+        src: "/images/newskill2.jpg",
+        title: "Blacksmithing",
       },
       {
         mediaType: "image",
-        src: "/images/music/music1.jpg",
-        title: "Live Concert",
+        src: "/images/newskill3.jpg",
+        title: "PC Building",
+      },
+      {
+        mediaType: "image",
+        src: "/images/newskill4.jpg",
+        title: "Jewelry Design",
+      },
+      {
+        mediaType: "image",
+        src: "/images/newskill5.jpg",
+        title: "CAD",
       },
     ],
   },
 ];
 
+// New sample featured data for the shadcn carousel row
+const featuredData = [
+  {
+    mediaType: "image",
+    src: "/images/featured/featured1.jpg",
+    title: "Project Alpha",
+  },
+  {
+    mediaType: "image",
+    src: "/images/featured/featured2.jpg",
+    title: "Project Beta",
+  },
+  {
+    mediaType: "image",
+    src: "/images/featured/featured3.jpg",
+    title: "Project Gamma",
+  },
+];
+
 export default function Passions() {
-  // React-slick settings for manual navigation and a fixed aspect ratio approach
+  // React-slick settings for the passions sliders
   const sliderSettings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: false,
     arrows: true,
-    adaptiveHeight: false, // We'll fix the slide size with an aspect ratio container
+    adaptiveHeight: false
   };
 
   return (
@@ -122,83 +152,104 @@ export default function Passions() {
         ))}
       </div>
 
-      <style jsx>{`
-        .passions-section {
-          padding: 60px 20px;
-          background-color: #1A1A1A;
-          color: #fff;
-          max-width: 1200px;
-          margin: 0 30px; /* 30px horizontal margin to make section thinner */
-        }
-        h3 {
-          font-family: 'BankGothic Md BT', sans-serif;
-          font-size: 2rem;
-          margin-bottom: 40px;
-          text-align: left;
-        }
-        .passions-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 60px;
-        }
-        .passion-slider {
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(10px);
-          border-radius: 20px;
-          padding: 20px;
-        }
-        .passion-slider h4 {
-          font-family: 'BankGothic Md BT', sans-serif;
-          font-size: 1.5rem;
-          margin-bottom: 10px;
-          text-align: left;
-        }
-        /* Each slide item uses an aspect-ratio container to keep height consistent */
-        .slider-item {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          /* 16:9 aspect ratio container trick */
-          position: relative;
-          width: 100%;
-          padding-bottom: 56.25%; /* (9/16 * 100%) for 16:9 */
-        }
-        .slider-card {
+      {/* New Row: Featured Works using shadcn Carousel */}
+      <div className="carousel-row">
+        <h3>Featured Works</h3>
+        <Carousel>
+          {featuredData.map((item, index) => (
+            <CarouselItem key={index}>
+              <div className="carousel-card">
+                {item.mediaType === "image" && (
+                  <img src={item.src} alt={item.title} />
+                )}
+                <p className="carousel-title">{item.title}</p>
+              </div>
+            </CarouselItem>
+          ))}
+        </Carousel>
+      </div>
+
+      <style jsx global>{`
+        /* Custom arrows styling for GridOfSliders component */
+        .passions-section .slick-prev, 
+        .passions-section .slick-next {
           position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
+          top: 50%;
           display: flex;
-          flex-direction: column;
           align-items: center;
           justify-content: center;
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(10px);
-          border-radius: 10px;
-          margin: auto;
-          width: 90%;
-          max-width: 500px;
-          text-align: center;
+          width: clamp(32px, 3.5vw, 44px); /* Responsive width */
+          height: clamp(32px, 3.5vw, 44px); /* Responsive height */
+          padding: 0;
+          transform: translate(0, -50%);
+          cursor: pointer;
+          border: none;
+          outline: none;
+          
+          /* Enhanced glassmorphic effect with darker background for better visibility */
+          background: rgba(0, 0, 0, 0.6);
+          backdrop-filter: blur(5px);
+          -webkit-backdrop-filter: blur(5px);
+          border-radius: 50%;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          z-index: 10;
+          
+          /* Hide text */
+          font-size: 0;
+          color: transparent;
+          overflow: hidden;
+          transition: all 0.3s ease;
         }
-        .slider-card img,
-        .slider-card video {
-          width: 100%;
-          height: auto;
-          max-height: 80%;
-          object-fit: contain;
-          border-radius: 10px;
+        
+        .passions-section .slick-prev:hover, 
+        .passions-section .slick-next:hover {
+          background: rgba(0, 0, 0, 0.75);
+          box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+          transform: translate(0, -50%) scale(1.15); /* Added scale effect on hover */
         }
-        .media-title {
-          margin-top: 10px;
-          font-family: 'Nexa Bold', sans-serif;
-          font-size: 1rem;
+        
+        .passions-section .slick-prev {
+          left: 15px;
         }
-        .quote {
-          font-family: 'Nexa Bold', sans-serif;
-          font-size: 1rem;
-          text-align: center;
-          padding: 20px;
+        
+        .passions-section .slick-next {
+          right: 15px;
+        }
+        
+        /* Centralized arrow positioning */
+        .passions-section .slick-prev:before, 
+        .passions-section .slick-next:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: clamp(16px, 2vw, 24px); /* Responsive icon size */
+          height: clamp(16px, 2vw, 24px); /* Responsive icon size */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          opacity: 1;
+        }
+        
+        /* Custom arrow SVGs with proper centering */
+        .passions-section .slick-prev:before {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 18l-6-6 6-6'/%3E%3C/svg%3E");
+          transform: translate(-50%, -50%) translateX(-1px); /* Fine-tune centering */
+        }
+        
+        .passions-section .slick-next:before {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18l6-6-6-6'/%3E%3C/svg%3E");
+          transform: translate(-50%, -50%) translateX(1px); /* Fine-tune centering */
+        }
+        
+        /* Adding active state styling to match hover */
+        .passions-section .slick-prev:active, 
+        .passions-section .slick-next:active {
+          background: rgba(0, 0, 0, 0.75);
+          box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+          transform: translate(0, -50%) scale(1.15);
         }
       `}</style>
     </section>

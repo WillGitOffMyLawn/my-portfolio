@@ -1,4 +1,3 @@
-// src/pages/index.js
 import Head from 'next/head';
 import Hero from '../components/Hero';
 import Skills from '../components/Skills';
@@ -12,10 +11,7 @@ export default function Home() {
     <>
       <Head>
         <title>William Fagan&apos;s Portfolio</title>
-        <meta
-          name="description"
-          content="Crafting the Future - Portfolio of William Fagan"
-        />
+        <meta name="description" content="Crafting the Future - Portfolio of William Fagan" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero />

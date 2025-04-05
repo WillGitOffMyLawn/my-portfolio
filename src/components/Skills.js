@@ -1,51 +1,57 @@
 // src/components/SkillsWithFlexBadges.js
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import { Badge } from '@/components/ui/badge';
 
-/*
-  Example data structure with a 'level' property (1–5).
-  Adjust the levels or add more details as needed.
-*/
 const skillsData = {
   Technical: {
     Software: [
       { name: 'Jira', level: 3 },
-      { name: 'Asana', level: 4 },
-      { name: 'Trello', level: 2 },
+      { name: 'Asana', level: 3 },
+      { name: 'Trello', level: 3 },
+      { name: 'Hubspot', level: 3 },
+      { name: 'Figma', level: 3 },
+      { name: 'Excel', level: 4 },
+      { name: 'PowerPoint', level: 4 },
+      { name: 'AWS', level: 2 },
+      { name: 'Zapier', level: 2 },
+      { name: 'Word', level: 4 },
     ],
     Coding: [
-      { name: 'HTML', level: 5 },
-      { name: 'CSS', level: 5 },
-      { name: 'JavaScript', level: 5 },
-      { name: 'React', level: 4 },
+      { name: 'HTML', level: 2 },
+      { name: 'CSS', level: 2 },
+      { name: 'JavaScript', level: 2 },
+      { name: 'React', level: 2 },
       { name: 'Python', level: 3 },
-      { name: 'Java', level: 2 },
+      { name: 'Nextjs', level: 2 },
+      { name: 'PHP', level: 2 },
+      { name: 'Git', level: 2 },
+      { name: 'Terraform', level: 1 },
     ],
   },
   'Cross-Functional': {
     Leadership: [
-      { name: 'Team Management', level: 4 },
-      { name: 'Strategic Planning', level: 3 },
-      { name: 'Communication', level: 5 },
+      { name: 'Team Management', level: 3 },
+      { name: 'Strategic Planning', level: 2 },
+      { name: 'Communication', level: 4 },
+      { name: 'Agile', level: 3 },
+      { name: 'Waterfall', level: 3 },
     ],
-    Marketing: [
-      { name: 'SEO', level: 2 },
-      { name: 'Content Strategy', level: 3 },
-      { name: 'Branding', level: 4 },
+    Product: [
+      { name: 'SEO', level: 3 },
+      { name: 'Google Analytics', level: 3 },
+      { name: 'Wireframing', level: 2 },
+      { name: 'UX/UI', level: 3 },
+      { name: 'Market Analysis', level: 3 },
     ],
   },
 };
 
-/*
-  Define five proficiency levels, each with a label and a color.
-  Adjust these colors to match your design preferences.
-*/
 const proficiencyLevels = [
-  { level: 1, label: 'Novice',       color: '#D9534F' }, // red
-  { level: 2, label: 'Beginner',     color: '#F0AD4E' }, // orange
-  { level: 3, label: 'Intermediate', color: '#FFD700' }, // gold
-  { level: 4, label: 'Advanced',     color: '#5BC0DE' }, // cyan
-  { level: 5, label: 'Expert',       color: '#5CB85C' }, // green
+  { level: 1, label: 'Novice',       color: '#2ecc71' }, 
+  { level: 2, label: 'Competent', color: '#3498db' }, 
+  { level: 3, label: 'Advanced',     color: '#9b59b6' }, 
+  { level: 4, label: 'Expert',       color: '#e74c3c' }, 
 ];
 
 // Helper to get color for a given level
@@ -67,68 +73,157 @@ export default function SkillsWithFlexBadges() {
     }));
   };
 
+  // Set up Intersection Observer to expand sections when in view
+  useEffect(() => {
+    const options = {
+      root: null, // viewport
+      rootMargin: '-30% 0px -30% 0px', // triggers when element is in middle 40% of screen
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Find which subcategory this is
+          const [mainCat, subCat] = entry.target.dataset.category.split('|');
+          
+          // Auto-expand when scrolled into view
+          setExpanded((prev) => ({
+            ...prev,
+            [mainCat]: {
+              ...prev[mainCat],
+              [subCat]: true
+            }
+          }));
+        }
+      });
+    }, options);
+
+    // Get all elements with data-category attribute
+    const elements = document.querySelectorAll('[data-category]');
+    elements.forEach(element => {
+      observer.observe(element);
+    });
+
+    return () => {
+      // Clean up
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <section className="skills-badges">
-      {/* Title and inline proficiency key */}
-      <div className="skills-header">
-        <h2>Skills</h2>
-        <div className="proficiency-key">
-          {proficiencyLevels.map((p) => (
-            <div
-              key={p.level}
-              className="key-badge"
-              style={{ backgroundColor: p.color }}
-            >
-              {p.label}
+      <div className="glassmorphic-wrapper">
+        {/* Title and inline proficiency key */}
+        <div className="skills-header">
+          <h2>Skills</h2>
+          <div className="proficiency-key">
+            {proficiencyLevels.map((p) => (
+              <Badge 
+                key={p.level}
+                style={{ 
+                  "--badge-bg-color": p.color,
+                  "--badge-text-color": "#1a1a1a",
+                  backgroundColor: p.color,
+                  color: "#1a1a1a",
+                  fontWeight: 'bold'
+                }}
+              >
+                {p.label}
+              </Badge>
+            ))}
+          </div>
+        </div>
+
+        <div className="skills-grid">
+          {Object.entries(skillsData).map(([mainCat, subcategories]) => (
+            <div key={mainCat} className="skill-category">
+              <h3>{mainCat}</h3>
+              {Object.entries(subcategories).map(([subCat, skills]) => (
+                <div key={subCat} className="skill-subcategory">
+                  <div
+                    className="subcategory-header"
+                    onClick={() => toggleSubcategory(mainCat, subCat)}
+                    data-category={`${mainCat}|${subCat}`}
+                  >
+                    <span>{subCat}</span>
+                    <span className="arrow">
+                      {expanded[mainCat]?.[subCat] ? (
+                        <FiChevronUp />
+                      ) : (
+                        <FiChevronDown />
+                      )}
+                    </span>
+                  </div>
+                  {expanded[mainCat]?.[subCat] && (
+                    <div className="badge-flex">
+                      {skills.map((skill) => (
+                        <Badge 
+                          key={skill.name}
+                          style={{ 
+                            "--badge-bg-color": getBadgeColor(skill.level),
+                            "--badge-text-color": "#1a1a1a",
+                            backgroundColor: getBadgeColor(skill.level),
+                            color: "#1a1a1a",
+                            fontWeight: 'bold'
+                          }}
+                        >
+                          {skill.name}
+                        </Badge>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           ))}
         </div>
       </div>
 
-      <div className="skills-grid">
-        {Object.entries(skillsData).map(([mainCat, subcategories]) => (
-          <div key={mainCat} className="skill-category">
-            <h3>{mainCat}</h3>
-            {Object.entries(subcategories).map(([subCat, skills]) => (
-              <div key={subCat} className="skill-subcategory">
-                <div
-                  className="subcategory-header"
-                  onClick={() => toggleSubcategory(mainCat, subCat)}
-                >
-                  <span>{subCat}</span>
-                  <span className="arrow">
-                    {expanded[mainCat]?.[subCat] ? (
-                      <FiChevronUp />
-                    ) : (
-                      <FiChevronDown />
-                    )}
-                  </span>
-                </div>
-                {expanded[mainCat]?.[subCat] && (
-                  <div className="badge-flex">
-                    {skills.map((skill) => (
-                      <div
-                        key={skill.name}
-                        className="skill-badge"
-                        style={{ backgroundColor: getBadgeColor(skill.level) }}
-                      >
-                        {skill.name}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
-
       <style jsx>{`
         .skills-badges {
-          padding: 60px 20px;
-          background-color: #1A1A1A;
+          padding: 1.875rem 1.25rem; // 30px 20px
+          background-color: transparent;
           color: #fff;
           font-family: 'Nexa Bold', sans-serif;
+          position: relative;
+        }
+        
+        .glassmorphic-wrapper {
+          position: relative;
+          z-index: 20;
+          width: 100%;
+          background: rgba(20, 20, 20, 0.65);
+          border-radius: 1.25rem; // 20px
+          overflow: hidden;
+          padding: 1.75rem; // 20px
+          
+          /* Enhanced glassmorphism effect with stronger shadow */
+          backdrop-filter: blur(0.75rem); // 12px
+          -webkit-backdrop-filter: blur(0.75rem); // 12px
+          box-shadow: 0 0.75rem 3rem rgba(0, 0, 0, 0.7),
+                      0 0.25rem 1rem rgba(124, 58, 237, 0.15),
+                      0 -0.25rem 1rem rgba(16, 185, 129, 0.1); // Multi-layered shadow with subtle color
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          
+          /* Metallic highlight at top */
+          background-image: linear-gradient(
+            180deg, 
+            rgba(255, 255, 255, 0.12) 0%, 
+            rgba(255, 255, 255, 0.03) 5%,
+            rgba(255, 255, 255, 0) 20%
+          );
+          
+          /* Add subtle shadow glow on hover */
+          transition: all 0.3s ease-out;
+        }
+        
+        /* Optional subtle hover effect */
+        .glassmorphic-wrapper:hover {
+          box-shadow: 0 0.85rem 3.5rem rgba(0, 0, 0, 0.7),
+                      0 0.35rem 1.25rem rgba(124, 58, 237, 0.2),
+                      0 -0.35rem 1.25rem rgba(16, 185, 129, 0.15);
+          transform: translateY(-3px);
         }
 
         .skills-header {
@@ -136,53 +231,50 @@ export default function SkillsWithFlexBadges() {
           flex-wrap: wrap;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 20px;
+          margin-bottom: 1.25rem; // 20px
         }
 
         .skills-header h2 {
           font-family: 'BankGothic Md BT', sans-serif;
           font-size: 2rem;
-          margin: 0;
+          margin-top: 0; /* Remove top margin */
+          margin-bottom: 1.25rem; // 20px
         }
 
         /* Proficiency key as badge-style items */
         .proficiency-key {
           display: flex;
-          gap: 10px;
+          gap: 0.625rem; // 10px
           flex-wrap: wrap;
-        }
-        .key-badge {
-          padding: 5px 10px;
-          border-radius: 5px;
-          color: #fff;
-          font-size: 0.9rem;
-          font-weight: bold;
         }
 
         /* Two main categories fill width, but expand independently */
         .skills-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          gap: 20px;
+          grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); // 320px
+          gap: 1.25rem; // 20px
           align-items: start;
-	  width: 100%;
+          width: 100%;
         }
 
         .skill-category {
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-          border-radius: 20px;
-          padding: 20px;
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(0.5rem); // 8px
+          -webkit-backdrop-filter: blur(0.5rem); // 8px
+          border-radius: 1.25rem; // 20px
+          padding: 1.25rem; // 20px
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2); // 4px 16px
         }
+        
         .skill-category h3 {
           font-size: 1.4rem;
           margin-top: 0;
-          margin-bottom: 15px;
+          margin-bottom: 0.9375rem; // 15px
         }
 
         .skill-subcategory {
-          margin-bottom: 20px;
+          margin-bottom: 1.25rem; // 20px
         }
 
         .subcategory-header {
@@ -190,7 +282,7 @@ export default function SkillsWithFlexBadges() {
           justify-content: space-between;
           align-items: center;
           cursor: pointer;
-          margin-bottom: 5px;
+          margin-bottom: 0.3125rem; // 5px
         }
 
         .arrow {
@@ -205,17 +297,22 @@ export default function SkillsWithFlexBadges() {
         .badge-flex {
           display: flex;
           flex-wrap: wrap;
-          gap: 10px;
+          gap: 0.625rem; // 10px
+          animation: expandSection 0.8s ease-out;
+          transform-origin: top;
         }
 
-        .skill-badge {
-          color: #fff;
-          padding: 5px 8px;
-          border-radius: 5px;
-          text-align: center;
-          font-size: 0.9rem;
-          font-weight: bold;
-          white-space: nowrap; /* ensures longer text doesn't wrap inside the badge */
+        @keyframes expandSection {
+          from {
+            opacity: 0;
+            transform: scaleY(0);
+            max-height: 0;
+          }
+          to {
+            opacity: 1;
+            transform: scaleY(1);
+            max-height: 31.25rem; // 500px
+          }
         }
       `}</style>
     </section>

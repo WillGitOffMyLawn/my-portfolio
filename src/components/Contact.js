@@ -1,6 +1,7 @@
 // src/components/Contact.js
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import {Button} from '@/components/ui/button';
 
 export default function Contact() {
   // Form state for submission and validation messages
@@ -44,141 +45,183 @@ export default function Contact() {
   return (
     <section className="contact-section">
       <div className="contact-container">
-        <motion.div 
-          className="contact-content"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2>Get in Touch</h2>
-          <p>
-            I&apos;d love to hear from you! Whether you have a question, project idea, or just want to say hello,
-            please use the form below.
-          </p>
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="input-row">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
+        <div className="glassmorphic-wrapper">
+          <motion.div 
+            className="contact-content"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{ textAlign: 'center' }} // Center align the content
+          >
+            <h2>Get in Touch</h2>
+            <p>
+              I&apos;d love to connect with you! Whether you have a project idea, need a skilled project manager, or just want to discuss opportunities, feel free to reach out using the form below.
+            </p>
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <div className="input-row">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                rows="5"
+                value={formData.message}
                 onChange={handleChange}
                 required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              rows="5"
-              value={formData.message}
-              onChange={handleChange}
-              required
-            ></textarea>
-            <button type="submit" className="button">
-              Send Message
-            </button>
-            {status.message && (
-              <p className={`status ${status.error ? 'error' : 'success'}`}>{status.message}</p>
-            )}
-          </form>
-        </motion.div>
+              ></textarea>
+              <Button type="submit">
+                Send Message
+              </Button>
+              {status.message && (
+                <p className={`status ${status.error ? 'error' : 'success'}`}>{status.message}</p>
+              )}
+            </form>
+          </motion.div>
+        </div>
       </div>
 
       <style jsx>{`
         .contact-section {
-          background-color: #1A1A1A;
+          background-color: transparent;
           color: #fff;
-          padding: 60px 20px;
+          padding: 1.875rem 1.25rem; // 60px 20px
         }
+        
         .contact-container {
-          max-width: 1200px;
+          max-width: 75rem; // 1200px
           margin: 0 auto;
           width: 100%;
-          padding: 0 20px;
+          padding: 0 1.25rem; // 0 20px
+          display: flex;
+          justify-content: center;
         }
+        
+        .glassmorphic-wrapper {
+          position: relative;
+          z-index: 20;
+          width: 100%;
+          max-width: 37.5rem; // 600px
+          background: rgba(20, 20, 20, 0.65);
+          border-radius: 1.25rem; // 20px
+          overflow: hidden;
+          padding: 1.75rem;
+          
+          /* Enhanced glassmorphism effect with stronger shadow */
+          backdrop-filter: blur(0.75rem); // 12px
+          -webkit-backdrop-filter: blur(0.75rem); // 12px
+          box-shadow: 0 0.75rem 3rem rgba(0, 0, 0, 0.7),
+                      0 0.25rem 1rem rgba(124, 58, 237, 0.15),
+                      0 -0.25rem 1rem rgba(16, 185, 129, 0.1); // Multi-layered shadow with subtle color
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          
+          /* Metallic highlight at top */
+          background-image: linear-gradient(
+            180deg, 
+            rgba(255, 255, 255, 0.12) 0%, 
+            rgba(255, 255, 255, 0.03) 5%,
+            rgba(255, 255, 255, 0) 20%
+          );
+          
+          /* Add subtle shadow glow on hover */
+          transition: all 0.3s ease-out;
+        }
+        
+        /* Optional subtle hover effect */
+        .glassmorphic-wrapper:hover {
+          box-shadow: 0 0.85rem 3.5rem rgba(0, 0, 0, 0.7),
+                      0 0.35rem 1.25rem rgba(124, 58, 237, 0.2),
+                      0 -0.35rem 1.25rem rgba(16, 185, 129, 0.15);
+          transform: translateY(-3px);
+        }
+        
         .contact-content {
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(10px);
-          border-radius: 20px;
-          padding: 40px;
-          text-align: left;
+          text-align: left; /* Keep text left-aligned */
+          width: 100%;
         }
+        
         h2 {
           font-family: 'BankGothic Md BT', sans-serif;
           font-size: 2rem;
-          margin-bottom: 20px;
+          margin-top: 0; /* Reset top margin */
+          margin-bottom: 1.25rem; // 20px
         }
+        
         p {
           font-family: 'Nexa Bold', sans-serif;
           font-size: 1rem;
-          margin-bottom: 30px;
-          max-width: 600px;
+          margin-bottom: 1.875rem; // 30px
+          max-width: 37.5rem; // 600px
         }
+        
         .contact-form {
           display: flex;
           flex-direction: column;
-          gap: 20px;
-          max-width: 600px;
+          gap: 1.25rem; // 20px
         }
+        
         .input-row {
           display: flex;
-          gap: 20px;
+          gap: 1.25rem; // 20px
         }
+        
         .input-row input {
           flex: 1;
-          padding: 10px 15px;
-          border-radius: 5px;
-          border: none;
+          padding: 0.625rem 0.9375rem; // 10px 15px
+          border-radius: 0.3125rem; // 5px
+          border: 1px solid rgba(255, 255, 255, 0.2);
           font-family: 'Nexa Bold', sans-serif;
           font-size: 1rem;
-          background-color: rgba(255, 255, 255, 0.2);
+          background-color: rgba(255, 255, 255, 0.1);
           color: #fff;
         }
+        
         textarea {
-          padding: 10px 15px;
-          border-radius: 5px;
-          border: none;
+          padding: 0.625rem 0.9375rem; // 10px 15px
+          border-radius: 0.3125rem; // 5px
+          border: 1px solid rgba(255, 255, 255, 0.2);
           font-family: 'Nexa Bold', sans-serif;
           font-size: 1rem;
-          background-color: rgba(255, 255, 255, 0.2);
+          background-color: rgba(255, 255, 255, 0.1);
           color: #fff;
         }
+        
         input::placeholder, textarea::placeholder {
           color: #ccc;
         }
-        .button {
-          padding: 12px 20px;
-          border: none;
-          border-radius: 5px;
-          background-color: #FFD700;
-          color: #1A1A1A;
-          font-family: 'Nexa Bold', sans-serif;
-          font-size: 1rem;
-          cursor: pointer;
-          transition: background-color 0.2s ease, transform 0.2s ease;
-          align-self: flex-start;
-        }
-        .button:hover {
-          background-color: #e6c200;
-          transform: scale(1.05);
-        }
+        
         .status {
           font-family: 'Nexa Bold', sans-serif;
           font-size: 0.9rem;
         }
+        
         .error {
           color: #D9534F;
         }
+        
         .success {
           color: #5CB85C;
+        }
+        
+        @media (max-width: 37.5rem) { // 600px
+          .input-row {
+            flex-direction: column;
+            gap: 0.9375rem; // 15px
+          }
         }
       `}</style>
     </section>

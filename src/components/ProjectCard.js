@@ -12,7 +12,7 @@ export default function ProjectCard({ project }) {
         <style jsx>{`
           .project-card {
             background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
+            padding: 1rem;
             border-radius: 15px;
             backdrop-filter: blur(5px);
             text-align: center;
@@ -25,15 +25,19 @@ export default function ProjectCard({ project }) {
             transform: scale(1.03);
           }
           h3 {
-            margin: 0 0 10px;
+            margin: 0 0 1rem;
+            font-size: 1.25rem; /* Updated from 1rem to match our minimum heading size */
+            line-height: 1.4;
           }
           img {
             max-width: 100%;
             border-radius: 15px;
-            margin-bottom: 10px;
+            margin-bottom: 1rem;
           }
           p {
             margin: 0;
+            font-size: 1rem; /* Updated from 0.75rem to provide better readability */
+            line-height: 1.4;
           }
         `}</style>
       </a>

@@ -1,0 +1,22 @@
+.buttonFix {
+  /* Base class we'll use for scoping */
+}
+
+/* Button size fixes for various elements */
+.buttonFix :global(button), 
+.buttonFix :global(.button), 
+.buttonFix :global([type='button']), 
+.buttonFix :global([type='submit']) {
+  font-size: 1rem !important;
+  font-family: 'Nexa Bold', sans-serif !important;
+}
+
+/* Target specific shadcn buttons */
+.buttonFix :global([data-slot="button"]) {
+  font-size: 1rem !important;
+}
+
+/* Target Link components that wrap buttons */
+.buttonFix :global(a[role="button"]) {
+  font-size: 1rem !important;
+}

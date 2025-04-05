@@ -1,0 +1,20 @@
+.projectDescription {
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  color: white;
+  margin-top: 0 !important; /* Explicitly remove top margin */
+}
+
+.projectDescription p {
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  margin-top: 0 !important; /* Remove margin from paragraph */
+  margin-bottom: 1rem !important; /* Keep some space between paragraphs if needed */
+}
+
+/* This will override any global styles */
+.projectSection :global(p) {
+  font-size: 1.25rem !important; /* Fixed to match other selectors */
+  line-height: 1.5 !important;
+  margin-top: 0 !important; /* Remove top margin */
+}
