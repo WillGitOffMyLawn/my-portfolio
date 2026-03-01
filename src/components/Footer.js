@@ -28,10 +28,10 @@ export default function Footer() {
           position: relative;
           z-index: 20;
           padding: 2rem 1.5rem;
-          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          border-top: 1px solid rgba(255, 255, 255, 0.15);
           background: rgba(10, 10, 15, 0.6);
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(0.75rem);
+          -webkit-backdrop-filter: blur(0.75rem);
         }
         .footer-inner {
           max-width: 75rem;
@@ -56,7 +56,7 @@ export default function Footer() {
         .footer-credit {
           color: rgba(255, 255, 255, 0.35);
           font-family: 'Nexa Bold', sans-serif;
-          font-size: 0.8rem;
+          font-size: 0.9rem;
           letter-spacing: 0.05em;
         }
       `}</style>

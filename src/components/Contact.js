@@ -130,8 +130,9 @@ export default function Contact() {
         .contact-section h2 {
           font-family: 'BankGothic Md BT', sans-serif;
           font-size: 2rem;
-          margin-top: 0; /* Reset top margin */
-          margin-bottom: 1.25rem; // 20px
+          margin-top: 0;
+          margin-bottom: 1.25rem;
+          text-shadow: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 40px rgba(124, 58, 237, 0.15);
         }
         
         .contact-section p {
@@ -156,7 +157,7 @@ export default function Contact() {
           flex: 1;
           padding: 0.625rem 0.9375rem; // 10px 15px
           border-radius: 0.3125rem; // 5px
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          border: 1px solid rgba(255, 255, 255, 0.15);
           font-family: 'Nexa Bold', sans-serif;
           font-size: 1rem;
           background-color: rgba(255, 255, 255, 0.1);
@@ -164,9 +165,9 @@ export default function Contact() {
         }
         
         .contact-form textarea {
-          padding: 0.625rem 0.9375rem; // 10px 15px
-          border-radius: 0.3125rem; // 5px
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          padding: 0.625rem 0.9375rem;
+          border-radius: 0.3125rem;
+          border: 1px solid rgba(255, 255, 255, 0.15);
           font-family: 'Nexa Bold', sans-serif;
           font-size: 1rem;
           background-color: rgba(255, 255, 255, 0.1);

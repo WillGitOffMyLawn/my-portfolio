@@ -114,9 +114,10 @@ export default function Resume() {
         .resume-section h2 {
           font-family: 'BankGothic Md BT', sans-serif;
           font-size: 2rem;
-          margin-top: 0; /* Reset top margin */
+          margin-top: 0;
           margin-bottom: 1.5rem;
           text-align: left;
+          text-shadow: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 40px rgba(124, 58, 237, 0.15);
         }
         
         .resume-header {
@@ -159,8 +160,8 @@ export default function Resume() {
           padding: 0.625rem; // 10px
           background: rgba(255, 255, 255, 0.05);
           border-radius: 0.625rem; // 10px
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          font-size: 1.25rem; // Updated from 1rem to match global minimum
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          font-size: 1.25rem;
         }
         
         .highlight-icon {
@@ -187,8 +188,8 @@ export default function Resume() {
           background: rgba(255, 255, 255, 0.05);
           border-radius: 0.9375rem; // 15px
           padding: 1.25rem; // 20px
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2); // 4px 16px
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.3);
         }
         
         /* Updated PDF preview: constrain to 18.75rem (300px) */

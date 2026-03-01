@@ -22,9 +22,9 @@ export default function ProjectCard({ project }) {
             display: block;
             background: rgba(20, 20, 20, 0.7);
             border-radius: 1rem;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(0.75rem);
+            -webkit-backdrop-filter: blur(0.75rem);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             text-decoration: none;
             color: #fff;
             overflow: hidden;
@@ -81,7 +81,7 @@ export default function ProjectCard({ project }) {
             display: inline-block;
             margin-top: 0.75rem;
             padding: 0.25rem 0.75rem;
-            font-size: 0.7rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             border-radius: 999px;

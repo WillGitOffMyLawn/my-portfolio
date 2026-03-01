@@ -208,8 +208,9 @@ export default function SkillsWithFlexBadges() {
         .skills-header h2 {
           font-family: 'BankGothic Md BT', sans-serif;
           font-size: 2rem;
-          margin-top: 0; /* Remove top margin */
-          margin-bottom: 1.25rem; // 20px
+          margin-top: 0;
+          margin-bottom: 1.25rem;
+          text-shadow: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 40px rgba(124, 58, 237, 0.15);
         }
 
         /* Proficiency key as badge-style items */
@@ -230,12 +231,12 @@ export default function SkillsWithFlexBadges() {
 
         .skill-category {
           background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(0.5rem); // 8px
-          -webkit-backdrop-filter: blur(0.5rem); // 8px
-          border-radius: 1.25rem; // 20px
-          padding: 1.25rem; // 20px
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2); // 4px 16px
+          backdrop-filter: blur(0.75rem);
+          -webkit-backdrop-filter: blur(0.75rem);
+          border-radius: 1.25rem;
+          padding: 1.25rem;
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.3);
         }
         
         .skill-category h3 {

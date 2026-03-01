@@ -32,6 +32,23 @@
     --font-size-3xl: clamp(1.75rem, calc(1.75rem + 1.5vw), 3.5rem);     /* Min 1.75rem for H2 */
     --font-size-4xl: clamp(1.75rem, calc(1.75rem + 2vw), 4rem);         /* Min 1.75rem for H1 */
 
+    /* Cosmic theme palette */
+    --cosmic-purple: #7c3aed;
+    --cosmic-green: #10b981;
+    --cosmic-lavender: #c4b5fd;
+    --cosmic-indigo: #6366f1;
+    --cosmic-red: #ef4444;
+
+    /* Glassmorphic standardized values */
+    --glass-blur: 0.75rem;
+    --glass-bg: rgba(20, 20, 20, 0.65);
+    --glass-bg-elevated: rgba(10, 10, 15, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --glass-border-subtle: rgba(255, 255, 255, 0.1);
+    --glass-shadow-sm: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);
+    --glass-shadow-md: 0 0.5rem 2rem rgba(0, 0, 0, 0.3);
+    --glass-shadow-lg: 0 0.75rem 3rem rgba(0, 0, 0, 0.4);
+
     /* Define spacing variables that also scale with viewport */
     --space-xs: clamp(0.5rem, calc(0.5rem + 0.3vw), 1rem);
     --space-sm: clamp(0.75rem, calc(0.75rem + 0.5vw), 1.5rem);
@@ -332,6 +349,25 @@
   [data-slot="button"][class*="variant-destructive"] {
     background: linear-gradient(to bottom, #e11d48, #be123c);
     color: white;
+  }
+
+  /* Section heading glow — cosmic text-shadow on h2 */
+  .section-heading-glow {
+    text-shadow:
+      0 0 20px rgba(124, 58, 237, 0.3),
+      0 0 40px rgba(124, 58, 237, 0.15);
+  }
+
+  /* Button hover glow effect */
+  @keyframes btnGlow {
+    0%, 100% { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 0 rgba(124, 58, 237, 0); }
+    50% { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 20px rgba(124, 58, 237, 0.3); }
+  }
+
+  [data-slot="button"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 25px rgba(124, 58, 237, 0.25);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   /* Page transition overlay */

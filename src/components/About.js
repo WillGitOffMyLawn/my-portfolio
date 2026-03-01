@@ -247,6 +247,7 @@ export default function About() {
             margin-top: 0;
             margin-bottom: 2rem;
             text-align: left;
+            text-shadow: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 40px rgba(124, 58, 237, 0.15);
           }
           
           .passions-section h3 {
@@ -272,10 +273,10 @@ export default function About() {
           
           .passion-slider {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 1.25rem; // 20px
-            padding: 1.25rem; // 20px
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.3); // 4px 16px
+            border-radius: 1.25rem;
+            padding: 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.3);
             max-width: 100%;
             overflow: hidden; // Prevent content from overflowing
           }
@@ -300,15 +301,15 @@ export default function About() {
           
           .slider-card {
             background: rgba(30, 30, 30, 0.4);
-            backdrop-filter: blur(0.3125rem); // 5px
-            -webkit-backdrop-filter: blur(0.3125rem); // 5px
-            border-radius: 0.9375rem; // 15px
+            backdrop-filter: blur(0.75rem);
+            -webkit-backdrop-filter: blur(0.75rem);
+            border-radius: 0.9375rem;
             margin: auto;
             width: 100%;
-            max-width: 25rem; // Reduced from 31.25rem (500px) to 25rem (400px)
+            max-width: 25rem;
             text-align: center;
-            padding: 0.75rem 1.25rem; /* Reduced vertical padding from 1.25rem to 0.75rem */
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.75rem 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
           }
           
           .slider-card img,

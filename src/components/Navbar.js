@@ -142,7 +142,7 @@ export default function Navbar() {
           background: rgba(10, 10, 15, 0.8);
           backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.15);
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
         }
         .nav-inner {
@@ -170,7 +170,7 @@ export default function Navbar() {
           color: rgba(255, 255, 255, 0.6);
           text-decoration: none;
           font-family: 'Nexa Bold', sans-serif;
-          font-size: 0.85rem;
+          font-size: 0.9rem;
           text-transform: uppercase;
           letter-spacing: 0.08em;
           transition: color 0.3s ease;
