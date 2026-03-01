@@ -401,9 +401,10 @@ export default function Hero() {
             >
               <h2>Product Manager &middot; Developer &middot; Innovator</h2>
             </motion.div>
-            <div className="hero-body">
+            <div className="hero-body" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '2rem' }}>
               <motion.div
                 className="hero-text"
+                style={{ flex: '1 1 55%', minWidth: 0 }}
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -414,6 +415,7 @@ export default function Hero() {
               </motion.div>
               <motion.div
                 className="hero-image"
+                style={{ flex: '0 0 40%', maxWidth: '380px', padding: '1rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
