@@ -101,6 +101,24 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>William Fagan&apos;s Portfolio</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'William Fagan',
+              url: 'https://williamhfagan.com',
+              image: 'https://williamhfagan.com/images/Headshot.png',
+              jobTitle: 'Product Manager & Developer',
+              sameAs: [
+                'https://github.com/WillGitOffMyLawn',
+                'https://linkedin.com/in/williamhfagan',
+              ],
+            }),
+          }}
+        />
       </Head>
       <div className={styles.buttonFix}>
         <Navbar />

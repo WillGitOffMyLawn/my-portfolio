@@ -10,9 +10,19 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>William Fagan&apos;s Portfolio</title>
-        <meta name="description" content="Crafting the Future - Portfolio of William Fagan" />
+        <title>William Fagan — Product Manager &amp; Developer</title>
+        <meta name="description" content="Portfolio of William Fagan — Product Manager, Developer, and Innovator. Crafting the future with sleek, futuristic digital experiences." />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://williamhfagan.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="William Fagan — Product Manager & Developer" />
+        <meta property="og:description" content="Crafting the future with sleek, futuristic digital experiences." />
+        <meta property="og:url" content="https://williamhfagan.com" />
+        <meta property="og:image" content="https://williamhfagan.com/images/Headshot.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="William Fagan — Product Manager & Developer" />
+        <meta name="twitter:description" content="Crafting the future with sleek, futuristic digital experiences." />
+        <meta name="twitter:image" content="https://williamhfagan.com/images/Headshot.png" />
       </Head>
       <Hero />
       <div className="container">

@@ -1,5 +1,6 @@
 // src/pages/projects.js
 import { useState } from 'react';
+import Head from 'next/head';
 import ProjectCard from '../components/ProjectCard';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -16,7 +17,12 @@ export default function ProjectsPage() {
       : projects.filter(project => project.category === selectedCategory);
 
   return (
-    <section className="projects-page">
+    <>
+      <Head>
+        <title>Projects — William Fagan</title>
+        <meta name="description" content="Browse William Fagan's portfolio of projects spanning web development, product management, and innovation." />
+      </Head>
+      <section className="projects-page">
       <header className="projects-header">
         <div className="back-button-container">
           <Button asChild variant="default">
@@ -87,6 +93,7 @@ export default function ProjectsPage() {
           gap: 20px;
         }
       `}</style>
-    </section>
+      </section>
+    </>
   );
 }
