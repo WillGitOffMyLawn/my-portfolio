@@ -1,5 +1,6 @@
 // src/components/ProjectCard.js
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export default function ProjectCard({ project }) {
@@ -11,7 +12,7 @@ export default function ProjectCard({ project }) {
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="card-image-wrap">
-          <img src={project.image} alt={project.title} />
+          <Image src={project.image} alt={project.title} width={600} height={375} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
           <div className="card-overlay" />
         </div>
         <div className="card-body">

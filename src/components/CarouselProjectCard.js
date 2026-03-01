@@ -1,12 +1,19 @@
 // src/components/CarouselProjectCard.js
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function CarouselProjectCard({ project }) {
   return (
     <Link href={`/projects/${project.slug}`} passHref legacyBehavior>
       <a className="carousel-project-card">
         <div className="card-image-wrap">
-          <img src={project.image} alt={`${project.title}`} />
+          <Image
+            src={project.image}
+            alt={project.title}
+            width={600}
+            height={375}
+            style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+          />
           <div className="card-overlay" />
         </div>
         <div className="card-body">

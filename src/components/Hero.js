@@ -1,4 +1,5 @@
 // src/components/Hero.js
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
@@ -418,9 +419,13 @@ export default function Hero() {
                 transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="headshot-glow">
-                  <img 
+                  <Image 
                     src="/images/Headshot.png" 
                     alt="Headshot of William Fagan"
+                    width={220}
+                    height={220}
+                    priority
+                    style={{ borderRadius: '10px', objectFit: 'contain', width: '100%', height: 'auto' }}
                   />
                 </div>
               </motion.div>
