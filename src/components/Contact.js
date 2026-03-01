@@ -43,7 +43,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="contact-section">
+    <section id="contact" className="contact-section">
       <div className="contact-container">
         <div className="glassmorphic-wrapper">
           <motion.div 

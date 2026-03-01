@@ -112,7 +112,7 @@ export default function SkillsWithFlexBadges() {
   }, []);
 
   return (
-    <section className="skills-badges">
+    <section id="skills" className="skills-badges">
       <div className="glassmorphic-wrapper">
         {/* Title and inline proficiency key */}
         <div className="skills-header">

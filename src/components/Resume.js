@@ -12,7 +12,7 @@ export default function Resume() {
   const onDocumentLoadSuccess = () => {};
 
   return (
-    <section className="resume-section">
+    <section id="resume" className="resume-section">
       <div className="resume-container">
         <div className="glassmorphic-wrapper">
           {/* Resume Header */}

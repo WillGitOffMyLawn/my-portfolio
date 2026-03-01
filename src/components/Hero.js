@@ -373,7 +373,7 @@ export default function Hero() {
   }, []);
   
   return (
-    <section className="hero">
+    <section id="hero" className="hero">
       {/* Background layer with canvas */}
       <div className="hero-background">
         <canvas ref={canvasRef} className="lava-lamp-canvas"></canvas>

@@ -8,6 +8,8 @@ import styles from '../styles/button-fix.module.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PageTransition from '../components/PageTransition';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 function MyApp({ Component, pageProps }) {
   const [, setMousePosition] = useState({ x: 0, y: 0 });
@@ -89,9 +91,11 @@ function MyApp({ Component, pageProps }) {
         <title>William Fagan&apos;s Portfolio</title>
       </Head>
       <div className={styles.buttonFix}>
+        <Navbar />
         <PageTransition>
           <Component {...pageProps} />
         </PageTransition>
+        <Footer />
       </div>
     </>
   );

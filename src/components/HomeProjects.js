@@ -30,7 +30,7 @@ export default function HomeProjects() {
   };
 
   return (
-    <section className="projects-section">
+    <section id="projects" className="projects-section">
       <div className="glassmorphic-wrapper">
         <div className="projects-header">
           <h2>Projects</h2>

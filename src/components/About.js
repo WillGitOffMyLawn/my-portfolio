@@ -166,7 +166,7 @@ export default function About() {
   return (
     <>
       {/* Passions Section */}
-      <section className="passions-section">
+      <section id="about" className="passions-section">
         <div className="glassmorphic-wrapper">
           <h2>Passions</h2>
           <p className="passions-intro">
