@@ -38,7 +38,8 @@ export default function Custom404() {
           z-index: 20;
         }
         .glitch-text {
-          font-family: 'Zilap Orion', sans-serif;
+          font-family: 'Orbitron', sans-serif;
+          font-weight: 900;
           font-size: clamp(6rem, 15vw, 12rem);
           background: linear-gradient(135deg, #7c3aed 0%, #10b981 50%, #7c3aed 100%);
           background-size: 200% 200%;

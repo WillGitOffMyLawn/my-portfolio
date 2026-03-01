@@ -4,13 +4,6 @@
 
 @layer base {
   @font-face {
-    font-family: 'Zilap Orion';
-    src: url('/fonts/ZilapOrion.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
     font-family: 'Nexa Bold';
     src: url('/fonts/NexaBold.woff') format('woff');
     font-weight: normal;
