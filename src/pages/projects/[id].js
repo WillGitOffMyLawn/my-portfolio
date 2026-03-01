@@ -153,7 +153,7 @@ export default function ProjectDetails({ project }) {
         .project-page {
           padding: 2rem;
           min-height: 100vh;
-          background-color: #1a1a1a;
+          background-color: transparent;
           color: #fff;
           max-width: 100vw;
           overflow-x: hidden;

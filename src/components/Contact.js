@@ -183,11 +183,11 @@ export default function Contact() {
         }
         
         .error {
-          color: #D9534F;
+          color: #ef4444;
         }
         
         .success {
-          color: #5CB85C;
+          color: #10b981;
         }
         
         @media (max-width: 37.5rem) { // 600px

@@ -56,7 +56,7 @@ export default function ProjectsPage() {
       <style jsx>{`
         .projects-page {
           padding: 60px 20px;
-          background-color: #1A1A1A;
+          background-color: transparent;
           color: #fff;
           min-height: 100vh;
         }

@@ -49,10 +49,10 @@ const skillsData = {
 };
 
 const proficiencyLevels = [
-  { level: 1, label: 'Novice',       color: '#2ecc71' }, 
-  { level: 2, label: 'Competent', color: '#3498db' }, 
-  { level: 3, label: 'Advanced',     color: '#9b59b6' }, 
-  { level: 4, label: 'Expert',       color: '#e74c3c' }, 
+  { level: 1, label: 'Novice',       color: '#10b981' }, 
+  { level: 2, label: 'Competent', color: '#6366f1' }, 
+  { level: 3, label: 'Advanced',     color: '#7c3aed' }, 
+  { level: 4, label: 'Expert',       color: '#ef4444' },
 ];
 
 // Helper to get color for a given level
