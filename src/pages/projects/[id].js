@@ -1,6 +1,7 @@
 // pages/projects/[id].js
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import projectStyles from '@/styles/project.module.css';
@@ -12,6 +13,8 @@ export default function ProjectDetails({ project }) {
   const router = useRouter();
   
   if (router.isFallback) return <div>Loading...</div>;
+
+  const hasMultipleImages = project.images && project.images.length > 1;
 
   return (
     <div className="project-page">
@@ -26,12 +29,27 @@ export default function ProjectDetails({ project }) {
         <h1 className="project-title">{project.title}</h1>
       </div>
 
+      {/* Main project image */}
+      <div className="main-image-container">
+        <Image
+          src={project.image}
+          alt={project.title}
+          width={1200}
+          height={675}
+          style={{ objectFit: 'contain', width: '100%', height: 'auto', maxHeight: '600px', borderRadius: '12px' }}
+          priority
+        />
+      </div>
+
+      {/* Image carousel — only if multiple images */}
+      {hasMultipleImages && (
+        <div className="carousel-container">
+          <ProjectCarousel images={project.images} title={project.title} />
+        </div>
+      )}
+
       <div className="content">
         <div className="left-column">
-          <div className="carousel-container">
-            <ProjectCarousel images={project.images} title={project.title} />
-          </div>
-          
           <div className="skills-section">
             <h3>Relevant Skills</h3>
             <div className="skill-tags">
@@ -69,7 +87,7 @@ export default function ProjectDetails({ project }) {
 
       <style jsx>{`
         .project-page {
-          padding: 2rem;
+          padding: 6rem 2rem 2rem;
           min-height: 100vh;
           background-color: transparent;
           color: #fff;
@@ -80,7 +98,7 @@ export default function ProjectDetails({ project }) {
         .header {
           display: flex;
           align-items: center;
-          margin-bottom: 2.5rem;
+          margin-bottom: 2rem;
           position: relative;
         }
         
@@ -98,6 +116,22 @@ export default function ProjectDetails({ project }) {
           margin: 0;
           text-shadow: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 40px rgba(124, 58, 237, 0.15);
         }
+
+        .main-image-container {
+          width: 100%;
+          max-width: 900px;
+          margin: 0 auto 2rem;
+          border-radius: 12px;
+          overflow: hidden;
+          background: rgba(20, 20, 20, 0.4);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .carousel-container {
+          width: 100%;
+          max-width: 900px;
+          margin: 0 auto 2rem;
+        }
         
         .content {
           display: flex;
@@ -106,7 +140,7 @@ export default function ProjectDetails({ project }) {
           justify-content: center;
           align-items: flex-start;
           width: 100%;
-          max-width: 1400px;
+          max-width: 90vw;
           margin: 0 auto;
         }
         
@@ -114,12 +148,6 @@ export default function ProjectDetails({ project }) {
         .right-column {
           flex: 1;
           min-width: 0;
-        }
-        
-        .carousel-container {
-          width: 100%;
-          max-width: 100%;
-          margin-bottom: 1.5rem;
         }
         
         .project-description {
