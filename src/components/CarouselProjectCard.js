@@ -30,13 +30,15 @@ export default function CarouselProjectCard({ project }) {
             border-radius: 1rem;
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             text-decoration: none;
-            color: inherit;
+            color: #fff;
             overflow: hidden;
             transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
                         box-shadow 0.4s ease,
                         border-color 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.06);
           }
           .carousel-project-card:hover {
             transform: translateY(-6px) scale(1.02);

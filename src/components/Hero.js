@@ -422,8 +422,8 @@ export default function Hero() {
                   <Image 
                     src="/images/Headshot.png" 
                     alt="Headshot of William Fagan"
-                    width={180}
-                    height={180}
+                    width={280}
+                    height={280}
                     priority
                     style={{ borderRadius: '10px', objectFit: 'contain', width: '100%', height: 'auto' }}
                   />
@@ -483,7 +483,7 @@ export default function Hero() {
           font-family: 'Orbitron', sans-serif;
           font-weight: 700;
           margin: 0 0 5px;
-          font-size: clamp(1.8rem, 4.5vw, 3.5rem);
+          font-size: clamp(2.2rem, 5vw, 4rem);
           letter-spacing: 0.05em;
           text-align: center;
           white-space: nowrap;
@@ -528,27 +528,27 @@ export default function Hero() {
         
         .hero-body {
           display: flex;
-          align-items: flex-end; /* Changed from center to flex-end to align with bottom of paragraph */
+          align-items: center;
           justify-content: space-between;
           margin-top: 0px;
-          gap: 1rem;
+          gap: 2rem;
         }
         
         .hero-image {
-          flex-basis: 30%;
+          flex-basis: 35%;
           flex-shrink: 0;
           padding: 1rem;
           display: flex;
           justify-content: center;
-          align-items: flex-end; /* Added to align the image at the bottom */
-          max-width: 180px;
+          align-items: center;
+          max-width: 280px;
         }
         
         .hero-image img {
           width: 100%;
           height: auto;
-          min-width: 140px;
-          max-width: 180px;
+          min-width: 180px;
+          max-width: 280px;
           border-radius: 10px;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
           object-fit: contain;
@@ -577,24 +577,24 @@ export default function Hero() {
         @media (max-width: 768px) {
           .hero-body {
             flex-direction: row;
-            align-items: flex-end; /* Updated to maintain bottom alignment on tablets/mobile */
+            align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
           }
           
           .hero-text {
             flex: 1;
-            min-width: 65%;
+            min-width: 55%;
           }
           
           .hero-image {
-            flex-basis: 30%;
+            flex-basis: 35%;
             flex-shrink: 0;
-            max-width: 150px;
-            min-width: 120px;
+            max-width: 200px;
+            min-width: 140px;
             margin: 0;
-            padding: 0.5rem; /* Adjusted padding */
-            align-items: flex-end; /* Keep alignment consistent */
+            padding: 0.5rem;
+            align-items: center;
           }
           
           .hero-text p {
@@ -606,30 +606,29 @@ export default function Hero() {
         /* Add extra breakpoint for very small screens */
         @media (max-width: 480px) {
           .hero-body {
-            flex-direction: row; /* Keep side-by-side layout instead of stacking */
-            align-items: flex-end; /* Maintain bottom alignment */
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
           }
           
           .hero-text {
             flex: 1;
-            min-width: 60%; /* Reduced to give more space to image */
-            padding-right: 0.5rem;
+            min-width: 100%;
+            padding-right: 0;
           }
           
           .hero-image {
-            flex-basis: 35%; /* Slightly increased from larger screens */
-            min-width: 100px;
-            max-width: 130px;
-            margin: 0;
+            flex-basis: auto;
+            min-width: 150px;
+            max-width: 200px;
+            margin: 0 auto;
             padding: 0.5rem;
           }
           
           /* Adjust paragraph text for very small screens */
           .hero-text p {
-            font-size: 1rem; /* Slightly smaller font */
-            padding-right: 0.5rem;
-            margin-bottom: 0; /* Ensure no extra space at bottom */
+            font-size: 1rem;
+            padding-right: 0;
+            margin-bottom: 0;
           }
         }
       `}</style>
