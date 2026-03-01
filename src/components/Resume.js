@@ -99,9 +99,9 @@ export default function Resume() {
       {/* Component Styles */}
       <style jsx global>{`
         .resume-section {
-          background-color: transparent; /* Changed from #1A1A1A to transparent */
+          background-color: transparent;
           color: #fff;
-          padding: 0 1.25rem; // Horizontal only; vertical handled by container gap
+          padding: 0;
         }
         
         .resume-container {

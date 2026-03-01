@@ -232,13 +232,11 @@ export default function About() {
 
         <style jsx global>{`
           .passions-section {
-            padding: 0 1.25rem; // Horizontal only; vertical handled by container gap
+            padding: 0;
             background-color: transparent;
             color: #fff;
-            max-width: 75rem; // 1200px
-            margin: 0 auto;
-            position: relative;
             width: 100%;
+            position: relative;
           }
           
           .passions-section h2 {

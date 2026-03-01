@@ -61,7 +61,7 @@ export default function Navbar() {
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="nav-inner">
           <Link href="/" className="nav-logo" aria-label="Home">
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="56" height="56" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="16" cy="16" r="14" stroke="url(#navGrad)" strokeWidth="1.5" fill="none" />
               <circle cx="16" cy="16" r="3" fill="url(#navGrad)" />
               <ellipse cx="16" cy="16" rx="14" ry="6" stroke="url(#navGrad)" strokeWidth="1" fill="none" transform="rotate(30 16 16)" opacity="0.7" />

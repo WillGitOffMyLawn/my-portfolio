@@ -106,7 +106,7 @@ export default function Contact() {
         .contact-section {
           background-color: transparent;
           color: #fff;
-          padding: 0 1.25rem; // Horizontal only; vertical handled by container gap
+          padding: 0;
         }
         
         .contact-container {

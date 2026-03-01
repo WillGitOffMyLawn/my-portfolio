@@ -25,7 +25,7 @@ export default function Home() {
         <meta name="twitter:image" content="https://williamhfagan.com/images/Headshot.png" />
       </Head>
       <Hero />
-      <div className="container">
+      <div className="home-container">
         <Skills />
         <HomeProjects />
         <Resume />
@@ -33,9 +33,10 @@ export default function Home() {
         <Contact />
       </div>
       <style jsx>{`
-        .container {
-          padding: 0 20px;
-          max-width: 1200px;
+        .home-container {
+          width: 100%;
+          max-width: 1400px;
+          padding: 0 2rem;
           margin: 0 auto;
           display: flex;
           flex-direction: column;
