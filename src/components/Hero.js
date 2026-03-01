@@ -384,27 +384,26 @@ export default function Hero() {
       <div className="hero-container">
         {/* Glassmorphic content box that wraps everything else */}
         <div className="glassmorphic-wrapper">
-          <div className="hero-content">
-            <motion.div
-              className="hero-title"
-              initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <h1>Crafting the Future</h1>
-            </motion.div>
-            <motion.div
-              className="hero-subtitle"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <h2>Product Manager &middot; Developer &middot; Innovator</h2>
-            </motion.div>
-            <div className="hero-body" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '2rem' }}>
+          <div className="hero-content" style={{ display: 'flex', alignItems: 'center', gap: '3rem' }}>
+            <div style={{ flex: '1 1 58%', minWidth: 0 }}>
+              <motion.div
+                className="hero-title"
+                initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <h1>Crafting the Future</h1>
+              </motion.div>
+              <motion.div
+                className="hero-subtitle"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <h2>Product Manager &middot; Developer &middot; Innovator</h2>
+              </motion.div>
               <motion.div
                 className="hero-text"
-                style={{ flex: '1 1 55%', minWidth: 0 }}
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -413,25 +412,25 @@ export default function Hero() {
                   Welcome to my digital space, where creativity meets technology. I design and develop sleek, futuristic experiences that blend aesthetics with functionality. Explore my projects, skills, and vision—crafted with precision, innovation, and a passion for pushing the boundaries of design.
                 </p>
               </motion.div>
-              <motion.div
-                className="hero-image"
-                style={{ flex: '0 0 40%', maxWidth: '380px', padding: '1rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="headshot-glow">
-                  <Image 
-                    src="/images/Headshot.png" 
-                    alt="Headshot of William Fagan"
-                    width={400}
-                    height={400}
-                    priority
-                    style={{ borderRadius: '10px', objectFit: 'contain', width: '100%', height: 'auto' }}
-                  />
-                </div>
-              </motion.div>
             </div>
+            <motion.div
+              className="hero-image"
+              style={{ flex: '0 0 320px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="headshot-glow">
+                <Image 
+                  src="/images/Headshot.png" 
+                  alt="Headshot of William Fagan"
+                  width={400}
+                  height={400}
+                  priority
+                  style={{ borderRadius: '10px', objectFit: 'contain', width: '100%', height: 'auto' }}
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -487,10 +486,7 @@ export default function Hero() {
           margin: 0 0 5px;
           font-size: clamp(2.2rem, 5vw, 4rem);
           letter-spacing: 0.05em;
-          text-align: center;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+          text-align: left;
           padding: 0 1rem 0.5rem 1rem;
           background: linear-gradient(135deg, #fff 0%, #c4b5fd 40%, #10b981 70%, #fff 100%);
           background-size: 200% 200%;
@@ -510,7 +506,7 @@ export default function Hero() {
           font-size: clamp(1rem, 2vw, 1.4rem);
           margin: 0 0 0.5rem 0;
           padding: 0.5rem 1rem;
-          text-align: center;
+          text-align: left;
           color: rgba(255, 255, 255, 0.5);
           letter-spacing: 0.15em;
           text-transform: uppercase;
@@ -521,40 +517,16 @@ export default function Hero() {
         
         .hero-text p {
           font-family: 'Nexa Bold', sans-serif;
-          font-size: 1.25rem; /* Updated to match global minimum for paragraphs */
+          font-size: 1.25rem;
           margin: 1.5rem 0 0 0;
           text-align: left;
           line-height: 1.6;
           padding: 0 1rem 1rem 1rem;
         }
         
-        .hero-body {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin-top: 0px;
-          gap: 2rem;
-        }
-        
-        .hero-text {
-          flex: 1 1 55%;
-          min-width: 0;
-        }
-        
-        .hero-image {
-          flex: 0 0 40%;
-          padding: 1rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          max-width: 380px;
-        }
-        
         .hero-image img {
           width: 100%;
           height: auto;
-          min-width: 220px;
-          max-width: 380px;
           border-radius: 10px;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
           object-fit: contain;
@@ -581,59 +553,29 @@ export default function Hero() {
         }
         
         @media (max-width: 768px) {
-          .hero-body {
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
+          .hero-content {
+            flex-direction: column !important;
+            text-align: center;
           }
           
-          .hero-text {
-            flex: 1 1 55%;
-            min-width: 50%;
+          .hero-title h1 {
+            text-align: center;
           }
           
-          .hero-image {
-            flex: 0 0 38%;
-            max-width: 260px;
-            min-width: 160px;
-            margin: 0;
-            padding: 0.5rem;
-            align-items: center;
+          .hero-subtitle h2 {
+            text-align: center;
           }
           
           .hero-text p {
-            font-size: 1.25rem;
-            padding-right: 0.5rem;
+            text-align: center;
+            font-size: 1.1rem;
           }
         }
         
-        /* Add extra breakpoint for very small screens */
         @media (max-width: 480px) {
-          .hero-body {
-            flex-direction: column;
-            align-items: center;
-          }
-          
-          .hero-text {
-            flex: 1;
-            min-width: 100%;
-            padding-right: 0;
-          }
-          
-          .hero-image {
-            flex-basis: auto;
-            min-width: 150px;
-            max-width: 200px;
-            margin: 0 auto;
-            padding: 0.5rem;
-          }
-          
-          /* Adjust paragraph text for very small screens */
           .hero-text p {
             font-size: 1rem;
-            padding-right: 0;
-            margin-bottom: 0;
+            padding: 0 0.5rem 1rem;
           }
         }
       `}</style>
