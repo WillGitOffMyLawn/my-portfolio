@@ -190,7 +190,7 @@ export default function SkillsWithFlexBadges() {
 
       <style jsx>{`
         .skills-badges {
-          padding: 1.875rem 1.25rem; // 30px 20px
+          padding: 0 1.25rem; // Horizontal only; vertical handled by container gap
           background-color: transparent;
           color: #fff;
           font-family: 'Nexa Bold', sans-serif;

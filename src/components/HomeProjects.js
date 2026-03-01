@@ -58,7 +58,7 @@ export default function HomeProjects() {
 
       <style jsx>{`
         .projects-section {
-          padding: 1.875rem 1.25rem; // Reduced from 3.75rem to 1.875rem (60px to 30px)
+          padding: 0 1.25rem; // Horizontal only; vertical handled by container gap
           background-color: transparent; /* Changed from #1A1A1A to transparent */
           color: #fff;
           position: relative;

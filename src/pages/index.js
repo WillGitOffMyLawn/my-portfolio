@@ -39,7 +39,7 @@ export default function Home() {
           margin: 0 auto;
           display: flex;
           flex-direction: column;
-          gap: 3rem;
+          gap: 2rem;
         }
       `}</style>
     </>

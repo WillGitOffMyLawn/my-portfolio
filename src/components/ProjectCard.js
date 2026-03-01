@@ -1,16 +1,11 @@
 // src/components/ProjectCard.js
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 
 export default function ProjectCard({ project }) {
   return (
     <Link href={`/projects/${project.slug}`} passHref legacyBehavior>
-      <motion.a
-        className="project-card"
-        whileHover={{ y: -8 }}
-        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-      >
+      <a className="project-card">
         <div className="card-image-wrap">
           <Image src={project.image} alt={project.title} width={600} height={375} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
           <div className="card-overlay" />
@@ -34,12 +29,13 @@ export default function ProjectCard({ project }) {
             color: #fff;
             overflow: hidden;
             cursor: pointer;
-            transition: box-shadow 0.4s ease, border-color 0.4s ease;
+            transition: box-shadow 0.4s ease, border-color 0.4s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
                         0 0 1px rgba(255, 255, 255, 0.15),
                         inset 0 1px 0 rgba(255, 255, 255, 0.08);
           }
           .project-card:hover {
+            transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.4),
                         0 0 30px rgba(124, 58, 237, 0.2);
             border-color: rgba(124, 58, 237, 0.4);
@@ -94,7 +90,7 @@ export default function ProjectCard({ project }) {
             border: 1px solid rgba(124, 58, 237, 0.3);
           }
         `}</style>
-      </motion.a>
+      </a>
     </Link>
   );
 }
