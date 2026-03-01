@@ -465,9 +465,10 @@ export default function Hero() {
         }
         
         .hero-container {
-          padding: 0 20px;
-          max-width: 1200px;
+          padding: 0 clamp(1rem, 3vw, 3rem);
+          max-width: 1800px;
           width: 100%;
+          margin: 0 auto;
           position: relative;
           z-index: 10;
         }

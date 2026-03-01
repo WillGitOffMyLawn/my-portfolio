@@ -35,8 +35,8 @@ export default function Home() {
       <style jsx>{`
         .home-container {
           width: 100%;
-          max-width: 90vw;
-          padding: 0 2rem;
+          max-width: 1800px;
+          padding: 0 clamp(1rem, 3vw, 3rem);
           margin: 0 auto;
           display: flex;
           flex-direction: column;

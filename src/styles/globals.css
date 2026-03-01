@@ -264,8 +264,8 @@
 
   /* Make container a positioning context but not restrict the background */
   .container {
-    padding: 0 20px;
-    max-width: 1200px;
+    padding: 0 clamp(1rem, 3vw, 3rem);
+    max-width: 1800px;
     margin: 0 auto;
     position: relative;
     z-index: 1;

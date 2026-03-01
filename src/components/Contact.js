@@ -110,15 +110,12 @@ export default function Contact() {
         }
         
         .contact-container {
-          max-width: 75rem; // 1200px
-          margin: 0 auto;
           width: 100%;
-          padding: 0 1.25rem; // 0 20px
           display: flex;
           justify-content: center;
         }
         
-        .glassmorphic-wrapper {
+        .contact-section .glassmorphic-wrapper {
           max-width: 37.5rem;
         }
         

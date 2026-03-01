@@ -105,8 +105,6 @@ export default function Resume() {
         }
         
         .resume-container {
-          max-width: 75rem; // 1200px
-          margin: 0 auto;
           width: 100%;
           position: relative;
         }
