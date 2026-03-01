@@ -76,6 +76,7 @@ export default function HomeProjects() {
           font-size: 2rem;
           margin: 0;
           padding: 0;
+          text-shadow: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 40px rgba(124, 58, 237, 0.15);
         }
         
         /* Direct styling for the "View All" button */
