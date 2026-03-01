@@ -1,5 +1,6 @@
 // src/components/SkillsWithFlexBadges.js
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { Badge } from '@/components/ui/badge';
 
@@ -112,7 +113,14 @@ export default function SkillsWithFlexBadges() {
   }, []);
 
   return (
-    <section id="skills" className="skills-badges">
+    <motion.section
+      id="skills"
+      className="skills-badges"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
       <div className="glassmorphic-wrapper">
         {/* Title and inline proficiency key */}
         <div className="skills-header">
@@ -278,6 +286,6 @@ export default function SkillsWithFlexBadges() {
           }
         }
       `}</style>
-    </section>
+    </motion.section>
   );
 }

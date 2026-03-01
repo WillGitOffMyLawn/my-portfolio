@@ -75,11 +75,23 @@ function MyApp({ Component, pageProps }) {
     
     const existingShapes = document.querySelectorAll('.geometric-shape');
     existingShapes.forEach(shape => shape.remove());
+
+    // Shooting stars at random intervals
+    const shootingInterval = setInterval(() => {
+      if (Math.random() > 0.6) return;
+      const star = document.createElement('div');
+      star.classList.add('shooting-star');
+      star.style.top = `${Math.random() * 60}%`;
+      star.style.left = `${Math.random() * 60}%`;
+      document.body.appendChild(star);
+      setTimeout(() => star.remove(), 1500);
+    }, 4000);
     
     return () => {
       window.removeEventListener('scroll', handleParallax);
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
+      clearInterval(shootingInterval);
       const overlayElement = document.querySelector('.bg-gradient-overlay');
       if (overlayElement) overlayElement.remove();
     };

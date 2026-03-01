@@ -12,7 +12,14 @@ export default function Resume() {
   const onDocumentLoadSuccess = () => {};
 
   return (
-    <section id="resume" className="resume-section">
+    <motion.section
+      id="resume"
+      className="resume-section"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
       <div className="resume-container">
         <div className="glassmorphic-wrapper">
           {/* Resume Header */}
@@ -220,6 +227,6 @@ export default function Resume() {
           color: #fff;
         }
       `}</style>
-    </section>
+    </motion.section>
   );
 }

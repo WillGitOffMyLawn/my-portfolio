@@ -1,4 +1,5 @@
 // src/components/HomeProjects.js
+import { motion } from 'framer-motion';
 import CarouselProjectCard from './CarouselProjectCard';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
@@ -30,7 +31,14 @@ export default function HomeProjects() {
   };
 
   return (
-    <section id="projects" className="projects-section">
+    <motion.section
+      id="projects"
+      className="projects-section"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
       <div className="glassmorphic-wrapper">
         <div className="projects-header">
           <h2>Projects</h2>
@@ -81,6 +89,6 @@ export default function HomeProjects() {
           position: relative;
         }
       `}</style>
-    </section>
+    </motion.section>
   );
 }

@@ -43,7 +43,14 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="contact-section">
+    <motion.section
+      id="contact"
+      className="contact-section"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
       <div className="contact-container">
         <div className="glassmorphic-wrapper">
           <motion.div 
@@ -190,6 +197,6 @@ export default function Contact() {
           }
         }
       `}</style>
-    </section>
+    </motion.section>
   );
 }

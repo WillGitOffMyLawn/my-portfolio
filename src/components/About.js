@@ -166,7 +166,14 @@ export default function About() {
   return (
     <>
       {/* Passions Section */}
-      <section id="about" className="passions-section">
+      <motion.section
+        id="about"
+        className="passions-section"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="glassmorphic-wrapper">
           <h2>Passions</h2>
           <p className="passions-intro">
@@ -320,7 +327,7 @@ export default function About() {
             color: #f0f0f0;
           }
         `}</style>
-      </section>
+      </motion.section>
     </>
   );
 }

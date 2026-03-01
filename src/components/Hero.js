@@ -383,39 +383,55 @@ export default function Hero() {
       <div className="hero-container">
         {/* Glassmorphic content box that wraps everything else */}
         <div className="glassmorphic-wrapper">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="hero-content"
-          >
-            <div className="hero-title">
+          <div className="hero-content">
+            <motion.div
+              className="hero-title"
+              initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            >
               <h1>Crafting the Future</h1>
-            </div>
-            {/* Moved subtitle to its own div above the hero-body */}
-            <div className="hero-subtitle">
-              <h2>William Fagan&apos;s Portfolio</h2>
-            </div>
+            </motion.div>
+            <motion.div
+              className="hero-subtitle"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <h2>Product Manager &middot; Developer &middot; Innovator</h2>
+            </motion.div>
             <div className="hero-body">
-              <div className="hero-text">
+              <motion.div
+                className="hero-text"
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              >
                 <p>
                   Welcome to my digital space, where creativity meets technology. I design and develop sleek, futuristic experiences that blend aesthetics with functionality. Explore my projects, skills, and vision—crafted with precision, innovation, and a passion for pushing the boundaries of design.
                 </p>
-              </div>
-              <div className="hero-image">
-                <img 
-                  src="/images/Headshot.png" 
-                  alt="Headshot of William Fagan"
-                />
-              </div>
+              </motion.div>
+              <motion.div
+                className="hero-image"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <div className="headshot-glow">
+                  <img 
+                    src="/images/Headshot.png" 
+                    alt="Headshot of William Fagan"
+                  />
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
       
       <style jsx>{`
         .hero {
-          padding: 100px 0;
+          padding: 120px 0 80px;
           color: #fff;
           position: relative;
           overflow: hidden;
@@ -460,26 +476,38 @@ export default function Hero() {
         
         .hero-title h1 {
           font-family: 'Zilap Orion', sans-serif;
-          margin: 0 0 5px; /* Reset top margin and keep reduced bottom margin */
-          font-size: clamp(1.5rem, 4vw, 3.5rem); /* Reduced minimum size by 0.5rem from 1.75rem to 1.25rem */
+          margin: 0 0 5px;
+          font-size: clamp(1.5rem, 4vw, 3.5rem);
           letter-spacing: 0.05em;
           text-align: center;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-          text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
           padding: 0 1rem 0.5rem 1rem;
+          background: linear-gradient(135deg, #fff 0%, #c4b5fd 40%, #10b981 70%, #fff 100%);
+          background-size: 200% 200%;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: heroGradient 6s ease infinite;
+        }
+        
+        @keyframes heroGradient {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
         }
         
         .hero-subtitle h2 {
           font-family: 'BankGothic Md BT', sans-serif;
-          font-size: clamp(1.25rem, 3vw, 2.5rem);
+          font-size: clamp(1rem, 2vw, 1.4rem);
           margin: 0 0 0.5rem 0;
           padding: 0.5rem 1rem;
-          text-align: left;
-          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+          text-align: center;
+          color: rgba(255, 255, 255, 0.5);
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
           line-height: 1.3;
-          white-space: normal; /* Allow wrapping on small screens */
+          white-space: normal;
           overflow: visible;
         }
         
@@ -513,11 +541,31 @@ export default function Hero() {
         .hero-image img {
           width: 100%;
           height: auto;
-          min-width: 180px; /* Added minimum width to ensure image isn't too small */
-          max-width: 220px; /* Increased from 200px to match container */
+          min-width: 180px;
+          max-width: 220px;
           border-radius: 10px;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
           object-fit: contain;
+        }
+        
+        .headshot-glow {
+          position: relative;
+          display: inline-block;
+        }
+        .headshot-glow::before {
+          content: '';
+          position: absolute;
+          inset: -4px;
+          border-radius: 14px;
+          background: linear-gradient(135deg, rgba(124, 58, 237, 0.5), rgba(16, 185, 129, 0.5));
+          filter: blur(12px);
+          opacity: 0.6;
+          z-index: -1;
+          animation: glowPulse 3s ease-in-out infinite;
+        }
+        @keyframes glowPulse {
+          0%, 100% { opacity: 0.4; }
+          50% { opacity: 0.7; }
         }
         
         @media (max-width: 768px) {
