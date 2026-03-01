@@ -29,7 +29,7 @@ export default function Resume() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2>Resume</h2>
+              <h2 style={{ marginTop: 0, marginBottom: '1.5rem' }}>Resume</h2>
             </motion.div>
           </header>
 
