@@ -97,7 +97,7 @@ export default function Resume() {
       </div>
 
       {/* Component Styles */}
-      <style jsx>{`
+      <style jsx global>{`
         .resume-section {
           background-color: transparent; /* Changed from #1A1A1A to transparent */
           color: #fff;

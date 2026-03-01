@@ -230,7 +230,7 @@ export default function About() {
           </div>
         </div>
 
-        <style jsx>{`
+        <style jsx global>{`
           .passions-section {
             padding: 0 1.25rem; // Horizontal only; vertical handled by container gap
             background-color: transparent;
@@ -241,7 +241,7 @@ export default function About() {
             width: 100%;
           }
           
-          h2 {
+          .passions-section h2 {
             font-family: 'BankGothic Md BT', sans-serif;
             font-size: 2rem;
             margin-top: 0;
@@ -249,7 +249,7 @@ export default function About() {
             text-align: left;
           }
           
-          h3 {
+          .passions-section h3 {
             font-family: 'BankGothic Md BT', sans-serif;
             font-size: 1.75rem;
             margin-top: 0; /* Reset top margin */

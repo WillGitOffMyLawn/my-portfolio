@@ -435,7 +435,7 @@ export default function Hero() {
         </div>
       </div>
       
-      <style jsx>{`
+      <style jsx global>{`
         .hero {
           padding: 120px 0 80px;
           color: #fff;

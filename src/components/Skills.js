@@ -188,7 +188,7 @@ export default function SkillsWithFlexBadges() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style jsx global>{`
         .skills-badges {
           padding: 0 1.25rem; // Horizontal only; vertical handled by container gap
           background-color: transparent;

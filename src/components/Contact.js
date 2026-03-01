@@ -102,7 +102,7 @@ export default function Contact() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style jsx global>{`
         .contact-section {
           background-color: transparent;
           color: #fff;
@@ -127,14 +127,14 @@ export default function Contact() {
           width: 100%;
         }
         
-        h2 {
+        .contact-section h2 {
           font-family: 'BankGothic Md BT', sans-serif;
           font-size: 2rem;
           margin-top: 0; /* Reset top margin */
           margin-bottom: 1.25rem; // 20px
         }
         
-        p {
+        .contact-section p {
           font-family: 'Nexa Bold', sans-serif;
           font-size: 1rem;
           margin-bottom: 1.875rem; // 30px
@@ -163,7 +163,7 @@ export default function Contact() {
           color: #fff;
         }
         
-        textarea {
+        .contact-form textarea {
           padding: 0.625rem 0.9375rem; // 10px 15px
           border-radius: 0.3125rem; // 5px
           border: 1px solid rgba(255, 255, 255, 0.2);
@@ -173,7 +173,7 @@ export default function Contact() {
           color: #fff;
         }
         
-        input::placeholder, textarea::placeholder {
+        .contact-form input::placeholder, .contact-form textarea::placeholder {
           color: #ccc;
         }
         
