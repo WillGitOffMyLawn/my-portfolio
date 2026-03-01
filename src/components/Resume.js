@@ -1,45 +1,15 @@
 import { pdfjs, Document, Page } from 'react-pdf';
-import Slider from 'react-slick';
 import { motion } from 'framer-motion';
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import AnimatedCounterComponent from './AnimatedCounter';
 import { Button } from '@/components/ui/button';
-// Import React Icons
 import { FaUsers, FaRocket, FaHandshake, FaTools } from 'react-icons/fa';
-import { CustomPrevArrow, CustomNextArrow } from './CarouselArrows';
 
 pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.mjs';
 
-const testimonials = [
-  {
-    quote: "William's vision and leadership transformed our projects.",
-    author: "Jane Doe, CEO at Company A",
-  },
-  {
-    quote: "An exceptional product manager who bridges technical and business needs seamlessly.",
-    author: "John Smith, CTO at Company B",
-  },
-  {
-    quote: "His strategic insight is matched only by his ability to execute.",
-    author: "Alice Johnson, VP of Marketing at Company C",
-  },
-];
-
 export default function Resume() {
   const onDocumentLoadSuccess = () => {};
-
-  const testimonialSettings = {
-    dots: false,
-    infinite: true,
-    speed: 800,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    prevArrow: <CustomPrevArrow />,
-    nextArrow: <CustomNextArrow />
-  };
 
   return (
     <section className="resume-section">
@@ -116,17 +86,6 @@ export default function Resume() {
             </motion.div>
           </div>
 
-          {/* Testimonials Carousel */}
-          <div className="testimonials-carousel">
-            <Slider {...testimonialSettings}>
-              {testimonials.map((t, index) => (
-                <div key={index} className="testimonial-card">
-                  <p className="quote">&quot;{t.quote}&quot;</p>
-                  <p className="author">- {t.author}</p>
-                </div>
-              ))}
-            </Slider>
-          </div>
         </div>
       </div>
 
@@ -143,43 +102,6 @@ export default function Resume() {
           margin: 0 auto;
           width: 100%;
           position: relative;
-        }
-        
-        .glassmorphic-wrapper {
-          position: relative;
-          z-index: 20;
-          width: 100%;
-          background: rgba(20, 20, 20, 0.65);
-          border-radius: 1.25rem; // 20px
-          overflow: hidden;
-          padding: 1.75rem; // 20px
-          
-          /* Enhanced glassmorphism effect with stronger shadow */
-          backdrop-filter: blur(0.75rem); // 12px
-          -webkit-backdrop-filter: blur(0.75rem); // 12px
-          box-shadow: 0 0.75rem 3rem rgba(0, 0, 0, 0.7),
-                      0 0.25rem 1rem rgba(124, 58, 237, 0.15),
-                      0 -0.25rem 1rem rgba(16, 185, 129, 0.1); // Multi-layered shadow with subtle color
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          
-          /* Metallic highlight at top */
-          background-image: linear-gradient(
-            180deg, 
-            rgba(255, 255, 255, 0.12) 0%, 
-            rgba(255, 255, 255, 0.03) 5%,
-            rgba(255, 255, 255, 0) 20%
-          );
-          
-          /* Add subtle shadow glow on hover */
-          transition: all 0.3s ease-out;
-        }
-        
-        /* Optional subtle hover effect */
-        .glassmorphic-wrapper:hover {
-          box-shadow: 0 0.85rem 3.5rem rgba(0, 0, 0, 0.7),
-                      0 0.35rem 1.25rem rgba(124, 58, 237, 0.2),
-                      0 -0.35rem 1.25rem rgba(16, 185, 129, 0.15);
-          transform: translateY(-3px);
         }
         
         .resume-section h2 {
@@ -280,34 +202,6 @@ export default function Resume() {
         
         :global(.pdf-preview canvas) {
           margin: 0 auto !important;
-        }
-        
-        .testimonials-carousel {
-          max-width: calc(100% - 3rem); // Reducing width by 40px total (20px on each side)
-          margin-left: auto;
-          margin-right: auto;
-        }
-        
-        .testimonial-card {
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(0.5rem); // 8px
-          -webkit-backdrop-filter: blur(0.5rem); // 8px
-          border-radius: 0.9375rem; // 15px
-          padding: 1.25rem; // 20px
-          font-family: 'Nexa Bold', sans-serif;
-          border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        
-        .quote {
-          font-style: italic;
-          margin-bottom: 0.9375rem; // 15px
-          font-size: 1.25rem; // Updated from 1rem to match global minimum
-        }
-        
-        .author {
-          text-align: right;
-          font-weight: bold;
-          font-size: 1.25rem; // Updated from 1rem to match global minimum
         }
         
         @media (max-width: 48rem) { // 768px

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function CarouselProjectCard({ project }) {
   return (
-    <Link href={`/projects/${project.title}`} passHref legacyBehavior>
+    <Link href={`/projects/${project.slug}`} passHref legacyBehavior>
       <a className="carousel-project-card">
         <h3>{project.title}</h3>
         <img src={project.image} alt={`${project.title} image`} />

@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function ProjectCard({ project }) {
   // We'll assume project.title is the slug-friendly name (e.g., "CrystalGarden")
   return (
-    <Link href={`/projects/${project.title}`} passHref legacyBehavior>
+    <Link href={`/projects/${project.slug}`} passHref legacyBehavior>
       <a className="project-card">
         <h3>{project.title}</h3>
         <img src={project.image} alt={`${project.title} image`} />

@@ -234,42 +234,6 @@ export default function About() {
             width: 100%;
           }
           
-          .glassmorphic-wrapper {
-            position: relative;
-            z-index: 20;
-            width: 100%;
-            background: rgba(20, 20, 20, 0.65);
-            border-radius: 1.25rem; // 20px
-            overflow: hidden;
-            padding: 1.75rem; // 20px
-            
-            /* Enhanced glassmorphism effect with stronger shadow */
-            backdrop-filter: blur(0.75rem); // 12px
-            -webkit-backdrop-filter: blur(0.75rem); // 12px
-            box-shadow: 0 0.75rem 3rem rgba(0, 0, 0, 0.7),
-                        0 0.25rem 1rem rgba(124, 58, 237, 0.15),
-                        0 -0.25rem 1rem rgba(16, 185, 129, 0.1); // Multi-layered shadow with subtle color
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            
-            /* Metallic highlight at top */
-            background-image: linear-gradient(
-              180deg, 
-              rgba(255, 255, 255, 0.12) 0%, 
-              rgba(255, 255, 255, 0.03) 5%,
-              rgba(255, 255, 255, 0) 20%
-            );
-            
-            /* Add subtle shadow glow on hover */
-            transition: all 0.3s ease-out;
-          }
-          
-          /* Optional subtle hover effect */
-          .glassmorphic-wrapper:hover {
-            box-shadow: 0 0.85rem 3.5rem rgba(0, 0, 0, 0.7),
-                        0 0.35rem 1.25rem rgba(124, 58, 237, 0.2),
-                        0 -0.35rem 1.25rem rgba(16, 185, 129, 0.15);
-            transform: translateY(-3px);
-          }
           h2 {
             font-family: 'BankGothic Md BT', sans-serif;
             font-size: 2rem;
