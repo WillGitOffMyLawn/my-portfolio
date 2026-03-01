@@ -384,24 +384,24 @@ export default function Hero() {
       <div className="hero-container">
         {/* Glassmorphic content box that wraps everything else */}
         <div className="glassmorphic-wrapper">
-          <div className="hero-content" style={{ display: 'flex', alignItems: 'center', gap: '3rem' }}>
-            <div style={{ flex: '1 1 58%', minWidth: 0 }}>
-              <motion.div
-                className="hero-title"
-                initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <h1>Crafting the Future</h1>
-              </motion.div>
-              <motion.div
-                className="hero-subtitle"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <h2>Product Manager &middot; Developer &middot; Innovator</h2>
-              </motion.div>
+          <div className="hero-content">
+            <motion.div
+              className="hero-title"
+              initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <h1>Crafting the Future</h1>
+            </motion.div>
+            <motion.div
+              className="hero-subtitle"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <h2>Product Manager &middot; Developer &middot; Innovator</h2>
+            </motion.div>
+            <div className="hero-body">
               <motion.div
                 className="hero-text"
                 initial={{ opacity: 0, x: -30 }}
@@ -412,25 +412,24 @@ export default function Hero() {
                   Welcome to my digital space, where creativity meets technology. I design and develop sleek, futuristic experiences that blend aesthetics with functionality. Explore my projects, skills, and vision—crafted with precision, innovation, and a passion for pushing the boundaries of design.
                 </p>
               </motion.div>
+              <motion.div
+                className="hero-image"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <div className="headshot-glow">
+                  <Image 
+                    src="/images/Headshot.png" 
+                    alt="Headshot of William Fagan"
+                    width={400}
+                    height={400}
+                    priority
+                    style={{ borderRadius: '10px', objectFit: 'contain', width: '100%', height: 'auto' }}
+                  />
+                </div>
+              </motion.div>
             </div>
-            <motion.div
-              className="hero-image"
-              style={{ flex: '0 0 320px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="headshot-glow">
-                <Image 
-                  src="/images/Headshot.png" 
-                  alt="Headshot of William Fagan"
-                  width={400}
-                  height={400}
-                  priority
-                  style={{ borderRadius: '10px', objectFit: 'contain', width: '100%', height: 'auto' }}
-                />
-              </div>
-            </motion.div>
           </div>
         </div>
       </div>
@@ -518,10 +517,29 @@ export default function Hero() {
         .hero-text p {
           font-family: 'Nexa Bold', sans-serif;
           font-size: 1.25rem;
-          margin: 1.5rem 0 0 0;
+          margin: 0;
           text-align: left;
           line-height: 1.6;
           padding: 0 1rem 1rem 1rem;
+        }
+        
+        .hero-body {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+          margin-top: 1rem;
+        }
+        
+        .hero-text {
+          flex: 1 1 55%;
+          min-width: 0;
+        }
+        
+        .hero-image {
+          flex: 0 0 280px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
         
         .hero-image img {
@@ -553,9 +571,9 @@ export default function Hero() {
         }
         
         @media (max-width: 768px) {
-          .hero-content {
-            flex-direction: column !important;
-            text-align: center;
+          .hero-body {
+            flex-direction: column;
+            align-items: center;
           }
           
           .hero-title h1 {
@@ -570,12 +588,21 @@ export default function Hero() {
             text-align: center;
             font-size: 1.1rem;
           }
+          
+          .hero-image {
+            flex: 0 0 auto;
+            max-width: 250px;
+          }
         }
         
         @media (max-width: 480px) {
           .hero-text p {
             font-size: 1rem;
             padding: 0 0.5rem 1rem;
+          }
+          
+          .hero-image {
+            max-width: 200px;
           }
         }
       `}</style>
