@@ -422,8 +422,8 @@ export default function Hero() {
                   <Image 
                     src="/images/Headshot.png" 
                     alt="Headshot of William Fagan"
-                    width={280}
-                    height={280}
+                    width={400}
+                    height={400}
                     priority
                     style={{ borderRadius: '10px', objectFit: 'contain', width: '100%', height: 'auto' }}
                   />
@@ -534,21 +534,25 @@ export default function Hero() {
           gap: 2rem;
         }
         
+        .hero-text {
+          flex: 1 1 55%;
+          min-width: 0;
+        }
+        
         .hero-image {
-          flex-basis: 35%;
-          flex-shrink: 0;
+          flex: 0 0 40%;
           padding: 1rem;
           display: flex;
           justify-content: center;
           align-items: center;
-          max-width: 280px;
+          max-width: 380px;
         }
         
         .hero-image img {
           width: 100%;
           height: auto;
-          min-width: 180px;
-          max-width: 280px;
+          min-width: 220px;
+          max-width: 380px;
           border-radius: 10px;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
           object-fit: contain;
@@ -583,15 +587,14 @@ export default function Hero() {
           }
           
           .hero-text {
-            flex: 1;
-            min-width: 55%;
+            flex: 1 1 55%;
+            min-width: 50%;
           }
           
           .hero-image {
-            flex-basis: 35%;
-            flex-shrink: 0;
-            max-width: 200px;
-            min-width: 140px;
+            flex: 0 0 38%;
+            max-width: 260px;
+            min-width: 160px;
             margin: 0;
             padding: 0.5rem;
             align-items: center;

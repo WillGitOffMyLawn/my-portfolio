@@ -46,7 +46,9 @@ export default function Navbar() {
       e.preventDefault();
       const el = document.getElementById(link.section);
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const navbarOffset = 80;
+        const top = el.getBoundingClientRect().top + window.pageYOffset - navbarOffset;
+        window.scrollTo({ top, behavior: 'smooth' });
         setMobileOpen(false);
       }
     } else {
