@@ -29,17 +29,19 @@ export default function ProjectCard({ project }) {
             border-radius: 1rem;
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             text-decoration: none;
-            color: inherit;
+            color: #fff;
             overflow: hidden;
             cursor: pointer;
             transition: box-shadow 0.4s ease, border-color 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
+                        0 0 1px rgba(255, 255, 255, 0.1);
           }
           .project-card:hover {
             box-shadow: 0 20px 40px rgba(0,0,0,0.4),
-                        0 0 30px rgba(124, 58, 237, 0.15);
-            border-color: rgba(124, 58, 237, 0.3);
+                        0 0 30px rgba(124, 58, 237, 0.2);
+            border-color: rgba(124, 58, 237, 0.4);
           }
           .card-image-wrap {
             position: relative;

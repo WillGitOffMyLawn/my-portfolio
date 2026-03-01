@@ -422,8 +422,8 @@ export default function Hero() {
                   <Image 
                     src="/images/Headshot.png" 
                     alt="Headshot of William Fagan"
-                    width={220}
-                    height={220}
+                    width={180}
+                    height={180}
                     priority
                     style={{ borderRadius: '10px', objectFit: 'contain', width: '100%', height: 'auto' }}
                   />
@@ -480,9 +480,10 @@ export default function Hero() {
         }
         
         .hero-title h1 {
-          font-family: 'Zilap Orion', sans-serif;
+          font-family: 'Orbitron', sans-serif;
+          font-weight: 700;
           margin: 0 0 5px;
-          font-size: clamp(1.5rem, 4vw, 3.5rem);
+          font-size: clamp(1.8rem, 4.5vw, 3.5rem);
           letter-spacing: 0.05em;
           text-align: center;
           white-space: nowrap;
@@ -540,14 +541,14 @@ export default function Hero() {
           display: flex;
           justify-content: center;
           align-items: flex-end; /* Added to align the image at the bottom */
-          max-width: 220px; /* Increased from 200px for a slightly bigger minimum size */
+          max-width: 180px;
         }
         
         .hero-image img {
           width: 100%;
           height: auto;
-          min-width: 180px;
-          max-width: 220px;
+          min-width: 140px;
+          max-width: 180px;
           border-radius: 10px;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
           object-fit: contain;
@@ -589,8 +590,8 @@ export default function Hero() {
           .hero-image {
             flex-basis: 30%;
             flex-shrink: 0;
-            max-width: 170px; /* Increased from 150px for larger minimum size */
-            min-width: 150px; /* Added minimum width */
+            max-width: 150px;
+            min-width: 120px;
             margin: 0;
             padding: 0.5rem; /* Adjusted padding */
             align-items: flex-end; /* Keep alignment consistent */
@@ -618,8 +619,8 @@ export default function Hero() {
           
           .hero-image {
             flex-basis: 35%; /* Slightly increased from larger screens */
-            min-width: 120px; /* Set minimum width for smallest screens */
-            max-width: 150px;
+            min-width: 100px;
+            max-width: 130px;
             margin: 0;
             padding: 0.5rem;
           }

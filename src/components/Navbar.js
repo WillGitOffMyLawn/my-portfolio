@@ -58,8 +58,22 @@ export default function Navbar() {
     <>
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="nav-inner">
-          <Link href="/" className="nav-logo">
-            WF
+          <Link href="/" className="nav-logo" aria-label="Home">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="14" stroke="url(#navGrad)" strokeWidth="1.5" fill="none" />
+              <circle cx="16" cy="16" r="3" fill="url(#navGrad)" />
+              <ellipse cx="16" cy="16" rx="14" ry="6" stroke="url(#navGrad)" strokeWidth="1" fill="none" transform="rotate(30 16 16)" opacity="0.7" />
+              <ellipse cx="16" cy="16" rx="14" ry="6" stroke="url(#navGrad)" strokeWidth="1" fill="none" transform="rotate(-30 16 16)" opacity="0.7" />
+              <circle cx="6" cy="10" r="1.5" fill="#10b981" opacity="0.8" />
+              <circle cx="26" cy="22" r="1.5" fill="#7c3aed" opacity="0.8" />
+              <circle cx="24" cy="8" r="1" fill="#c4b5fd" opacity="0.6" />
+              <defs>
+                <linearGradient id="navGrad" x1="0" y1="0" x2="32" y2="32">
+                  <stop offset="0%" stopColor="#7c3aed" />
+                  <stop offset="100%" stopColor="#10b981" />
+                </linearGradient>
+              </defs>
+            </svg>
           </Link>
 
           {/* Desktop links */}
@@ -137,15 +151,14 @@ export default function Navbar() {
           justify-content: space-between;
         }
         .nav-logo {
-          font-family: 'Zilap Orion', sans-serif;
-          font-size: 1.5rem;
-          color: #fff;
+          display: flex;
+          align-items: center;
           text-decoration: none;
-          letter-spacing: 0.1em;
-          background: linear-gradient(135deg, #7c3aed, #10b981);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+          transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .nav-logo:hover {
+          transform: scale(1.1);
+          filter: drop-shadow(0 0 8px rgba(124, 58, 237, 0.5));
         }
         .nav-links {
           display: flex;
