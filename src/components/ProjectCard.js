@@ -7,7 +7,7 @@ export default function ProjectCard({ project }) {
     <Link href={`/projects/${project.slug}`} passHref legacyBehavior>
       <a className="project-card">
         <div className="card-image-wrap">
-          <Image src={project.image} alt={project.title} width={600} height={375} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+          <Image src={project.image} alt={project.title} width={800} height={450} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
           <div className="card-overlay" />
         </div>
         <div className="card-body">
@@ -43,7 +43,7 @@ export default function ProjectCard({ project }) {
           .card-image-wrap {
             position: relative;
             overflow: hidden;
-            aspect-ratio: 16/10;
+            aspect-ratio: 16/9;
           }
           .card-overlay {
             position: absolute;

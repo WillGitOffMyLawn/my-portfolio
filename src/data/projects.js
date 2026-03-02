@@ -10,9 +10,9 @@ const projects = [
     images: ['/images/TheBlueList1.webp', '/images/TheBlueList2.webp', '/images/TheBlueList3.webp'],
     skills: ['HTML', 'CSS', 'JavaScript'],
     shortDescription:
-      'A cutting-edge college search engine that revolutionizes how high school students explore higher education.',
+      'A cutting-edge college search engine that revolutionizes how high school students explore higher education',
     longDescription:
-      'For The Blue List, I spearheaded the design and development of a cutting-edge college search engine that revolutionizes how high school students explore higher education. This platform features a dynamic map search and an advanced filtering system that lets students narrow their options by region, state, GPA range of accepted students, campus size, available majors, and even "vibe tags"—carefully selected by college counselors to capture the unique character of each school.\n\nWorking closely with both technical teams and educational experts, I ensured the filtering system was not only robust but also delivered results in under 0.5 seconds—a significant upgrade over the previous site. The custom map interface allows students to visualize college locations and explore options they might never have considered otherwise.\n\nThe result is a beautiful, intuitive, and highly responsive experience that empowers students to make well-informed college decisions while providing a seamless user experience across all devices.',
+      'For The Blue List, I spearheaded the design and development of a cutting-edge college search engine that revolutionizes how high school students explore higher education. This platform features a dynamic map search and an advanced filtering system that lets students narrow their options by region, state, GPA range of accepted students, campus size, available majors, and even "vibe tags"—carefully selected by college counselors to capture the unique character of each school. To achieve this, I collaborated closely with both technical teams and educational experts, ensuring the filtering system was not only robust but also delivered results in under 0.5 seconds—a significant upgrade over the previous site. The result is a beautiful, intuitive, and highly responsive experience that empowers students to make well-informed college decisions while providing a seamless user experience.',
     featured: true,
     featuredOrder: 4,
   },
@@ -24,7 +24,7 @@ const projects = [
     images: ['/images/SmartKonnection1.webp', '/images/SmartKonnection2.webp'],
     skills: ['React', 'Node.js', 'Express'],
     shortDescription:
-      'A custom-built e-commerce marketplace supporting local brick-and-mortar stores with crypto payment integration.',
+      'A custom-built e-commerce marketplace focused on supporting local brick and mortar stores',
     longDescription:
       'Smart Konnection is a custom-built e-commerce marketplace focused on supporting local brick and mortar stores that also seamlessly combines traditional credit card payments with innovative cryptocurrency transactions.\n\nI personally handled all of the wireframing and directed the development process to create an intuitive platform where merchants can sign up to offer goods, services, gift cards, and coupons.\n\nThe site includes a robust backend that allows merchants to manage advertising space, featured business slots, and real-time coupon redemptions, ensuring a smooth and engaging experience for both customers and business owners. Our collaboration with Forumpay led to the creation of a secure and flexible payment gateway, highlighting the project\'s commitment to modern payment innovations and user-friendly design.',
     featured: false,
@@ -37,7 +37,7 @@ const projects = [
     images: ['/images/ElevateScholars1.webp', '/images/ElevateScholars2.webp', '/images/ElevateScholars3.webp'],
     skills: ['PHP', 'HTML', 'CSS', 'Bootstrap'],
     shortDescription:
-      'A custom PHP platform for a tutoring company serving grades 3–12, featuring conflict-free scheduling.',
+      'A custom PHP platform specifically tailored for a tutoring company serving grades 3–12',
     longDescription:
       'For Elevate Scholars Academy, I directed the design and development of a custom PHP platform specifically tailored for a tutoring company serving grades 3–12. The project\'s highlight was the creation of a custom calendar tool that efficiently tracks and books appointments while preventing scheduling conflicts.\n\nWorking closely with the academy\'s top tutor, we fine-tuned every aspect—from seamless user account creation to the integration of appointment notifications complete with Zoom links for online sessions. This project not only simplified scheduling but also enhanced the overall tutoring experience, ensuring reliability and ease of use for both students and tutors.',
     featured: false,

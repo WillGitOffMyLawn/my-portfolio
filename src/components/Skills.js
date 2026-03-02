@@ -4,48 +4,54 @@ import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { Badge } from '@/components/ui/badge';
 
 const skillsData = {
-  Product: {
-    'Strategy': [
-      { name: 'Customer Discovery', level: 3 },
-      { name: 'Roadmapping', level: 3 },
-      { name: 'Stakeholder Management', level: 3 },
-      { name: 'Agile / Scrum', level: 3 },
-      { name: 'Technical Writing', level: 3 },
-    ],
-    'Tools': [
+  Technical: {
+    Software: [
       { name: 'Jira', level: 3 },
+      { name: 'Asana', level: 3 },
+      { name: 'Trello', level: 3 },
+      { name: 'Hubspot', level: 3 },
       { name: 'Figma', level: 3 },
-      { name: 'HubSpot', level: 3 },
-      { name: 'GitHub', level: 3 },
-      { name: 'Google Analytics', level: 3 },
+      { name: 'Excel', level: 4 },
+      { name: 'PowerPoint', level: 4 },
+      { name: 'AWS', level: 2 },
       { name: 'Zapier', level: 2 },
+      { name: 'Word', level: 4 },
+    ],
+    Coding: [
+      { name: 'HTML', level: 2 },
+      { name: 'CSS', level: 2 },
+      { name: 'JavaScript', level: 2 },
+      { name: 'React', level: 2 },
+      { name: 'Python', level: 3 },
+      { name: 'Nextjs', level: 2 },
+      { name: 'PHP', level: 2 },
+      { name: 'Git', level: 2 },
+      { name: 'Terraform', level: 1 },
     ],
   },
-  Technical: {
-    'Software': [
-      { name: 'Python', level: 3 },
-      { name: 'React / Next.js', level: 2 },
-      { name: 'REST APIs', level: 3 },
-      { name: 'Docker', level: 2 },
-      { name: 'Data Architecture', level: 2 },
-      { name: 'AI / LLMs', level: 3 },
+  'Cross-Functional': {
+    Leadership: [
+      { name: 'Team Management', level: 3 },
+      { name: 'Strategic Planning', level: 2 },
+      { name: 'Communication', level: 4 },
+      { name: 'Agile', level: 3 },
+      { name: 'Waterfall', level: 3 },
     ],
-    'Hardware': [
-      { name: 'CAD', level: 2 },
-      { name: '3D Printing', level: 3 },
-      { name: 'Embedded Electronics', level: 2 },
-      { name: 'Sensors & Actuators', level: 2 },
-      { name: 'BOM / DFM', level: 2 },
-      { name: 'Prototyping', level: 3 },
+    Product: [
+      { name: 'SEO', level: 3 },
+      { name: 'Google Analytics', level: 3 },
+      { name: 'Wireframing', level: 2 },
+      { name: 'UX/UI', level: 3 },
+      { name: 'Market Analysis', level: 3 },
     ],
   },
 };
 
 const proficiencyLevels = [
-  { level: 1, label: 'Novice',       color: '#10b981' }, 
-  { level: 2, label: 'Competent', color: '#6366f1' }, 
-  { level: 3, label: 'Advanced',     color: '#7c3aed' }, 
-  { level: 4, label: 'Expert',       color: '#ef4444' },
+  { level: 1, label: 'Novice',       color: '#2ecc71' }, 
+  { level: 2, label: 'Competent', color: '#3498db' }, 
+  { level: 3, label: 'Advanced',     color: '#9b59b6' }, 
+  { level: 4, label: 'Expert',       color: '#e74c3c' }, 
 ];
 
 // Helper to get color for a given level

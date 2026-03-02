@@ -410,7 +410,7 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
               >
-                <h2>Strategic Manager &middot; Developer &middot; Innovator</h2>
+                <h2>William Fagan&apos;s Portfolio</h2>
               </motion.div>
               <motion.div
                 className="hero-text"
@@ -419,7 +419,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
               >
                 <p>
-                  Product manager with experience spanning robotics hardware, SaaS platforms, and cross-functional team leadership. I turn technical complexity into clear product direction—from early customer research through shipping and scaling.
+                  I turn challenges into innovative solutions by blending strategy, design, and tech. With hands-on experience in software, web design, and robotics, I lead projects that bring creative ideas to life. Explore this portfolio to see how I bridge the gap between concept and execution.
                 </p>
               </motion.div>
             </div>
