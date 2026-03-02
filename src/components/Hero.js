@@ -422,6 +422,19 @@ export default function Hero() {
                   I turn challenges into innovative solutions by blending strategy, design, and tech. With hands-on experience in software, web design, and robotics, I lead projects that bring creative ideas to life. Explore this portfolio to see how I bridge the gap between concept and execution.
                 </p>
               </motion.div>
+              <motion.div
+                className="hero-cta"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <a href="#projects" className="cta-primary" onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                  View My Work
+                </a>
+                <a href="#contact" className="cta-secondary" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                  Get in Touch
+                </a>
+              </motion.div>
             </div>
             {/* Right column: headshot */}
             <motion.div
@@ -619,6 +632,70 @@ export default function Hero() {
           
           .hero-image {
             max-width: 180px;
+          }
+        }
+        .hero-cta {
+          display: flex;
+          gap: 1rem;
+          padding: 0.5rem 1rem 0;
+        }
+        .cta-primary {
+          display: inline-flex;
+          align-items: center;
+          padding: 0.75rem 1.75rem;
+          font-family: 'Nexa Bold', sans-serif;
+          font-size: 1rem;
+          color: #fff;
+          background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #10b981 100%);
+          background-size: 200% 200%;
+          border: none;
+          border-radius: 8px;
+          text-decoration: none;
+          letter-spacing: 0.04em;
+          transition: transform 0.25s ease, box-shadow 0.25s ease, background-position 0.4s ease;
+          box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3);
+          cursor: pointer;
+        }
+        .cta-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 24px rgba(124, 58, 237, 0.45);
+          background-position: 100% 50%;
+        }
+        .cta-secondary {
+          display: inline-flex;
+          align-items: center;
+          padding: 0.75rem 1.75rem;
+          font-family: 'Nexa Bold', sans-serif;
+          font-size: 1rem;
+          color: rgba(255, 255, 255, 0.8);
+          background: transparent;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 8px;
+          text-decoration: none;
+          letter-spacing: 0.04em;
+          transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+          cursor: pointer;
+        }
+        .cta-secondary:hover {
+          transform: translateY(-2px);
+          border-color: rgba(124, 58, 237, 0.5);
+          color: #fff;
+        }
+        
+        @media (max-width: 768px) {
+          .hero-cta {
+            justify-content: center;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .hero-cta {
+            flex-direction: column;
+            align-items: stretch;
+          }
+          .cta-primary, .cta-secondary {
+            justify-content: center;
+            text-align: center;
           }
         }
       `}</style>

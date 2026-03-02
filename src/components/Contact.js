@@ -66,24 +66,34 @@ export default function Contact() {
             </p>
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="input-row">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
+                <div className="form-field">
+                  <label htmlFor="contact-name" className="sr-only">Your Name</label>
+                  <input
+                    id="contact-name"
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="form-field">
+                  <label htmlFor="contact-email" className="sr-only">Your Email</label>
+                  <input
+                    id="contact-email"
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
+              <label htmlFor="contact-message" className="sr-only">Your Message</label>
               <textarea
+                id="contact-message"
                 name="message"
                 placeholder="Your Message"
                 rows="5"
@@ -151,7 +161,7 @@ export default function Contact() {
         }
         
         .input-row input {
-          flex: 1;
+          width: 100%;
           padding: 0.625rem 0.9375rem; // 10px 15px
           border-radius: 0.3125rem; // 5px
           border: 1px solid rgba(255, 255, 255, 0.15);
@@ -159,6 +169,10 @@ export default function Contact() {
           font-size: 1rem;
           background-color: rgba(255, 255, 255, 0.1);
           color: #fff;
+        }
+        
+        .form-field {
+          flex: 1;
         }
         
         .contact-form textarea {

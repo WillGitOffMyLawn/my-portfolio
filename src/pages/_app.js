@@ -140,9 +140,12 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <div className={styles.buttonFix}>
+        <a href="#main-content" className="skip-to-content">Skip to content</a>
         <Navbar />
         <PageTransition>
-          <Component {...pageProps} />
+          <main id="main-content">
+            <Component {...pageProps} />
+          </main>
         </PageTransition>
         <Footer />
       </div>

@@ -1,5 +1,6 @@
 // pages/projects/[id].js
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -18,6 +19,20 @@ export default function ProjectDetails({ project }) {
 
   return (
     <div className="project-page">
+      <Head>
+        <title>{project.title} — William Fagan</title>
+        <meta name="description" content={project.shortDescription} />
+        <link rel="canonical" href={`https://williamhfagan.com/projects/${project.slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={`${project.title} — William Fagan`} />
+        <meta property="og:description" content={project.shortDescription} />
+        <meta property="og:image" content={`https://williamhfagan.com${project.image}`} />
+        <meta property="og:url" content={`https://williamhfagan.com/projects/${project.slug}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${project.title} — William Fagan`} />
+        <meta name="twitter:description" content={project.shortDescription} />
+        <meta name="twitter:image" content={`https://williamhfagan.com${project.image}`} />
+      </Head>
       <div className="header">
         <Button 
           variant="default" 
