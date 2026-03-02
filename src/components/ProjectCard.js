@@ -33,7 +33,7 @@ export default function ProjectCard({ project, index = 0 }) {
         style={{ animation: `fadeInUp 0.5s ease both`, animationDelay: `${index * 60}ms` }}
       >
         <div className="card-image-wrap">
-          <Image src={project.image} alt={project.title} width={800} height={450} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+          <Image src={project.image} alt={project.title} width={800} height={450} style={{ objectFit: 'contain', width: '100%', height: '100%' }} />
           <div className="card-overlay" />
         </div>
         <div className="card-body">
@@ -69,7 +69,8 @@ export default function ProjectCard({ project, index = 0 }) {
           .card-image-wrap {
             position: relative;
             overflow: hidden;
-            aspect-ratio: 16/9;
+            aspect-ratio: 3/2;
+            background: rgba(10, 10, 15, 0.8);
           }
           .card-overlay {
             position: absolute;
