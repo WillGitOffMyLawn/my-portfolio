@@ -90,8 +90,15 @@ export default function ProjectsPage() {
         }
         .projects-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-          gap: 20px;
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+          gap: 24px;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        @media (min-width: 960px) {
+          .projects-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
         }
       `}</style>
       </section>
