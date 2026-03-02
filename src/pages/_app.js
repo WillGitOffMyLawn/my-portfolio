@@ -1,6 +1,6 @@
 // src/pages/_app.js
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import '../styles/globals.css';
 import '../styles/carousel.css';
 import '../styles/glassmorphic.css';
@@ -12,28 +12,35 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 function MyApp({ Component, pageProps }) {
-  const [, setMousePosition] = useState({ x: 0, y: 0 });
-  
   useEffect(() => {
+    // RAF-throttled scroll handler
+    let scrollTicking = false;
     const handleParallax = () => {
-      const scrollPosition = window.scrollY;
-      document.documentElement.style.setProperty('--parallax-offset', `${scrollPosition * 0.02}px`);
+      if (scrollTicking) return;
+      scrollTicking = true;
+      requestAnimationFrame(() => {
+        document.documentElement.style.setProperty('--parallax-offset', `${window.scrollY * 0.02}px`);
+        scrollTicking = false;
+      });
     };
 
+    // RAF-throttled mousemove — no React state update needed, just CSS vars
+    let mouseTicking = false;
     const handleMouseMove = (e) => {
-      const { clientX, clientY } = e;
-      const windowWidth = window.innerWidth;
-      const windowHeight = window.innerHeight;
-      const normalizedX = (clientX / windowWidth) * 2 - 1;
-      const normalizedY = (clientY / windowHeight) * 2 - 1;
-      setMousePosition({ x: normalizedX, y: normalizedY });
-      document.documentElement.style.setProperty('--mouse-x', normalizedX.toFixed(3));
-      document.documentElement.style.setProperty('--mouse-y', normalizedY.toFixed(3));
+      if (mouseTicking) return;
+      mouseTicking = true;
+      requestAnimationFrame(() => {
+        const normalizedX = (e.clientX / window.innerWidth) * 2 - 1;
+        const normalizedY = (e.clientY / window.innerHeight) * 2 - 1;
+        document.documentElement.style.setProperty('--mouse-x', normalizedX.toFixed(3));
+        document.documentElement.style.setProperty('--mouse-y', normalizedY.toFixed(3));
+        mouseTicking = false;
+      });
     };
 
     const createStars = () => {
       const container = document.body;
-      const starCount = Math.min(window.innerWidth / 3, 150);
+      const starCount = Math.min(Math.floor(window.innerWidth / 4), 100);
       const existingStars = document.querySelectorAll('.star');
       existingStars.forEach(star => star.remove());
       
@@ -62,11 +69,16 @@ function MyApp({ Component, pageProps }) {
       }
     };
     
-    const handleResize = () => { createStars(); };
+    // Debounced resize — don't recreate stars on every pixel of resize
+    let resizeTimer;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(createStars, 250);
+    };
 
-    window.addEventListener('scroll', handleParallax);
+    window.addEventListener('scroll', handleParallax, { passive: true });
     window.addEventListener('resize', handleResize);
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     createStars();
     
     const overlay = document.createElement('div');

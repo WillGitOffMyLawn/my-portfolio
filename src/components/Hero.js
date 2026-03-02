@@ -18,6 +18,7 @@ export default function Hero() {
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
   const timeRef = useRef(0);
+  const isVisibleRef = useRef(true);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -196,6 +197,12 @@ export default function Hero() {
 
     // Draw blobs and update their position/size
     const drawBlobs = () => {
+      // Skip rendering when canvas is offscreen
+      if (!isVisibleRef.current) {
+        animationRef.current = requestAnimationFrame(drawBlobs);
+        return;
+      }
+      
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       // Update time for animation
@@ -342,17 +349,11 @@ export default function Hero() {
         ctx.closePath();
         ctx.fill();
         
-        // Add enhanced glow effect for feathered edge appearance
-        ctx.shadowBlur = 30;  // Increased from 25
-        ctx.shadowColor = blob.color.replace(/[^,]+\)/, '0.35)'); // Increased opacity
+        // Add glow effect — single pass instead of triple fill
+        ctx.shadowBlur = 30;
+        ctx.shadowColor = blob.color.replace(/[^,]+\)/, '0.25)');
         ctx.shadowOffsetX = 0;
         ctx.shadowOffsetY = 0;
-        ctx.globalCompositeOperation = 'source-over';
-        ctx.fill();
-        
-        // Additional softer outer glow 
-        ctx.shadowBlur = 40;
-        ctx.shadowColor = blob.color.replace(/[^,]+\)/, '0.15)'); // Very subtle outer glow
         ctx.fill();
         
         // Restore context
@@ -367,9 +368,17 @@ export default function Hero() {
     createBlobs();
     drawBlobs();
 
+    // Pause canvas when hero is scrolled offscreen
+    const observer = new IntersectionObserver(
+      ([entry]) => { isVisibleRef.current = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    observer.observe(canvas);
+
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationRef.current);
+      observer.disconnect();
     };
   }, []);
   

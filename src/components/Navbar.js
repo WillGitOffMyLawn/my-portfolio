@@ -20,27 +20,33 @@ export default function Navbar() {
   const isHome = router.pathname === '/';
 
   useEffect(() => {
+    let ticking = false;
     const onScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 50);
 
-      if (!isHome) return;
-      const sections = NAV_LINKS.map(l => l.section);
-      let current = 'hero';
-      
-      // Check if scrolled to bottom of page — activate last section
-      const scrolledToBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 50);
-      if (scrolledToBottom) {
-        current = sections[sections.length - 1];
-      } else {
-        for (const id of sections) {
-          const el = document.getElementById(id);
-          if (el) {
-            const rect = el.getBoundingClientRect();
-            if (rect.top <= 120) current = id;
+        if (isHome) {
+          const sections = NAV_LINKS.map(l => l.section);
+          let current = 'hero';
+          
+          const scrolledToBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 50);
+          if (scrolledToBottom) {
+            current = sections[sections.length - 1];
+          } else {
+            for (const id of sections) {
+              const el = document.getElementById(id);
+              if (el) {
+                const rect = el.getBoundingClientRect();
+                if (rect.top <= 120) current = id;
+              }
+            }
           }
+          setActiveSection(current);
         }
-      }
-      setActiveSection(current);
+        ticking = false;
+      });
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -147,9 +153,9 @@ export default function Navbar() {
           background: transparent;
         }
         .navbar.scrolled {
-          background: rgba(10, 10, 15, 0.8);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
+          background: rgba(10, 10, 15, 0.85);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
           border-bottom: 1px solid rgba(255, 255, 255, 0.15);
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
         }
