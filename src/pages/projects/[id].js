@@ -29,27 +29,28 @@ export default function ProjectDetails({ project }) {
         <h1 className="project-title">{project.title}</h1>
       </div>
 
-      {/* Main project image */}
-      <div className="main-image-container">
-        <Image
-          src={project.image}
-          alt={project.title}
-          width={1200}
-          height={675}
-          style={{ objectFit: 'contain', width: '100%', height: 'auto', maxHeight: '600px', borderRadius: '12px' }}
-          priority
-        />
-      </div>
+      {/* Two-column layout: image left, details right */}
+      <div className="project-layout">
+        <div className="project-media">
+          <div className="main-image-container">
+            <Image
+              src={project.image}
+              alt={project.title}
+              width={1200}
+              height={675}
+              style={{ objectFit: 'contain', width: '100%', height: 'auto', maxHeight: '600px', borderRadius: '12px' }}
+              priority
+            />
+          </div>
 
-      {/* Image carousel — only if multiple images */}
-      {hasMultipleImages && (
-        <div className="carousel-container">
-          <ProjectCarousel images={project.images} title={project.title} />
+          {hasMultipleImages && (
+            <div className="carousel-container">
+              <ProjectCarousel images={project.images} title={project.title} />
+            </div>
+          )}
         </div>
-      )}
 
-      <div className="content">
-        <div className="left-column">
+        <div className="project-details">
           <div className="skills-section">
             <h3>Relevant Skills</h3>
             <div className="skill-tags">
@@ -64,9 +65,7 @@ export default function ProjectDetails({ project }) {
               ))}
             </div>
           </div>
-        </div>
-        
-        <div className="right-column">
+
           <div className={`${projectStyles.projectSection} project-description`} style={{ margin: 0, padding: 0 }}>
             {project.longDescription.split('\n\n').map((paragraph, index) => (
               <p 
@@ -119,8 +118,6 @@ export default function ProjectDetails({ project }) {
 
         .main-image-container {
           width: 100%;
-          max-width: 900px;
-          margin: 0 auto 2rem;
           border-radius: 12px;
           overflow: hidden;
           background: rgba(20, 20, 20, 0.4);
@@ -129,8 +126,28 @@ export default function ProjectDetails({ project }) {
 
         .carousel-container {
           width: 100%;
-          max-width: 900px;
-          margin: 0 auto 2rem;
+          margin-top: 1.5rem;
+        }
+
+        .project-layout {
+          display: flex;
+          flex-direction: row;
+          gap: 3rem;
+          align-items: flex-start;
+          width: 100%;
+          max-width: 1800px;
+          margin: 0 auto;
+        }
+
+        .project-media {
+          flex: 1;
+          min-width: 0;
+          max-width: 50%;
+        }
+
+        .project-details {
+          flex: 1;
+          min-width: 0;
         }
         
         .content {
@@ -160,7 +177,8 @@ export default function ProjectDetails({ project }) {
         }
         
         .skills-section {
-          margin-top: 0.5rem;
+          margin-top: 0;
+          margin-bottom: 2rem;
         }
         
         .skills-section h3 {
@@ -176,13 +194,12 @@ export default function ProjectDetails({ project }) {
         }
         
         @media (max-width: 900px) {
-          .content {
+          .project-layout {
             flex-direction: column;
           }
-          
-          .left-column,
-          .right-column {
-            width: 100%;
+
+          .project-media {
+            max-width: 100%;
           }
         }
       `}</style>
