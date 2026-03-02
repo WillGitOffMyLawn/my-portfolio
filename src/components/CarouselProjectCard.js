@@ -12,7 +12,7 @@ export default function CarouselProjectCard({ project }) {
             alt={project.title}
             width={800}
             height={450}
-            style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+            style={{ objectFit: 'contain', width: '100%', height: '100%' }}
           />
           <div className="card-overlay" />
         </div>
@@ -49,7 +49,7 @@ export default function CarouselProjectCard({ project }) {
           .card-image-wrap {
             position: relative;
             overflow: hidden;
-            aspect-ratio: 16/9;
+            aspect-ratio: 3/2;
             background: rgba(10, 10, 15, 0.8);
           }
           .card-overlay {
