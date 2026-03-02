@@ -10,18 +10,18 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>William Fagan — Product Manager &amp; Developer</title>
-        <meta name="description" content="Portfolio of William Fagan — Product Manager, Developer, and Innovator. Crafting the future with sleek, futuristic digital experiences." />
+        <title>William Fagan — Strategic Manager &amp; Developer</title>
+        <meta name="description" content="Portfolio of William Fagan — Strategic Manager, Developer, and Innovator. Product leadership spanning robotics, SaaS, and cross-functional teams." />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://williamhfagan.com" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="William Fagan — Product Manager & Developer" />
-        <meta property="og:description" content="Crafting the future with sleek, futuristic digital experiences." />
+        <meta property="og:title" content="William Fagan — Strategic Manager & Developer" />
+        <meta property="og:description" content="Product leadership spanning robotics, SaaS, and cross-functional teams." />
         <meta property="og:url" content="https://williamhfagan.com" />
         <meta property="og:image" content="https://williamhfagan.com/images/Headshot.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="William Fagan — Product Manager & Developer" />
-        <meta name="twitter:description" content="Crafting the future with sleek, futuristic digital experiences." />
+        <meta name="twitter:title" content="William Fagan — Strategic Manager & Developer" />
+        <meta name="twitter:description" content="Product leadership spanning robotics, SaaS, and cross-functional teams." />
         <meta name="twitter:image" content="https://williamhfagan.com/images/Headshot.png" />
       </Head>
       <Hero />

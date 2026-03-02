@@ -44,22 +44,22 @@ export default function Resume() {
             >
               <div className="summary">
                 <p style={{ fontFamily: "'Nexa Bold', sans-serif", fontSize: "1.25rem", maxWidth: "37.5rem", marginTop: "0rem" }}>
-                I am a strategic project and product manager with ~5 years of experience bridging the gap between technical teams and client objectives. I have led diverse projects —from robotic deployments to website SEO and accessibility enhancements to agile software development— ensuring on-time, within-budget delivery. Passionate about innovation and streamlined operations, I excel at turning complex technical concepts into clear, actionable strategies.
+                Product manager with experience spanning robotics hardware, SaaS platforms, and cross-functional team leadership. Turns technical complexity into clear product direction from early customer research through shipping and scaling.
                 </p>
               </div>
               <div className="highlights-section">
                 <ul className="highlights-list">
                   <li className="highlight-item">
-                    <span className="highlight-icon"><FaUsers size={24} /></span> Led cross-functional teams to achieve project goals while fostering a positive team culture
+                    <span className="highlight-icon"><FaUsers size={24} /></span> Cross-functional jam breaker—unblocking complex technical projects spanning multiple teams
                   </li>
                   <li className="highlight-item">
-                    <span className="highlight-icon"><FaRocket size={24} /></span> Transformed products from prototypes to market-ready solutions
+                    <span className="highlight-icon"><FaRocket size={24} /></span> Drove data architecture and technical scaling initiatives to support 5× company growth
                   </li>
                   <li className="highlight-item">
-                    <span className="highlight-icon"><FaHandshake size={24} /></span> Championed client-centric development that turned clients into advocates
+                    <span className="highlight-icon"><FaHandshake size={24} /></span> Built sales pipelines from zero through direct outreach, trade shows, and community engagement
                   </li>
                   <li className="highlight-item">
-                    <span className="highlight-icon"><FaTools size={24} /></span> Leveraged the latest, cutting-edge tools and technologies
+                    <span className="highlight-icon"><FaTools size={24} /></span> Bridged technical teams and non-technical stakeholders—from field research to VC fundraising
                   </li>
                 </ul>
                 <AnimatedCounterComponent />

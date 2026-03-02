@@ -399,7 +399,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
-              <h2>Product Manager &middot; Developer &middot; Innovator</h2>
+              <h2>Strategic Manager &middot; Developer &middot; Innovator</h2>
             </motion.div>
             <div className="hero-body">
               <motion.div
@@ -409,7 +409,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
               >
                 <p>
-                  Welcome to my digital space, where creativity meets technology. I design and develop sleek, futuristic experiences that blend aesthetics with functionality. Explore my projects, skills, and vision—crafted with precision, innovation, and a passion for pushing the boundaries of design.
+                  Product manager with experience spanning robotics hardware, SaaS platforms, and cross-functional team leadership. I turn technical complexity into clear product direction—from early customer research through shipping and scaling.
                 </p>
               </motion.div>
               <motion.div
