@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
@@ -203,9 +204,13 @@ export default function About() {
                       <div className="slider-card">
                         {item.mediaType === "image" && (
                           <>
-                            <img
+                            <Image
                               src={item.src}
                               alt={item.title || passion.title}
+                              width={600}
+                              height={400}
+                              loading="lazy"
+                              style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
                             />
                             {item.title && (
                               <p className="media-title">{item.title}</p>

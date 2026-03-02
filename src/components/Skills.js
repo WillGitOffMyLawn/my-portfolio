@@ -225,8 +225,6 @@ export default function SkillsWithFlexBadges() {
 
         .skill-category {
           background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(0.75rem);
-          -webkit-backdrop-filter: blur(0.75rem);
           border-radius: 1.25rem;
           padding: 1.25rem;
           border: 1px solid rgba(255, 255, 255, 0.15);
