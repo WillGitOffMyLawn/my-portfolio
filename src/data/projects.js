@@ -8,11 +8,11 @@ const projects = [
     category: 'Websites',
     image: '/images/TheBlueList1.webp',
     images: ['/images/TheBlueList1.webp', '/images/TheBlueList2.webp', '/images/TheBlueList3.webp'],
-    skills: ['HTML', 'CSS', 'JavaScript'],
+    skills: ['UX/UI', 'Wireframing', 'Responsive Design', 'Agile', 'Technical Translation'],
     shortDescription:
-      'A cutting-edge college search engine that revolutionizes how high school students explore higher education',
+      'A cutting-edge college search engine that revolutionizes how high school students explore higher education.',
     longDescription:
-      'For The Blue List, I spearheaded the design and development of a cutting-edge college search engine that revolutionizes how high school students explore higher education. This platform features a dynamic map search and an advanced filtering system that lets students narrow their options by region, state, GPA range of accepted students, campus size, available majors, and even "vibe tags"—carefully selected by college counselors to capture the unique character of each school. To achieve this, I collaborated closely with both technical teams and educational experts, ensuring the filtering system was not only robust but also delivered results in under 0.5 seconds—a significant upgrade over the previous site. The result is a beautiful, intuitive, and highly responsive experience that empowers students to make well-informed college decisions while providing a seamless user experience.',
+      'For The Blue List, I spearheaded the design and development of a cutting-edge college search engine that revolutionizes how high school students explore higher education. This platform features a dynamic map search and an advanced filtering system that lets students narrow their options by region, state, GPA range of accepted students, campus size, available majors, and even \u201cvibe tags\u201d.\n\nWorking closely with both technical teams and educational experts, I ensured the filtering system was not only robust but also delivered results in under 0.5 seconds - a significant upgrade over the previous site. The custom map interface allows students to visualize college locations and explore options they might never have considered otherwise.\n\nThe result is a beautiful, intuitive, and highly responsive experience that empowers students to make well-informed college decisions while providing a seamless user experience across all devices.',
     featured: true,
     featuredOrder: 4,
   },
@@ -22,9 +22,9 @@ const projects = [
     category: 'Websites',
     image: '/images/SmartKonnection1.webp',
     images: ['/images/SmartKonnection1.webp', '/images/SmartKonnection2.webp'],
-    skills: ['React', 'Node.js', 'Express'],
+    skills: ['PHP', 'Wireframing', 'SEO', 'UX/UI', 'Waterfall', 'Google Analytics', 'Technical Translation'],
     shortDescription:
-      'A custom-built e-commerce marketplace focused on supporting local brick and mortar stores',
+      'A custom-built e-commerce marketplace focused on supporting local brick and mortar stores.',
     longDescription:
       'Smart Konnection is a custom-built e-commerce marketplace focused on supporting local brick and mortar stores that also seamlessly combines traditional credit card payments with innovative cryptocurrency transactions.\n\nI personally handled all of the wireframing and directed the development process to create an intuitive platform where merchants can sign up to offer goods, services, gift cards, and coupons.\n\nThe site includes a robust backend that allows merchants to manage advertising space, featured business slots, and real-time coupon redemptions, ensuring a smooth and engaging experience for both customers and business owners. Our collaboration with Forumpay led to the creation of a secure and flexible payment gateway, highlighting the project\'s commitment to modern payment innovations and user-friendly design.',
     featured: false,
@@ -35,11 +35,11 @@ const projects = [
     category: 'Websites',
     image: '/images/ElevateScholars1.webp',
     images: ['/images/ElevateScholars1.webp', '/images/ElevateScholars2.webp', '/images/ElevateScholars3.webp'],
-    skills: ['PHP', 'HTML', 'CSS', 'Bootstrap'],
+    skills: ['PHP', 'UX/UI', 'Communication'],
     shortDescription:
-      'A custom PHP platform specifically tailored for a tutoring company serving grades 3–12',
+      'A custom PHP website for a tutoring company serving grades 3\u201312 with conflict-free scheduling.',
     longDescription:
-      'For Elevate Scholars Academy, I directed the design and development of a custom PHP platform specifically tailored for a tutoring company serving grades 3–12. The project\'s highlight was the creation of a custom calendar tool that efficiently tracks and books appointments while preventing scheduling conflicts.\n\nWorking closely with the academy\'s top tutor, we fine-tuned every aspect—from seamless user account creation to the integration of appointment notifications complete with Zoom links for online sessions. This project not only simplified scheduling but also enhanced the overall tutoring experience, ensuring reliability and ease of use for both students and tutors.',
+      'For this project, I directed the design and development of a custom PHP website specifically tailored for a tutoring company serving grades 3\u201312. One of the project\u2019s highlight was the creation of a custom calendar tool that efficiently tracks and books appointments while preventing scheduling conflicts.\n\nWorking closely with the academy\u2019s top tutor, we fine-tuned every aspect\u2014from seamless user account creation to appointment notifications complete with Zoom links for online sessions. This project not only simplified scheduling but also enhanced the overall tutoring experience, ensuring reliability and ease of use for both students and tutors.',
     featured: false,
   },
   {
@@ -48,52 +48,52 @@ const projects = [
     category: 'Websites',
     image: '/images/TLBrownLaw1.webp',
     images: ['/images/TLBrownLaw1.webp', '/images/TLBrownLaw2.webp'],
-    skills: ['WordPress', 'WPML', 'PHP'],
+    skills: ['UX/UI', 'Accessibility', 'Wireframing', 'WordPress', 'Communication', 'Waterfall'],
     shortDescription:
       'A bilingual law firm website consolidating two domains into one unified, multilingual experience.',
     longDescription:
-      'In revamping TL Brown Law\'s digital presence, I took full responsibility for both the design and development of a new, comprehensive website for a successful law firm serving over 7,500 clients. The project involved consolidating the firm\'s bilingual needs—previously handled by two separate domains—into a unified site.\n\nI conducted thorough research and implemented the WPML plugin to seamlessly manage multilingual content, reducing inconsistencies and hosting costs. The website also features detailed service descriptions, a secure document submission system, a dedicated payment portal, and a live chat function, all of which I personally built to meet the firm\'s high standards for security and usability.',
+      'In revamping TL Brown Law\'s digital presence, I took full responsibility for both the design and development of a new, comprehensive website for a successful law firm serving over 7,500 clients. The project involved consolidating the firm\'s bilingual needs\u2014previously handled by two separate domains\u2014into a unified site.\n\nI conducted thorough research and implemented the WPML plugin to seamlessly manage multilingual content, reducing inconsistencies and hosting costs. The website also features detailed service descriptions, a secure document submission system, a dedicated payment portal, and a live chat function, all of which I personally put together to meet the firm\'s high standards for security and usability.',
     featured: false,
   },
   {
     slug: 'hydroponics',
     title: 'Hydroponics',
-    category: 'Gardening',
+    category: 'Hardware',
     image: '/images/Hydroponics1.webp',
     images: ['/images/Hydroponics1.webp', '/images/Hydroponics2.webp'],
-    skills: ['Python', 'Raspberry Pi', 'Sensors'],
+    skills: ['Prototyping', 'Embedded Systems', 'Sensors & Actuators'],
     shortDescription:
-      'An automated hydroponic growing system with real-time monitoring and environmental controls.',
+      'A hydroponic system growing 50 plants indoors, transforming a blank wall into a sustainable oasis.',
     longDescription:
-      'The Hydroponics project is a fully automated indoor growing system that combines hardware sensors with software intelligence. Using a Raspberry Pi as the central controller, the system monitors water pH levels, nutrient concentration, temperature, and humidity in real time.\n\nCustom Python scripts handle the automation logic—triggering pumps for nutrient delivery, adjusting grow lights on schedules optimized for plant growth cycles, and sending alerts when readings fall outside ideal ranges. The project represents a hands-on intersection of software engineering and sustainable agriculture, turning a spare room into a precision-controlled growing environment.',
+      'I built a hydroponics system to grow 50 plants in my dining room, transforming a blank wall into a green, sustainable oasis. Hydroponics, which grows plants without soil by suspending roots in nutrient-rich, circulated water and using artificial light, eliminates the need for pesticides, maximizes space by stacking plants vertically, and boosts growth\u2014using just 1/10th the water while growing crops up to 200% faster. My passion for efficient systems, sparked by a senior year project on an innovative hydroponics grocery store, inspired me to dive deeper into sustainable farming methods.\n\nTo bring this concept to life, I built a prototype using readily available materials like PVC and an old cooler, serving as a practical proof of concept. The design was created to be both functional and aesthetically appealing, seamlessly integrating into our living space. This project not only awakened my interest in sustainable living but also laid the groundwork for future enhancements, such as modular design and automated nutrient and pH regulation, to further optimize the system.',
     featured: true,
     featuredOrder: 5,
   },
   {
     slug: 'pandora',
-    title: 'Pandora',
-    category: 'Tech',
+    title: "Pandora's Box",
+    category: 'Hardware',
     image: '/images/Pandora1.webp',
     images: ['/images/Pandora1.webp', '/images/Pandora2.webp', '/images/Pandora3.webp', '/images/Pandora4.webp', '/images/Pandora5.webp', '/images/Pandora6.webp', '/images/Pandora7.webp'],
-    skills: ['Node.js', 'Express', 'MongoDB'],
+    skills: ['Prototyping', 'Excel', 'API Integration', '3D Printing', 'User Stories', 'CAD', 'PowerPoint', 'Embedded Systems', 'Entrepreneurship', 'DFM', 'Sensors & Actuators', 'Agile', 'Roadmapping', 'Word', 'UX/UI', 'Technical Translation'],
     shortDescription:
-      'A personal knowledge base and project management tool with real-time collaboration features.',
+      'An automated cocktail-pouring machine designed to transform the bar and restaurant experience.',
     longDescription:
-      'Pandora is a self-hosted knowledge management platform built for organizing ideas, research, and project documentation in one place. Named after the mythological box of knowledge, it features a Node.js backend with MongoDB for flexible document storage.\n\nThe platform supports rich-text editing, file attachments, tagging systems, and cross-referencing between entries. It was designed as an internal tool for managing the complexity of running multiple concurrent projects, providing quick access to technical notes, client requirements, and architectural decisions.',
+      "Pandora\u2019s Box is an automated cocktail-pouring machine designed to transform the bar and restaurant experience by delivering a quick, safe, and consistent solution for ordering drinks. Born from the challenges of the pandemic, my roommate and I created this innovative product as an elegant culmination of our mechanical design, electrical engineering, and full stack development experience. Over the course of the project, we iterated through four mechanical versions and three software versions\u2014evolving from initial CAD designs to a pressurized solenoid system with a fully integrated tablet application and cloud deployment, complete with 16 bottle slots that allow the machine to serve hundreds of different drink combinations in under five seconds per pour.\n\nWe deployed our third prototype in 2020 at a Boulder, CO restaurant, where it was projected to save the business $1,500\u2013$2,000 each month. We even took it backstage at a music festival, serving VIPs 265 drinks in a single night. This project was a tremendous learning experience in taking a complex product from 0 to 1 and embracing the entrepreneurship journey. In addition to overcoming significant technical challenges, the process taught us the importance of agile development, real-time iteration, and gathering user feedback to continuously refine the product\u2014a mindset that continues to drive my approach to innovation.",
     featured: true,
     featuredOrder: 1,
   },
   {
     slug: 'crystal-garden',
-    title: 'CrystalGarden',
-    category: 'Gardening',
+    title: 'Crystal Garden',
+    category: 'Hardware',
     image: '/images/CrystalGarden1.webp',
     images: ['/images/CrystalGarden1.webp', '/images/CrystalGarden2.webp', '/images/CrystalGarden3.webp'],
-    skills: ['HTML', 'CSS', 'JavaScript', 'React'],
+    skills: ['Entrepreneurship', 'Figma', 'Prototyping', 'BOM Management', 'VS Code', 'Embedded Systems', '3D Printing', 'DFM', 'Strategic Planning', 'UX/UI', 'Market Analysis', 'Communication'],
     shortDescription:
-      'A digital companion app for tracking crystal and mineral collections with detailed specimen data.',
+      'A 3D printed indoor planter with selenite crystal illumination, sold in stores and online.',
     longDescription:
-      'CrystalGarden is a web application designed for mineral and crystal enthusiasts to catalog, track, and learn about their collections. The app features a clean, visual interface where users can log specimens with photos, origin data, Mohs hardness ratings, and personal notes.\n\nBuilt with React for a responsive single-page experience, the app includes search and filter functionality, a visual gallery mode, and educational content about crystal properties. It\'s a passion project that combines my interests in both technology and the natural world.',
+      'The Crystal Garden is an indoor planter that transforms any space with its modern, 3D printed design and captivating illumination. A ridge of selenite crystals diffuses programmable LED lights, creating a beautiful backdrop for your plants. The ethereal quality of the selenite, which casts a soft, captivating glow, was the inspiration behind this unique decor piece.\n\nI launched the Crystal Garden to immerse myself fully in every stage of the product lifecycle, gaining hands-on experience in product ideation, 3D CAD design, marketing, manufacturing, and distribution. This project deepened my understanding of entrepreneurship and building efficient systems, while challenging me to explore innovative design approaches. Today, the Crystal Garden is featured in four brick-and-mortar stores and is available through multiple online channels. Through Nonagon Designs, I continue to refine my skills and evolve my personal brand as an artistic outlet.',
     featured: true,
     featuredOrder: 2,
   },
@@ -103,11 +103,11 @@ const projects = [
     category: 'Web and Mobile Apps',
     image: '/images/Optio1.webp',
     images: ['/images/Optio1.webp', '/images/Optio2.webp', '/images/Optio3.webp', '/images/Optio4.webp'],
-    skills: ['Flutter', 'Firebase', 'Dart'],
+    skills: ['Roadmapping', 'Agile', 'API Integration', 'Jira', 'Zapier', 'UX/UI', 'Strategic Planning', 'ROS', 'PowerPoint', 'Hubspot', 'Word', 'Excel', 'User Stories', 'Entrepreneurship', 'Market Analysis', 'Embedded Systems', 'Technical Translation', 'BOM Management', 'Communication'],
     shortDescription:
-      'A decision-making app that helps users weigh options with structured pros/cons analysis and scoring.',
+      'MES software for manufacturing \u2014 bridging technical experts and clients on the factory floor.',
     longDescription:
-      'Optio is a Flutter-based mobile application designed to help people make better decisions when faced with multiple choices. Whether choosing between job offers, apartments, or investment options, the app guides users through a structured evaluation process.\n\nUsers define their criteria, weight each factor by importance, and score each option. Optio then calculates weighted scores and presents clear visualizations comparing the alternatives. Built with Flutter for a smooth native experience on both iOS and Android, with Firebase handling user accounts and cloud-synced decision boards.',
+      'As a product manager on the Optio team, I bridged the gap between our technical experts and manufacturing clients by overseeing the strategic development of our MES software. I defined a clear product roadmap addressing critical needs such as real-time data visualization, one-touch defect reporting, digital work instructions, and seamless ERP integration. By actively engaging with stakeholders, I gathered essential feedback that enabled rapid feature iterations via agile methodologies, transforming complex operational challenges into robust, user-friendly solutions. Our streamlined one-hour setup brought advanced digital Lean Manufacturing principles directly to the factory floor, empowering small to medium factories to reduce lead times and minimize waste.\n\nI began my role with in-depth market research and devised a comprehensive go-to-market strategy that repositioned our product from a robotics-focused solution to a scalable SaaS model. Our strategy was to first digitize manufacturing processes with our software and then integrate modular robotics solutions to capture low-hanging optimization opportunities. I led cross-functional teams\u2014working closely with engineers, designers, and manufacturing specialists\u2014to convert intricate challenges into effective software tools. By turning early adopters into passionate advocates through targeted prototype deployments and personalized account management, I validated our product in the market and delivered an easy to use, scalable platform that drives operational excellence through digital transformation and Industry 4.0 technologies.',
     featured: true,
     featuredOrder: 3,
   },
@@ -117,11 +117,11 @@ const projects = [
     category: 'Web and Mobile Apps',
     image: '/images/ReachOut1.webp',
     images: ['/images/ReachOut1.webp', '/images/ReachOut2.webp', '/images/ReachOut3.webp', '/images/ReachOut4.webp'],
-    skills: ['React Native', 'Expo', 'Firebase'],
+    skills: ['UX/UI', 'Wireframing', 'Technical Translation', 'Communication', 'Responsive Design', 'Accessibility'],
     shortDescription:
-      'A mobile app connecting volunteers with local community service opportunities in real time.',
+      'A mobile app for first responders with offline access to essential crisis resources.',
     longDescription:
-      'Reach Out is a React Native mobile application designed to bridge the gap between willing volunteers and organizations in need. The app uses location-based services to surface nearby community service opportunities—from food bank shifts to park cleanups—and lets users sign up with a single tap.\n\nBuilt with Expo for cross-platform deployment and backed by Firebase for real-time data sync, the app includes user profiles with volunteer hour tracking, push notifications for new opportunities, and an organization dashboard for posting and managing events. The goal is to make volunteering as easy as ordering food delivery.',
+      'Reach Out is an easy to use mobile app designed specifically for first responders, offering offline access to essential resources when seconds count. The app includes a wealth of tools such as instructional videos and documents to assist with mental health crises, detailed drug identification guides, and interactive maps paired with contact information for the nearest hospitals and critical facilities. Each resource is thoughtfully curated to ensure that first responders have quick, reliable access to the information they need in the field, regardless of network availability.\n\nRecognizing that every first responder team has unique requirements, Reach Out features dedicated sections for individual departments, making it easy for users to find department-specific training and resources. Available on both Android and iPhone, the app is poised to become a standard tool across first responder communities, streamlining operations and enhancing on-field decision-making. With its user-centric design and robust offline capabilities, Reach Out is set to empower emergency personnel, ensuring they\u2019re always equipped with the right tools at the right time.',
     featured: false,
   },
   {
@@ -130,20 +130,20 @@ const projects = [
     category: 'Websites',
     image: '/images/HealthWorkers1.webp',
     images: ['/images/HealthWorkers1.webp', '/images/HealthWorkers2.webp', '/images/HealthWorkers3.webp', '/images/HealthWorkers4.webp'],
-    skills: ['Django', 'Python', 'PostgreSQL'],
+    skills: ['PHP', 'UX/UI', 'Resource Planning', 'Agile', 'User Stories', 'Technical Translation', 'Communication'],
     shortDescription:
-      'A searchable directory connecting communities with local healthcare workers by zip code.',
+      'The Uber for healthcare professionals \u2014 managing patients, organizations, providers, and admins.',
     longDescription:
-      'Health Workers By Zip is a Django-powered web application that makes it easy for people to find healthcare professionals in their area. Users enter a zip code and can filter results by specialty, insurance accepted, languages spoken, and availability.\n\nThe backend uses PostgreSQL with geospatial queries for accurate distance calculations, while the frontend presents results in both list and map views. The platform was built to address healthcare accessibility gaps, particularly in underserved communities where finding a nearby provider can be a significant barrier to care.',
+      'Health Workers by Zip is essentially the Uber for healthcare professionals, a project that required managing a complex ecosystem of four distinct user types: patients, organizations, care providers, and administrators. I directed the design and development of this custom PHP platform, where meticulous testing and overcoming database hurdles were critical to ensuring smooth operation across all dashboards.\n\nThe platform includes a secure messaging system, comprehensive timesheet and approval processes, and robust account management capabilities that keep the system both reliable and scalable. Every feature was engineered to ensure that the various user interactions\u2014from posting jobs to submitting timesheets\u2014are seamless and efficient, supporting the dynamic needs of the growing at-home healthcare sector.',
     featured: false,
   },
   {
     slug: 'smart-home',
     title: 'Smart Home',
-    category: 'Tech',
+    category: 'Hardware',
     image: '/images/SmartHome1.webp',
     images: ['/images/SmartHome1.webp', '/images/SmartHome2.webp'],
-    skills: ['Home Assistant', 'IoT', 'Automation'],
+    skills: ['Home Assistant', 'IoT', 'Automation', 'Embedded Systems'],
     shortDescription:
       'A comprehensive smart home system with automated lighting, climate control, and security integrations.',
     longDescription:
@@ -158,9 +158,9 @@ const projects = [
     images: ['/images/MyPortfolio1.webp', '/images/MyPortfolio2.webp'],
     skills: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion'],
     shortDescription:
-      'This very site — a cosmic glassmorphism portfolio built with Next.js, featuring canvas animations and custom fonts.',
+      'This very site \u2014 a cosmic glassmorphism portfolio built with Next.js, featuring canvas animations and custom fonts.',
     longDescription:
-      'This portfolio is a showcase of both my work and my design philosophy. Built with Next.js and React, it features a custom canvas-based blob animation system, glassmorphic UI panels with layered transparencies, and a cosmic star field background.\n\nEvery detail is intentional — from the custom Zilap Orion display font to the parallax-responsive background gradients that react to mouse movement. The site serves as both a portfolio and a design experiment, pushing the boundaries of what a personal website can feel like.',
+      'This portfolio is a showcase of both my work and my design philosophy. Built with Next.js and React, it features a custom canvas-based blob animation system, glassmorphic UI panels with layered transparencies, and a cosmic star field background.\n\nEvery detail is intentional \u2014 from the custom Zilap Orion display font to the parallax-responsive background gradients that react to mouse movement. The site serves as both a portfolio and a design experiment, pushing the boundaries of what a personal website can feel like.',
     featured: false,
   },
   {
@@ -169,11 +169,11 @@ const projects = [
     category: 'Websites',
     image: '/images/MoreSites1.webp',
     images: ['/images/MoreSites1.webp', '/images/MoreSites2.webp', '/images/MoreSites3.webp', '/images/MoreSites4.webp', '/images/MoreSites5.webp', '/images/MoreSites6.webp'],
-    skills: ['WordPress', 'HTML', 'CSS'],
+    skills: ['WordPress', 'Shopify', 'Squarespace', 'Wix', 'Webflow', 'Asana', 'MS Project', 'Communication', 'Word', 'Excel', 'PHP', 'HTML', 'CSS', 'JavaScript', 'Terraform', 'UX/UI', 'Accessibility', 'SEO', 'Google Analytics', 'Responsive Design', 'Technical Translation', 'Zapier'],
     shortDescription:
-      'A collection of additional WordPress and custom websites built for various clients and industries.',
+      'Over 30 websites across WordPress, Shopify, Squarespace, Wix, Webflow, and custom-built solutions.',
     longDescription:
-      'Beyond the featured projects, I\'ve designed and developed numerous websites across industries — from restaurant landing pages to professional service firms. These projects demonstrate versatility in working with different platforms, client requirements, and design aesthetics.\n\nEach site was tailored to the client\'s brand identity and business goals, with attention to SEO, mobile responsiveness, and conversion optimization. Platforms used range from custom-coded solutions to WordPress with bespoke themes.',
+      'I have worked on over 30 websites that span a range of platforms including WordPress, Shopify, Squarespace, Wix, Webflow, and fully custom-built solutions. My website portfolio reflects a broad spectrum of design and development work that consistently meets client needs and adapts to various technical challenges, serving industries as diverse as retail, healthcare, legal, and education.\n\nI bring a balanced approach to project management that emphasizes creative vision alongside rigorous performance and optimization standards. For more examples of my work, please visit sunlightmedia.org/portfolio, where you can see how I help bring ideas to life through thoughtful, user-centered digital solutions.',
     featured: false,
   },
 ];
