@@ -128,7 +128,6 @@ export default function Resume() {
           grid-template-columns: 2fr 1fr;
           gap: 1.875rem; // 30px
           align-items: start;
-          margin-bottom: 1.875rem; // 30px
         }
         
         .resume-left {
@@ -140,7 +139,7 @@ export default function Resume() {
         }
         
         .highlights-section {
-          margin-bottom: 1.875rem; // 30px
+          margin-bottom: 0;
         }
         
         .highlights-list {
