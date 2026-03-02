@@ -26,11 +26,18 @@ export default function Navbar() {
       if (!isHome) return;
       const sections = NAV_LINKS.map(l => l.section);
       let current = 'hero';
-      for (const id of sections) {
-        const el = document.getElementById(id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 120) current = id;
+      
+      // Check if scrolled to bottom of page — activate last section
+      const scrolledToBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 100);
+      if (scrolledToBottom) {
+        current = sections[sections.length - 1];
+      } else {
+        for (const id of sections) {
+          const el = document.getElementById(id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= 120) current = id;
+          }
         }
       }
       setActiveSection(current);

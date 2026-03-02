@@ -10,13 +10,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-gradient-to-r from-purple-600 to-violet-500 text-white shadow-md hover:shadow-lg hover:translate-y-[-2px] hover:from-purple-500 hover:to-violet-400 active:translate-y-[1px]",
+          "bg-[rgba(20,20,20,0.6)] backdrop-blur-[12px] text-white border border-[rgba(255,255,255,0.15)] shadow-md hover:shadow-[0_0_20px_rgba(124,58,237,0.3)] hover:border-[rgba(124,58,237,0.4)] hover:translate-y-[-2px] active:translate-y-[1px]",
         destructive:
           "bg-gradient-to-r from-red-600 to-rose-500 text-white shadow-md hover:shadow-lg hover:translate-y-[-2px] hover:from-red-500 hover:to-rose-400 active:translate-y-[1px]",
         outline:
-          "border-2 border-input bg-background/80 backdrop-blur-sm shadow-sm hover:bg-accent hover:text-accent-foreground hover:border-violet-400 hover:shadow-md",
+          "border border-[rgba(255,255,255,0.15)] bg-[rgba(20,20,20,0.4)] backdrop-blur-[12px] text-white shadow-sm hover:border-[rgba(124,58,237,0.4)] hover:shadow-[0_0_15px_rgba(124,58,237,0.2)] hover:translate-y-[-1px]",
         secondary:
-          "bg-gradient-to-r from-zinc-700 to-zinc-800 text-white shadow-sm hover:shadow-md hover:translate-y-[-1px] hover:from-zinc-600 hover:to-zinc-700 active:translate-y-[1px]",
+          "bg-[rgba(30,30,30,0.5)] backdrop-blur-[8px] text-white border border-[rgba(255,255,255,0.1)] shadow-sm hover:shadow-md hover:translate-y-[-1px] hover:border-[rgba(16,185,129,0.3)] active:translate-y-[1px]",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },

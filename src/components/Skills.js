@@ -123,12 +123,12 @@ export default function SkillsWithFlexBadges() {
             {proficiencyLevels.map((p) => (
               <Badge 
                 key={p.level}
+                variant="outline"
                 style={{ 
-                  "--badge-bg-color": p.color,
-                  "--badge-text-color": "#1a1a1a",
                   backgroundColor: p.color,
                   color: "#1a1a1a",
-                  fontWeight: 'bold'
+                  fontWeight: 'bold',
+                  borderColor: 'transparent'
                 }}
               >
                 {p.label}
@@ -162,12 +162,12 @@ export default function SkillsWithFlexBadges() {
                       {skills.map((skill) => (
                         <Badge 
                           key={skill.name}
+                          variant="outline"
                           style={{ 
-                            "--badge-bg-color": getBadgeColor(skill.level),
-                            "--badge-text-color": "#1a1a1a",
                             backgroundColor: getBadgeColor(skill.level),
                             color: "#1a1a1a",
-                            fontWeight: 'bold'
+                            fontWeight: 'bold',
+                            borderColor: 'transparent'
                           }}
                         >
                           {skill.name}

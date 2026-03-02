@@ -436,7 +436,7 @@ export default function Hero() {
       
       <style jsx global>{`
         .hero {
-          padding: 120px 0 80px;
+          padding: 80px 0 40px;
           color: #fff;
           position: relative;
           overflow: hidden;
@@ -528,7 +528,7 @@ export default function Hero() {
           display: flex;
           align-items: center;
           gap: 2rem;
-          margin-top: 1rem;
+          margin-top: 0.5rem;
         }
         
         .hero-text {

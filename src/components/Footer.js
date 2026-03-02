@@ -28,6 +28,7 @@ export default function Footer() {
           position: relative;
           z-index: 20;
           padding: 2rem 1.5rem;
+          margin-top: 4rem;
           border-top: 1px solid rgba(255, 255, 255, 0.15);
           background: rgba(10, 10, 15, 0.6);
           backdrop-filter: blur(0.75rem);

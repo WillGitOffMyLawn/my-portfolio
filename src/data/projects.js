@@ -14,6 +14,7 @@ const projects = [
     longDescription:
       'For The Blue List, I spearheaded the design and development of a cutting-edge college search engine that revolutionizes how high school students explore higher education. This platform features a dynamic map search and an advanced filtering system that lets students narrow their options by region, state, GPA range of accepted students, campus size, available majors, and even "vibe tags"—carefully selected by college counselors to capture the unique character of each school.\n\nWorking closely with both technical teams and educational experts, I ensured the filtering system was not only robust but also delivered results in under 0.5 seconds—a significant upgrade over the previous site. The custom map interface allows students to visualize college locations and explore options they might never have considered otherwise.\n\nThe result is a beautiful, intuitive, and highly responsive experience that empowers students to make well-informed college decisions while providing a seamless user experience across all devices.',
     featured: true,
+    featuredOrder: 4,
   },
   {
     slug: 'smart-konnection',
@@ -26,7 +27,7 @@ const projects = [
       'A custom-built e-commerce marketplace supporting local brick-and-mortar stores with crypto payment integration.',
     longDescription:
       'Smart Konnection is a custom-built e-commerce marketplace focused on supporting local brick and mortar stores that also seamlessly combines traditional credit card payments with innovative cryptocurrency transactions.\n\nI personally handled all of the wireframing and directed the development process to create an intuitive platform where merchants can sign up to offer goods, services, gift cards, and coupons.\n\nThe site includes a robust backend that allows merchants to manage advertising space, featured business slots, and real-time coupon redemptions, ensuring a smooth and engaging experience for both customers and business owners. Our collaboration with Forumpay led to the creation of a secure and flexible payment gateway, highlighting the project\'s commitment to modern payment innovations and user-friendly design.',
-    featured: true,
+    featured: false,
   },
   {
     slug: 'elevate-scholars-academy',
@@ -39,7 +40,7 @@ const projects = [
       'A custom PHP platform for a tutoring company serving grades 3–12, featuring conflict-free scheduling.',
     longDescription:
       'For Elevate Scholars Academy, I directed the design and development of a custom PHP platform specifically tailored for a tutoring company serving grades 3–12. The project\'s highlight was the creation of a custom calendar tool that efficiently tracks and books appointments while preventing scheduling conflicts.\n\nWorking closely with the academy\'s top tutor, we fine-tuned every aspect—from seamless user account creation to the integration of appointment notifications complete with Zoom links for online sessions. This project not only simplified scheduling but also enhanced the overall tutoring experience, ensuring reliability and ease of use for both students and tutors.',
-    featured: true,
+    featured: false,
   },
   {
     slug: 'tl-brown-law',
@@ -65,20 +66,8 @@ const projects = [
       'An automated hydroponic growing system with real-time monitoring and environmental controls.',
     longDescription:
       'The Hydroponics project is a fully automated indoor growing system that combines hardware sensors with software intelligence. Using a Raspberry Pi as the central controller, the system monitors water pH levels, nutrient concentration, temperature, and humidity in real time.\n\nCustom Python scripts handle the automation logic—triggering pumps for nutrient delivery, adjusting grow lights on schedules optimized for plant growth cycles, and sending alerts when readings fall outside ideal ranges. The project represents a hands-on intersection of software engineering and sustainable agriculture, turning a spare room into a precision-controlled growing environment.',
-    featured: false,
-  },
-  {
-    slug: 'crystal-garden',
-    title: 'CrystalGarden',
-    category: 'Gardening',
-    image: '/images/CrystalGarden1.png',
-    images: ['/images/CrystalGarden1.png'],
-    skills: ['HTML', 'CSS', 'JavaScript', 'React'],
-    shortDescription:
-      'A digital companion app for tracking crystal and mineral collections with detailed specimen data.',
-    longDescription:
-      'CrystalGarden is a web application designed for mineral and crystal enthusiasts to catalog, track, and learn about their collections. The app features a clean, visual interface where users can log specimens with photos, origin data, Mohs hardness ratings, and personal notes.\n\nBuilt with React for a responsive single-page experience, the app includes search and filter functionality, a visual gallery mode, and educational content about crystal properties. It\'s a passion project that combines my interests in both technology and the natural world.',
-    featured: false,
+    featured: true,
+    featuredOrder: 5,
   },
   {
     slug: 'pandora',
@@ -91,20 +80,22 @@ const projects = [
       'A personal knowledge base and project management tool with real-time collaboration features.',
     longDescription:
       'Pandora is a self-hosted knowledge management platform built for organizing ideas, research, and project documentation in one place. Named after the mythological box of knowledge, it features a Node.js backend with MongoDB for flexible document storage.\n\nThe platform supports rich-text editing, file attachments, tagging systems, and cross-referencing between entries. It was designed as an internal tool for managing the complexity of running multiple concurrent projects, providing quick access to technical notes, client requirements, and architectural decisions.',
-    featured: false,
+    featured: true,
+    featuredOrder: 1,
   },
   {
-    slug: 'reach-out',
-    title: 'Reach Out',
-    category: 'Web and Mobile Apps',
-    image: '/images/ReachOut1.png',
-    images: ['/images/ReachOut1.png'],
-    skills: ['React Native', 'Expo', 'Firebase'],
+    slug: 'crystal-garden',
+    title: 'CrystalGarden',
+    category: 'Gardening',
+    image: '/images/CrystalGarden1.png',
+    images: ['/images/CrystalGarden1.png'],
+    skills: ['HTML', 'CSS', 'JavaScript', 'React'],
     shortDescription:
-      'A mobile app connecting volunteers with local community service opportunities in real time.',
+      'A digital companion app for tracking crystal and mineral collections with detailed specimen data.',
     longDescription:
-      'Reach Out is a React Native mobile application designed to bridge the gap between willing volunteers and organizations in need. The app uses location-based services to surface nearby community service opportunities—from food bank shifts to park cleanups—and lets users sign up with a single tap.\n\nBuilt with Expo for cross-platform deployment and backed by Firebase for real-time data sync, the app includes user profiles with volunteer hour tracking, push notifications for new opportunities, and an organization dashboard for posting and managing events. The goal is to make volunteering as easy as ordering food delivery.',
-    featured: false,
+      'CrystalGarden is a web application designed for mineral and crystal enthusiasts to catalog, track, and learn about their collections. The app features a clean, visual interface where users can log specimens with photos, origin data, Mohs hardness ratings, and personal notes.\n\nBuilt with React for a responsive single-page experience, the app includes search and filter functionality, a visual gallery mode, and educational content about crystal properties. It\'s a passion project that combines my interests in both technology and the natural world.',
+    featured: true,
+    featuredOrder: 2,
   },
   {
     slug: 'optio',
@@ -117,6 +108,20 @@ const projects = [
       'A decision-making app that helps users weigh options with structured pros/cons analysis and scoring.',
     longDescription:
       'Optio is a Flutter-based mobile application designed to help people make better decisions when faced with multiple choices. Whether choosing between job offers, apartments, or investment options, the app guides users through a structured evaluation process.\n\nUsers define their criteria, weight each factor by importance, and score each option. Optio then calculates weighted scores and presents clear visualizations comparing the alternatives. Built with Flutter for a smooth native experience on both iOS and Android, with Firebase handling user accounts and cloud-synced decision boards.',
+    featured: true,
+    featuredOrder: 3,
+  },
+  {
+    slug: 'reach-out',
+    title: 'Reach Out',
+    category: 'Web and Mobile Apps',
+    image: '/images/ReachOut1.png',
+    images: ['/images/ReachOut1.png'],
+    skills: ['React Native', 'Expo', 'Firebase'],
+    shortDescription:
+      'A mobile app connecting volunteers with local community service opportunities in real time.',
+    longDescription:
+      'Reach Out is a React Native mobile application designed to bridge the gap between willing volunteers and organizations in need. The app uses location-based services to surface nearby community service opportunities—from food bank shifts to park cleanups—and lets users sign up with a single tap.\n\nBuilt with Expo for cross-platform deployment and backed by Firebase for real-time data sync, the app includes user profiles with volunteer hour tracking, push notifications for new opportunities, and an organization dashboard for posting and managing events. The goal is to make volunteering as easy as ordering food delivery.',
     featured: false,
   },
   {
@@ -181,7 +186,7 @@ export const getCategories = () => {
 
 // Helper: get featured projects for home page carousel
 export const getFeaturedProjects = () =>
-  projects.filter((p) => p.featured);
+  projects.filter((p) => p.featured).sort((a, b) => (a.featuredOrder || 99) - (b.featuredOrder || 99));
 
 // Helper: find project by slug
 export const getProjectBySlug = (slug) =>
