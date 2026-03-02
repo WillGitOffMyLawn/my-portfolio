@@ -144,6 +144,7 @@ const passionsData = [
       { mediaType: "image", src: "/images/newskillmotorcycle.webp", title: "Riding a motorcycle" },
       { mediaType: "image", src: "/images/newskilljewelry.webp", title: "Jewelry Design" },
       { mediaType: "image", src: "/images/newskillcryptomining.webp", title: "Crypto Mining" },
+      { mediaType: "image", src: "/images/carresto1.webp", title: "Car Restoration" },
     ],
   },
 ];

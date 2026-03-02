@@ -264,20 +264,17 @@ export default function SkillsWithFlexBadges() {
           display: flex;
           flex-wrap: wrap;
           gap: 0.625rem; // 10px
-          animation: expandSection 0.8s ease-out;
-          transform-origin: top;
+          animation: expandSection 0.3s ease-out;
         }
 
         @keyframes expandSection {
           from {
             opacity: 0;
-            transform: scaleY(0);
-            max-height: 0;
+            transform: translateY(-8px);
           }
           to {
             opacity: 1;
-            transform: scaleY(1);
-            max-height: 31.25rem; // 500px
+            transform: translateY(0);
           }
         }
       `}</style>
