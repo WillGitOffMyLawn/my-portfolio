@@ -102,7 +102,7 @@ const projects = [
     title: 'Optio',
     category: 'Web and Mobile Apps',
     image: '/images/Optio1.png',
-    images: ['/images/Optio1.png'],
+    images: ['/images/Optio1.png', '/images/Optio2.png', '/images/Optio3.png'],
     skills: ['Flutter', 'Firebase', 'Dart'],
     shortDescription:
       'A decision-making app that helps users weigh options with structured pros/cons analysis and scoring.',
@@ -155,7 +155,7 @@ const projects = [
     title: 'More Sites',
     category: 'Websites',
     image: '/images/MoreSites1.png',
-    images: ['/images/MoreSites1.png', '/images/MoreSites2.png'],
+    images: ['/images/MoreSites1.png', '/images/MoreSites2.png', '/images/MoreSites3.png'],
     skills: ['WordPress', 'HTML', 'CSS'],
     shortDescription:
       'A collection of additional WordPress and custom websites built for various clients and industries.',
