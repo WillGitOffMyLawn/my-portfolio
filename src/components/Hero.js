@@ -423,7 +423,7 @@ export default function Hero() {
             >
               <div className="headshot-glow">
                 <Image 
-                  src="/images/Headshot.png" 
+                  src="/images/Headshot.webp" 
                   alt="Headshot of William Fagan"
                   width={400}
                   height={400}

@@ -18,11 +18,11 @@ export default function Home() {
         <meta property="og:title" content="William Fagan — Strategic Manager & Developer" />
         <meta property="og:description" content="Product leadership spanning robotics, SaaS, and cross-functional teams." />
         <meta property="og:url" content="https://williamhfagan.com" />
-        <meta property="og:image" content="https://williamhfagan.com/images/Headshot.png" />
+        <meta property="og:image" content="https://williamhfagan.com/images/Headshot.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="William Fagan — Strategic Manager & Developer" />
         <meta name="twitter:description" content="Product leadership spanning robotics, SaaS, and cross-functional teams." />
-        <meta name="twitter:image" content="https://williamhfagan.com/images/Headshot.png" />
+        <meta name="twitter:image" content="https://williamhfagan.com/images/Headshot.webp" />
       </Head>
       <Hero />
       <div className="home-container">

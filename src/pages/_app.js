@@ -110,7 +110,7 @@ function MyApp({ Component, pageProps }) {
               '@type': 'Person',
               name: 'William Fagan',
               url: 'https://williamhfagan.com',
-              image: 'https://williamhfagan.com/images/Headshot.png',
+              image: 'https://williamhfagan.com/images/Headshot.webp',
               jobTitle: 'Product Manager & Developer',
               sameAs: [
                 'https://github.com/WillGitOffMyLawn',

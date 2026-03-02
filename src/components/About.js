@@ -12,7 +12,7 @@ const passionsData = [
     items: [
       {
         mediaType: "image",
-        src: "/images/travel1.jpg",
+        src: "/images/travel1.webp",
         title: "Experienced the majesty of Zion National Park",
       },
       {
@@ -67,12 +67,12 @@ const passionsData = [
       },
       {
         mediaType: "image",
-        src: "/images/travel9.jpg",
+        src: "/images/travel9.webp",
         title: "Admired the stave church architecture in Norway",
       },
       {
         mediaType: "image",
-        src: "/images/travel10.jpg",
+        src: "/images/travel10.webp",
         title: "Sailed around Croatia's islands",
       },
     ],
@@ -133,17 +133,17 @@ const passionsData = [
   {
     title: "Learning New Skills",
     items: [
-      { mediaType: "image", src: "/images/newskill3dprinting.jpg", title: "3D Printing" },
-      { mediaType: "image", src: "/images/newskillpcbuilding.jpg", title: "PC Building" },
-      { mediaType: "image", src: "/images/newskillcad.jpg", title: "CAD" },
+      { mediaType: "image", src: "/images/newskill3dprinting.webp", title: "3D Printing" },
+      { mediaType: "image", src: "/images/newskillpcbuilding.webp", title: "PC Building" },
+      { mediaType: "image", src: "/images/newskillcad.webp", title: "CAD" },
       { 
         mediaType: "video", 
         src: "/videos/newskillblacksmithing.mp4", 
         title: "Blacksmithing" 
       },
-      { mediaType: "image", src: "/images/newskillmotorcycle.png", title: "Riding a motorcycle" },
-      { mediaType: "image", src: "/images/newskilljewelry.jpg", title: "Jewelry Design" },
-      { mediaType: "image", src: "/images/newskillcryptomining.jpg", title: "Crypto Mining" },
+      { mediaType: "image", src: "/images/newskillmotorcycle.webp", title: "Riding a motorcycle" },
+      { mediaType: "image", src: "/images/newskilljewelry.webp", title: "Jewelry Design" },
+      { mediaType: "image", src: "/images/newskillcryptomining.webp", title: "Crypto Mining" },
     ],
   },
 ];

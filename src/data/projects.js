@@ -6,8 +6,8 @@ const projects = [
     slug: 'the-blue-list',
     title: 'The Blue List',
     category: 'Websites',
-    image: '/images/TheBlueList1.png',
-    images: ['/images/TheBlueList1.png'],
+    image: '/images/TheBlueList1.webp',
+    images: ['/images/TheBlueList1.webp', '/images/TheBlueList2.webp', '/images/TheBlueList3.webp'],
     skills: ['HTML', 'CSS', 'JavaScript'],
     shortDescription:
       'A cutting-edge college search engine that revolutionizes how high school students explore higher education.',
@@ -20,8 +20,8 @@ const projects = [
     slug: 'smart-konnection',
     title: 'Smart Konnection',
     category: 'Websites',
-    image: '/images/SmartKonnection1.png',
-    images: ['/images/SmartKonnection1.png'],
+    image: '/images/SmartKonnection1.webp',
+    images: ['/images/SmartKonnection1.webp', '/images/SmartKonnection2.webp'],
     skills: ['React', 'Node.js', 'Express'],
     shortDescription:
       'A custom-built e-commerce marketplace supporting local brick-and-mortar stores with crypto payment integration.',
@@ -33,8 +33,8 @@ const projects = [
     slug: 'elevate-scholars-academy',
     title: 'Elevate Scholars Academy',
     category: 'Websites',
-    image: '/images/ElevateScholars1.png',
-    images: ['/images/ElevateScholars1.png'],
+    image: '/images/ElevateScholars1.webp',
+    images: ['/images/ElevateScholars1.webp', '/images/ElevateScholars2.webp', '/images/ElevateScholars3.webp'],
     skills: ['PHP', 'HTML', 'CSS', 'Bootstrap'],
     shortDescription:
       'A custom PHP platform for a tutoring company serving grades 3–12, featuring conflict-free scheduling.',
@@ -46,8 +46,8 @@ const projects = [
     slug: 'tl-brown-law',
     title: 'TL Brown Law',
     category: 'Websites',
-    image: '/images/TLBrownLaw1.png',
-    images: ['/images/TLBrownLaw1.png'],
+    image: '/images/TLBrownLaw1.webp',
+    images: ['/images/TLBrownLaw1.webp', '/images/TLBrownLaw2.webp'],
     skills: ['WordPress', 'WPML', 'PHP'],
     shortDescription:
       'A bilingual law firm website consolidating two domains into one unified, multilingual experience.',
@@ -59,8 +59,8 @@ const projects = [
     slug: 'hydroponics',
     title: 'Hydroponics',
     category: 'Gardening',
-    image: '/images/Hydroponics1.png',
-    images: ['/images/Hydroponics1.png'],
+    image: '/images/Hydroponics1.webp',
+    images: ['/images/Hydroponics1.webp', '/images/Hydroponics2.webp'],
     skills: ['Python', 'Raspberry Pi', 'Sensors'],
     shortDescription:
       'An automated hydroponic growing system with real-time monitoring and environmental controls.',
@@ -73,8 +73,8 @@ const projects = [
     slug: 'pandora',
     title: 'Pandora',
     category: 'Tech',
-    image: '/images/Pandora1.png',
-    images: ['/images/Pandora1.png'],
+    image: '/images/Pandora1.webp',
+    images: ['/images/Pandora1.webp', '/images/Pandora2.webp', '/images/Pandora3.webp', '/images/Pandora4.webp', '/images/Pandora5.webp', '/images/Pandora6.webp', '/images/Pandora7.webp'],
     skills: ['Node.js', 'Express', 'MongoDB'],
     shortDescription:
       'A personal knowledge base and project management tool with real-time collaboration features.',
@@ -87,8 +87,8 @@ const projects = [
     slug: 'crystal-garden',
     title: 'CrystalGarden',
     category: 'Gardening',
-    image: '/images/CrystalGarden1.png',
-    images: ['/images/CrystalGarden1.png'],
+    image: '/images/CrystalGarden1.webp',
+    images: ['/images/CrystalGarden1.webp', '/images/CrystalGarden2.webp', '/images/CrystalGarden3.webp'],
     skills: ['HTML', 'CSS', 'JavaScript', 'React'],
     shortDescription:
       'A digital companion app for tracking crystal and mineral collections with detailed specimen data.',
@@ -101,8 +101,8 @@ const projects = [
     slug: 'optio',
     title: 'Optio',
     category: 'Web and Mobile Apps',
-    image: '/images/Optio1.png',
-    images: ['/images/Optio1.png', '/images/Optio2.png', '/images/Optio3.png'],
+    image: '/images/Optio1.webp',
+    images: ['/images/Optio1.webp', '/images/Optio2.webp', '/images/Optio3.webp', '/images/Optio4.webp'],
     skills: ['Flutter', 'Firebase', 'Dart'],
     shortDescription:
       'A decision-making app that helps users weigh options with structured pros/cons analysis and scoring.',
@@ -115,8 +115,8 @@ const projects = [
     slug: 'reach-out',
     title: 'Reach Out',
     category: 'Web and Mobile Apps',
-    image: '/images/ReachOut1.png',
-    images: ['/images/ReachOut1.png'],
+    image: '/images/ReachOut1.webp',
+    images: ['/images/ReachOut1.webp', '/images/ReachOut2.webp', '/images/ReachOut3.webp', '/images/ReachOut4.webp'],
     skills: ['React Native', 'Expo', 'Firebase'],
     shortDescription:
       'A mobile app connecting volunteers with local community service opportunities in real time.',
@@ -128,8 +128,8 @@ const projects = [
     slug: 'health-workers-by-zip',
     title: 'Health Workers By Zip',
     category: 'Websites',
-    image: '/images/HealthWorkers1.png',
-    images: ['/images/HealthWorkers1.png', '/images/HealthWorkers2.png'],
+    image: '/images/HealthWorkers1.webp',
+    images: ['/images/HealthWorkers1.webp', '/images/HealthWorkers2.webp', '/images/HealthWorkers3.webp', '/images/HealthWorkers4.webp'],
     skills: ['Django', 'Python', 'PostgreSQL'],
     shortDescription:
       'A searchable directory connecting communities with local healthcare workers by zip code.',
@@ -138,11 +138,24 @@ const projects = [
     featured: false,
   },
   {
+    slug: 'smart-home',
+    title: 'Smart Home',
+    category: 'Tech',
+    image: '/images/SmartHome1.webp',
+    images: ['/images/SmartHome1.webp', '/images/SmartHome2.webp'],
+    skills: ['Home Assistant', 'IoT', 'Automation'],
+    shortDescription:
+      'A comprehensive smart home system with automated lighting, climate control, and security integrations.',
+    longDescription:
+      'A fully integrated smart home ecosystem built around Home Assistant, connecting dozens of IoT devices across lighting, climate, security, and entertainment systems. Custom automations handle everything from presence-based lighting scenes to energy monitoring and alerts.\n\nThe system features a custom dashboard for real-time monitoring, voice control integration, and mobile notifications for security events. Built with a focus on local control and privacy, minimizing cloud dependencies while maximizing reliability and response time.',
+    featured: false,
+  },
+  {
     slug: 'my-portfolio',
     title: 'My Portfolio Site',
     category: 'Websites',
-    image: '/images/MyPortfolio1.jpg',
-    images: ['/images/MyPortfolio1.jpg'],
+    image: '/images/MyPortfolio1.webp',
+    images: ['/images/MyPortfolio1.webp', '/images/MyPortfolio2.webp'],
     skills: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion'],
     shortDescription:
       'This very site — a cosmic glassmorphism portfolio built with Next.js, featuring canvas animations and custom fonts.',
@@ -154,26 +167,13 @@ const projects = [
     slug: 'more-sites',
     title: 'More Sites',
     category: 'Websites',
-    image: '/images/MoreSites1.png',
-    images: ['/images/MoreSites1.png', '/images/MoreSites2.png', '/images/MoreSites3.png'],
+    image: '/images/MoreSites1.webp',
+    images: ['/images/MoreSites1.webp', '/images/MoreSites2.webp', '/images/MoreSites3.webp', '/images/MoreSites4.webp', '/images/MoreSites5.webp', '/images/MoreSites6.webp'],
     skills: ['WordPress', 'HTML', 'CSS'],
     shortDescription:
       'A collection of additional WordPress and custom websites built for various clients and industries.',
     longDescription:
       'Beyond the featured projects, I\'ve designed and developed numerous websites across industries — from restaurant landing pages to professional service firms. These projects demonstrate versatility in working with different platforms, client requirements, and design aesthetics.\n\nEach site was tailored to the client\'s brand identity and business goals, with attention to SEO, mobile responsiveness, and conversion optimization. Platforms used range from custom-coded solutions to WordPress with bespoke themes.',
-    featured: false,
-  },
-  {
-    slug: 'light-disk-player',
-    title: 'Light Disk Player',
-    category: 'Other',
-    image: '/images/LightDiskPlayer1.png',
-    images: ['/images/LightDiskPlayer1.png'],
-    skills: ['Electron', 'JavaScript', 'Node.js'],
-    shortDescription:
-      'A cross-platform desktop media player built with Electron for playing optical disc formats.',
-    longDescription:
-      'Light Disk Player is an Electron-based desktop application designed for playing and managing optical disc media. The app provides a clean, minimal interface for DVD and Blu-ray playback with chapter navigation, subtitle support, and audio track selection.\n\nBuilt with web technologies wrapped in Electron for native desktop integration, the player leverages Node.js for file system access and media decoding. It was created as an exploration of building desktop-class media applications using modern web tooling.',
     featured: false,
   },
 ];
