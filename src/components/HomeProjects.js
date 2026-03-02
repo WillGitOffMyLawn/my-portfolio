@@ -49,8 +49,8 @@ export default function HomeProjects() {
         {/* Wrap the slider in a container with extra horizontal padding */}
         <div className="slider-container">
           <Slider {...settings}>
-            {featuredProjects.map(project => (
-              <CarouselProjectCard key={project.slug} project={project} />
+            {featuredProjects.map((project, i) => (
+              <CarouselProjectCard key={project.slug} project={project} index={i} />
             ))}
           </Slider>
         </div>

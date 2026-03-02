@@ -84,6 +84,11 @@ function MyApp({ Component, pageProps }) {
     const overlay = document.createElement('div');
     overlay.classList.add('bg-gradient-overlay');
     document.body.appendChild(overlay);
+
+    // Add grain texture overlay
+    const grain = document.createElement('div');
+    grain.classList.add('grain-overlay');
+    document.body.appendChild(grain);
     
     const existingShapes = document.querySelectorAll('.geometric-shape');
     existingShapes.forEach(shape => shape.remove());
@@ -106,6 +111,8 @@ function MyApp({ Component, pageProps }) {
       clearInterval(shootingInterval);
       const overlayElement = document.querySelector('.bg-gradient-overlay');
       if (overlayElement) overlayElement.remove();
+      const grainElement = document.querySelector('.grain-overlay');
+      if (grainElement) grainElement.remove();
     };
   }, []);
 

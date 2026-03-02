@@ -5,6 +5,7 @@ export default function Footer() {
   return (
     <>
       <footer className="site-footer">
+        <div className="footer-fade" />
         <div className="footer-inner">
           <div className="footer-links">
             <a href="https://github.com/WillGitOffMyLawn" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
@@ -27,12 +28,18 @@ export default function Footer() {
         .site-footer {
           position: relative;
           z-index: 20;
-          padding: 2rem 1.5rem;
+          padding: 3rem 1.5rem 2rem;
           margin-top: 4rem;
-          border-top: 1px solid rgba(255, 255, 255, 0.15);
-          background: rgba(10, 10, 15, 0.6);
-          backdrop-filter: blur(0.75rem);
-          -webkit-backdrop-filter: blur(0.75rem);
+          background: transparent;
+        }
+        .footer-fade {
+          position: absolute;
+          top: -60px;
+          left: 0;
+          width: 100%;
+          height: 60px;
+          background: linear-gradient(180deg, transparent 0%, rgba(124, 58, 237, 0.04) 40%, rgba(16, 185, 129, 0.03) 100%);
+          pointer-events: none;
         }
         .footer-inner {
           max-width: 75rem;
@@ -41,6 +48,9 @@ export default function Footer() {
           flex-direction: column;
           align-items: center;
           gap: 1rem;
+          padding-top: 1.5rem;
+          border-top: 1px solid transparent;
+          border-image: linear-gradient(90deg, transparent 0%, rgba(124, 58, 237, 0.3) 30%, rgba(16, 185, 129, 0.2) 70%, transparent 100%) 1;
         }
         .footer-links {
           display: flex;

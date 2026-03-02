@@ -48,8 +48,8 @@ export default function ProjectsPage() {
       </div>
 
       <div className="projects-grid">
-        {filteredProjects.map(project => (
-          <ProjectCard key={project.slug} project={project} />
+        {filteredProjects.map((project, i) => (
+          <ProjectCard key={project.slug} project={project} index={i} />
         ))}
       </div>
 

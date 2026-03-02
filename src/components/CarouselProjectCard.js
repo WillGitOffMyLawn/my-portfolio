@@ -1,11 +1,37 @@
 // src/components/CarouselProjectCard.js
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRef } from 'react';
 
-export default function CarouselProjectCard({ project }) {
+export default function CarouselProjectCard({ project, index = 0 }) {
+  const cardRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    const rotateX = (y - 0.5) * -8;
+    const rotateY = (x - 0.5) * 8;
+    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px) scale(1.02)`;
+  };
+
+  const handleMouseLeave = () => {
+    const card = cardRef.current;
+    if (!card) return;
+    card.style.transform = '';
+  };
+
   return (
     <Link href={`/projects/${project.slug}`} passHref legacyBehavior>
-      <a className="carousel-project-card">
+      <a
+        className="carousel-project-card"
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{ animationDelay: `${index * 80}ms` }}
+      >
         <div className="card-image-wrap">
           <Image
             src={project.image}
@@ -39,9 +65,9 @@ export default function CarouselProjectCard({ project }) {
                         border-color 0.4s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
                         inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            will-change: transform;
           }
           .carousel-project-card:hover {
-            transform: translateY(-6px) scale(1.02);
             box-shadow: 0 20px 40px rgba(0,0,0,0.4),
                         0 0 30px rgba(124, 58, 237, 0.15);
             border-color: rgba(124, 58, 237, 0.3);

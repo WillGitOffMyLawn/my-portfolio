@@ -27,9 +27,13 @@ export default function Home() {
       <Hero />
       <div className="home-container">
         <Skills />
+        <div className="section-divider" />
         <HomeProjects />
+        <div className="section-divider" />
         <Resume />
+        <div className="section-divider" />
         <About />
+        <div className="section-divider" />
         <Contact />
       </div>
       <style jsx>{`

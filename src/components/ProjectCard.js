@@ -1,11 +1,37 @@
 // src/components/ProjectCard.js
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRef } from 'react';
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project, index = 0 }) {
+  const cardRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    const rotateX = (y - 0.5) * -8;
+    const rotateY = (x - 0.5) * 8;
+    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+  };
+
+  const handleMouseLeave = () => {
+    const card = cardRef.current;
+    if (!card) return;
+    card.style.transform = '';
+  };
+
   return (
     <Link href={`/projects/${project.slug}`} passHref legacyBehavior>
-      <a className="project-card">
+      <a
+        className="project-card"
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{ animation: `fadeInUp 0.5s ease both`, animationDelay: `${index * 60}ms` }}
+      >
         <div className="card-image-wrap">
           <Image src={project.image} alt={project.title} width={800} height={450} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
           <div className="card-overlay" />
@@ -33,9 +59,9 @@ export default function ProjectCard({ project }) {
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
                         0 0 1px rgba(255, 255, 255, 0.15),
                         inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            will-change: transform;
           }
           .project-card:hover {
-            transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.4),
                         0 0 30px rgba(124, 58, 237, 0.2);
             border-color: rgba(124, 58, 237, 0.4);
