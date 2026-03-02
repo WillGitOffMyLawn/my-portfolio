@@ -537,7 +537,7 @@ export default function Hero() {
         }
         
         .hero-image {
-          flex: 0 0 280px;
+          flex: 0 0 clamp(200px, 18vw, 320px);
           display: flex;
           justify-content: center;
           align-items: center;

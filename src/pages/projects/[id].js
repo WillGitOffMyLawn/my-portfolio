@@ -32,20 +32,21 @@ export default function ProjectDetails({ project }) {
       {/* Two-column layout: image left, details right */}
       <div className="project-layout">
         <div className="project-media">
-          <div className="main-image-container">
-            <Image
-              src={project.image}
-              alt={project.title}
-              width={1200}
-              height={675}
-              style={{ objectFit: 'contain', width: '100%', height: 'auto', maxHeight: '600px', borderRadius: '12px' }}
-              priority
-            />
-          </div>
-
-          {hasMultipleImages && (
+          {/* Show carousel if multiple images, otherwise show single main image */}
+          {hasMultipleImages ? (
             <div className="carousel-container">
               <ProjectCarousel images={project.images} title={project.title} />
+            </div>
+          ) : (
+            <div className="main-image-container">
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={1200}
+                height={675}
+                style={{ objectFit: 'contain', width: '100%', height: 'auto', maxHeight: '600px', borderRadius: '12px' }}
+                priority
+              />
             </div>
           )}
         </div>

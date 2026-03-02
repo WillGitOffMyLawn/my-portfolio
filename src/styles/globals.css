@@ -295,7 +295,7 @@
     color: var(--badge-text-color, white) !important;
   }
 
-  /* Button styling fix - more specific to match your original design */
+  /* Button styling - glassmorphic cosmic theme */
   [data-slot="button"] {
     position: relative;
     display: inline-flex;
@@ -304,51 +304,31 @@
     padding: 10px 20px;
     border-radius: 8px;
     font-family: 'Nexa Bold', sans-serif !important;
-    font-size: 1.25rem !important; /* Updated to match minimum size requirement */
+    font-size: 1rem !important;
     font-weight: 600;
     letter-spacing: 0.025em;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: none;
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     cursor: pointer;
-  }
-  
-  /* Default button style with gradient background - shadcn default variant */
-  [data-slot="button"]:not([class*="variant-"]) {
-    background: linear-gradient(to bottom, #7c3aed, #6025c0);
   }
   
   /* Hover effect for buttons */
   [data-slot="button"]:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    border-color: rgba(124, 58, 237, 0.4);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(124, 58, 237, 0.25);
   }
   
   /* Active effect for buttons */
   [data-slot="button"]:active {
     transform: translateY(1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-
-  /* Style for outlined buttons */
-  [data-slot="button"][class*="variant-outline"] {
-    background: transparent;
-    border: 2px solid #7c3aed;
-    color: #7c3aed;
-  }
-
-  /* Style for secondary buttons */
-  [data-slot="button"][class*="variant-secondary"] {
-    background: linear-gradient(to bottom, #333333, #1a1a1a);
-    color: white;
-  }
-
-  /* Style for destructive buttons */
-  [data-slot="button"][class*="variant-destructive"] {
-    background: linear-gradient(to bottom, #e11d48, #be123c);
-    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
 
   /* Section heading glow — cosmic text-shadow on h2 */
@@ -356,18 +336,6 @@
     text-shadow:
       0 0 20px rgba(124, 58, 237, 0.3),
       0 0 40px rgba(124, 58, 237, 0.15);
-  }
-
-  /* Button hover glow effect */
-  @keyframes btnGlow {
-    0%, 100% { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 0 rgba(124, 58, 237, 0); }
-    50% { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 20px rgba(124, 58, 237, 0.3); }
-  }
-
-  [data-slot="button"]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 25px rgba(124, 58, 237, 0.25);
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   /* Page transition overlay */

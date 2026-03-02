@@ -50,6 +50,7 @@ export default function CarouselProjectCard({ project }) {
             position: relative;
             overflow: hidden;
             aspect-ratio: 16/10;
+            background: rgba(10, 10, 15, 0.8);
           }
           .card-overlay {
             position: absolute;
@@ -60,7 +61,7 @@ export default function CarouselProjectCard({ project }) {
           img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
           }
           .carousel-project-card:hover img {

@@ -28,7 +28,7 @@ export default function Navbar() {
       let current = 'hero';
       
       // Check if scrolled to bottom of page — activate last section
-      const scrolledToBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 100);
+      const scrolledToBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 50);
       if (scrolledToBottom) {
         current = sections[sections.length - 1];
       } else {
@@ -51,6 +51,7 @@ export default function Navbar() {
   const handleClick = (e, link) => {
     if (isHome && link.section) {
       e.preventDefault();
+      setActiveSection(link.section);
       const el = document.getElementById(link.section);
       if (el) {
         const navbarOffset = 80;
