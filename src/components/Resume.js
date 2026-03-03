@@ -1,48 +1,25 @@
 import { pdfjs, Document, Page } from 'react-pdf';
-import Slider from 'react-slick';
 import { motion } from 'framer-motion';
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import AnimatedCounterComponent from './AnimatedCounter';
 import { Button } from '@/components/ui/button';
-// Import React Icons
 import { FaUsers, FaRocket, FaHandshake, FaTools } from 'react-icons/fa';
-import { CustomPrevArrow, CustomNextArrow } from './CarouselArrows';
 
 pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.mjs';
-
-const testimonials = [
-  {
-    quote: "William's vision and leadership transformed our projects.",
-    author: "Jane Doe, CEO at Company A",
-  },
-  {
-    quote: "An exceptional product manager who bridges technical and business needs seamlessly.",
-    author: "John Smith, CTO at Company B",
-  },
-  {
-    quote: "His strategic insight is matched only by his ability to execute.",
-    author: "Alice Johnson, VP of Marketing at Company C",
-  },
-];
 
 export default function Resume() {
   const onDocumentLoadSuccess = () => {};
 
-  const testimonialSettings = {
-    dots: false,
-    infinite: true,
-    speed: 800,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    prevArrow: <CustomPrevArrow />,
-    nextArrow: <CustomNextArrow />
-  };
-
   return (
-    <section className="resume-section">
+    <motion.section
+      id="resume"
+      className="resume-section"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
       <div className="resume-container">
         <div className="glassmorphic-wrapper">
           {/* Resume Header */}
@@ -52,7 +29,7 @@ export default function Resume() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2>Resume</h2>
+              <h2 style={{ marginTop: 0, marginBottom: '1.5rem' }}>Resume</h2>
             </motion.div>
           </header>
 
@@ -116,78 +93,29 @@ export default function Resume() {
             </motion.div>
           </div>
 
-          {/* Testimonials Carousel */}
-          <div className="testimonials-carousel">
-            <Slider {...testimonialSettings}>
-              {testimonials.map((t, index) => (
-                <div key={index} className="testimonial-card">
-                  <p className="quote">&quot;{t.quote}&quot;</p>
-                  <p className="author">- {t.author}</p>
-                </div>
-              ))}
-            </Slider>
-          </div>
         </div>
       </div>
 
       {/* Component Styles */}
-      <style jsx>{`
+      <style jsx global>{`
         .resume-section {
-          background-color: transparent; /* Changed from #1A1A1A to transparent */
+          background-color: transparent;
           color: #fff;
-          padding: 1.875rem 1.25rem; // Reduced from 3.75rem to 1.875rem (60px to 30px)
+          padding: 0;
         }
         
         .resume-container {
-          max-width: 75rem; // 1200px
-          margin: 0 auto;
           width: 100%;
           position: relative;
-        }
-        
-        .glassmorphic-wrapper {
-          position: relative;
-          z-index: 20;
-          width: 100%;
-          background: rgba(20, 20, 20, 0.65);
-          border-radius: 1.25rem; // 20px
-          overflow: hidden;
-          padding: 1.75rem; // 20px
-          
-          /* Enhanced glassmorphism effect with stronger shadow */
-          backdrop-filter: blur(0.75rem); // 12px
-          -webkit-backdrop-filter: blur(0.75rem); // 12px
-          box-shadow: 0 0.75rem 3rem rgba(0, 0, 0, 0.7),
-                      0 0.25rem 1rem rgba(124, 58, 237, 0.15),
-                      0 -0.25rem 1rem rgba(16, 185, 129, 0.1); // Multi-layered shadow with subtle color
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          
-          /* Metallic highlight at top */
-          background-image: linear-gradient(
-            180deg, 
-            rgba(255, 255, 255, 0.12) 0%, 
-            rgba(255, 255, 255, 0.03) 5%,
-            rgba(255, 255, 255, 0) 20%
-          );
-          
-          /* Add subtle shadow glow on hover */
-          transition: all 0.3s ease-out;
-        }
-        
-        /* Optional subtle hover effect */
-        .glassmorphic-wrapper:hover {
-          box-shadow: 0 0.85rem 3.5rem rgba(0, 0, 0, 0.7),
-                      0 0.35rem 1.25rem rgba(124, 58, 237, 0.2),
-                      0 -0.35rem 1.25rem rgba(16, 185, 129, 0.15);
-          transform: translateY(-3px);
         }
         
         .resume-section h2 {
           font-family: 'BankGothic Md BT', sans-serif;
           font-size: 2rem;
-          margin-top: 0; /* Reset top margin */
+          margin-top: 0;
           margin-bottom: 1.5rem;
           text-align: left;
+          text-shadow: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 40px rgba(124, 58, 237, 0.15);
         }
         
         .resume-header {
@@ -200,7 +128,6 @@ export default function Resume() {
           grid-template-columns: 2fr 1fr;
           gap: 1.875rem; // 30px
           align-items: start;
-          margin-bottom: 1.875rem; // 30px
         }
         
         .resume-left {
@@ -212,7 +139,7 @@ export default function Resume() {
         }
         
         .highlights-section {
-          margin-bottom: 1.875rem; // 30px
+          margin-bottom: 0;
         }
         
         .highlights-list {
@@ -230,8 +157,8 @@ export default function Resume() {
           padding: 0.625rem; // 10px
           background: rgba(255, 255, 255, 0.05);
           border-radius: 0.625rem; // 10px
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          font-size: 1.25rem; // Updated from 1rem to match global minimum
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          font-size: 1.25rem;
         }
         
         .highlight-icon {
@@ -258,8 +185,8 @@ export default function Resume() {
           background: rgba(255, 255, 255, 0.05);
           border-radius: 0.9375rem; // 15px
           padding: 1.25rem; // 20px
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2); // 4px 16px
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.3);
         }
         
         /* Updated PDF preview: constrain to 18.75rem (300px) */
@@ -282,34 +209,6 @@ export default function Resume() {
           margin: 0 auto !important;
         }
         
-        .testimonials-carousel {
-          max-width: calc(100% - 3rem); // Reducing width by 40px total (20px on each side)
-          margin-left: auto;
-          margin-right: auto;
-        }
-        
-        .testimonial-card {
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(0.5rem); // 8px
-          -webkit-backdrop-filter: blur(0.5rem); // 8px
-          border-radius: 0.9375rem; // 15px
-          padding: 1.25rem; // 20px
-          font-family: 'Nexa Bold', sans-serif;
-          border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        
-        .quote {
-          font-style: italic;
-          margin-bottom: 0.9375rem; // 15px
-          font-size: 1.25rem; // Updated from 1rem to match global minimum
-        }
-        
-        .author {
-          text-align: right;
-          font-weight: bold;
-          font-size: 1.25rem; // Updated from 1rem to match global minimum
-        }
-        
         @media (max-width: 48rem) { // 768px
           .resume-content {
             grid-template-columns: 1fr;
@@ -326,6 +225,6 @@ export default function Resume() {
           color: #fff;
         }
       `}</style>
-    </section>
+    </motion.section>
   );
 }

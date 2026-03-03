@@ -4,13 +4,6 @@
 
 @layer base {
   @font-face {
-    font-family: 'Zilap Orion';
-    src: url('/fonts/ZilapOrion.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
     font-family: 'Nexa Bold';
     src: url('/fonts/NexaBold.woff') format('woff');
     font-weight: normal;
@@ -38,6 +31,23 @@
     --font-size-2xl: clamp(1.5rem, calc(1.5rem + 1.2vw), 2.8rem);       /* Min 1.5rem for H3 */
     --font-size-3xl: clamp(1.75rem, calc(1.75rem + 1.5vw), 3.5rem);     /* Min 1.75rem for H2 */
     --font-size-4xl: clamp(1.75rem, calc(1.75rem + 2vw), 4rem);         /* Min 1.75rem for H1 */
+
+    /* Cosmic theme palette */
+    --cosmic-purple: #7c3aed;
+    --cosmic-green: #10b981;
+    --cosmic-lavender: #c4b5fd;
+    --cosmic-indigo: #6366f1;
+    --cosmic-red: #ef4444;
+
+    /* Glassmorphic standardized values */
+    --glass-blur: 0.75rem;
+    --glass-bg: rgba(20, 20, 20, 0.65);
+    --glass-bg-elevated: rgba(10, 10, 15, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --glass-border-subtle: rgba(255, 255, 255, 0.1);
+    --glass-shadow-sm: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);
+    --glass-shadow-md: 0 0.5rem 2rem rgba(0, 0, 0, 0.3);
+    --glass-shadow-lg: 0 0.75rem 3rem rgba(0, 0, 0, 0.4);
 
     /* Define spacing variables that also scale with viewport */
     --space-xs: clamp(0.5rem, calc(0.5rem + 0.3vw), 1rem);
@@ -118,6 +128,31 @@
     50% { opacity: 0.8; }
   }
 
+  /* Shooting star animation */
+  @keyframes shootingStar {
+    0% {
+      transform: translateX(0) translateY(0) rotate(-45deg);
+      opacity: 1;
+    }
+    70% { opacity: 1; }
+    100% {
+      transform: translateX(300px) translateY(300px) rotate(-45deg);
+      opacity: 0;
+    }
+  }
+
+  .shooting-star {
+    position: fixed;
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.8), transparent);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    animation: shootingStar 1.2s ease-out forwards;
+  }
+
   .star {
     position: fixed;
     width: 1px;
@@ -126,9 +161,11 @@
     border-radius: 50%;
     z-index: -1;
     pointer-events: none;
+    contain: strict;
   }
 
   body {
+    color: #fff;
     background-color: #1A1A1A;
     background-image: 
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250' viewBox='0 0 250 250'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"),
@@ -174,6 +211,70 @@
     transition: background-position 0.1s ease-out;
   }
 
+  /* Grain texture overlay */
+  body > .grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    will-change: transform;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+  /* Firefox */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+  }
+
+  /* Staggered reveal animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Section divider gradient */
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(124, 58, 237, 0.4) 30%, rgba(16, 185, 129, 0.3) 70%, transparent 100%);
+    position: relative;
+  }
+  .section-divider::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
   /* Add subtle floating animated particles */
   body::after {
     content: "";
@@ -210,8 +311,8 @@
     );
     z-index: -3;
     pointer-events: none;
-    animation: gradientShift 15s ease infinite;
     opacity: 0.8;
+    will-change: transform;
     transform: translateX(calc(var(--mouse-x, 0) * -5px)) translateY(calc(var(--mouse-y, 0) * -5px));
     transition: transform 0.3s ease-out;
   }
@@ -228,8 +329,8 @@
 
   /* Make container a positioning context but not restrict the background */
   .container {
-    padding: 0 20px;
-    max-width: 1200px;
+    padding: 0 clamp(1rem, 3vw, 3rem);
+    max-width: 1800px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -259,7 +360,7 @@
     color: var(--badge-text-color, white) !important;
   }
 
-  /* Button styling fix - more specific to match your original design */
+  /* Button styling - glassmorphic cosmic theme */
   [data-slot="button"] {
     position: relative;
     display: inline-flex;
@@ -268,51 +369,38 @@
     padding: 10px 20px;
     border-radius: 8px;
     font-family: 'Nexa Bold', sans-serif !important;
-    font-size: 1.25rem !important; /* Updated to match minimum size requirement */
+    font-size: 1rem !important;
     font-weight: 600;
     letter-spacing: 0.025em;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: none;
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     cursor: pointer;
-  }
-  
-  /* Default button style with gradient background - shadcn default variant */
-  [data-slot="button"]:not([class*="variant-"]) {
-    background: linear-gradient(to bottom, #7c3aed, #6025c0);
   }
   
   /* Hover effect for buttons */
   [data-slot="button"]:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    border-color: rgba(124, 58, 237, 0.4);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(124, 58, 237, 0.25);
   }
   
   /* Active effect for buttons */
   [data-slot="button"]:active {
     transform: translateY(1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
 
-  /* Style for outlined buttons */
-  [data-slot="button"][class*="variant-outline"] {
-    background: transparent;
-    border: 2px solid #7c3aed;
-    color: #7c3aed;
-  }
-
-  /* Style for secondary buttons */
-  [data-slot="button"][class*="variant-secondary"] {
-    background: linear-gradient(to bottom, #333333, #1a1a1a);
-    color: white;
-  }
-
-  /* Style for destructive buttons */
-  [data-slot="button"][class*="variant-destructive"] {
-    background: linear-gradient(to bottom, #e11d48, #be123c);
-    color: white;
+  /* Section heading glow — cosmic text-shadow on h2 */
+  .section-heading-glow {
+    text-shadow:
+      0 0 20px rgba(124, 58, 237, 0.3),
+      0 0 40px rgba(124, 58, 237, 0.15);
   }
 
   /* Page transition overlay */
@@ -438,5 +526,64 @@
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-ring: var(--sidebar-ring);
+  }
+}
+
+/* ===== Accessibility ===== */
+
+/* Skip-to-content link */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100000;
+  padding: 0.75rem 1.5rem;
+  background: var(--cosmic-purple);
+  color: #fff;
+  font-family: 'Nexa Bold', sans-serif;
+  font-size: 0.9rem;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-to-content:focus {
+  top: 0;
+  outline: none;
+}
+
+/* Screen-reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Keyboard focus styles */
+*:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.5);
+  border-radius: 4px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .shooting-star,
+  .grain-overlay {
+    display: none !important;
+  }
+  .star {
+    animation: none !important;
   }
 }

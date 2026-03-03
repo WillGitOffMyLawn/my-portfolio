@@ -1,4 +1,5 @@
 // src/components/Hero.js
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
@@ -17,6 +18,7 @@ export default function Hero() {
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
   const timeRef = useRef(0);
+  const isVisibleRef = useRef(true);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -195,6 +197,12 @@ export default function Hero() {
 
     // Draw blobs and update their position/size
     const drawBlobs = () => {
+      // Skip rendering when canvas is offscreen
+      if (!isVisibleRef.current) {
+        animationRef.current = requestAnimationFrame(drawBlobs);
+        return;
+      }
+      
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       // Update time for animation
@@ -341,17 +349,11 @@ export default function Hero() {
         ctx.closePath();
         ctx.fill();
         
-        // Add enhanced glow effect for feathered edge appearance
-        ctx.shadowBlur = 30;  // Increased from 25
-        ctx.shadowColor = blob.color.replace(/[^,]+\)/, '0.35)'); // Increased opacity
+        // Add glow effect — single pass instead of triple fill
+        ctx.shadowBlur = 30;
+        ctx.shadowColor = blob.color.replace(/[^,]+\)/, '0.25)');
         ctx.shadowOffsetX = 0;
         ctx.shadowOffsetY = 0;
-        ctx.globalCompositeOperation = 'source-over';
-        ctx.fill();
-        
-        // Additional softer outer glow 
-        ctx.shadowBlur = 40;
-        ctx.shadowColor = blob.color.replace(/[^,]+\)/, '0.15)'); // Very subtle outer glow
         ctx.fill();
         
         // Restore context
@@ -366,14 +368,22 @@ export default function Hero() {
     createBlobs();
     drawBlobs();
 
+    // Pause canvas when hero is scrolled offscreen
+    const observer = new IntersectionObserver(
+      ([entry]) => { isVisibleRef.current = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    observer.observe(canvas);
+
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationRef.current);
+      observer.disconnect();
     };
   }, []);
   
   return (
-    <section className="hero">
+    <section id="hero" className="hero">
       {/* Background layer with canvas */}
       <div className="hero-background">
         <canvas ref={canvasRef} className="lava-lamp-canvas"></canvas>
@@ -383,39 +393,74 @@ export default function Hero() {
       <div className="hero-container">
         {/* Glassmorphic content box that wraps everything else */}
         <div className="glassmorphic-wrapper">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="hero-content"
-          >
-            <div className="hero-title">
-              <h1>Crafting the Future</h1>
-            </div>
-            {/* Moved subtitle to its own div above the hero-body */}
-            <div className="hero-subtitle">
-              <h2>William Fagan&apos;s Portfolio</h2>
-            </div>
-            <div className="hero-body">
-              <div className="hero-text">
+          <div className="hero-content">
+            {/* Left column: all text */}
+            <div className="hero-text-col">
+              <motion.div
+                className="hero-title"
+                initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <h1>Crafting the Future</h1>
+              </motion.div>
+              <motion.div
+                className="hero-subtitle"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <h2>William Fagan&apos;s Portfolio</h2>
+              </motion.div>
+              <motion.div
+                className="hero-text"
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              >
                 <p>
-                  Welcome to my digital space, where creativity meets technology. I design and develop sleek, futuristic experiences that blend aesthetics with functionality. Explore my projects, skills, and vision—crafted with precision, innovation, and a passion for pushing the boundaries of design.
+                  I turn challenges into innovative solutions by blending strategy, design, and tech. With hands-on experience in software, web design, and robotics, I lead projects that bring creative ideas to life. Explore this portfolio to see how I bridge the gap between concept and execution.
                 </p>
-              </div>
-              <div className="hero-image">
-                <img 
-                  src="/images/Headshot.png" 
+              </motion.div>
+              <motion.div
+                className="hero-cta"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <a href="#projects" className="cta-primary" onClick={(e) => { e.preventDefault(); const el = document.getElementById('projects'); if (el) { const top = el.getBoundingClientRect().top + window.pageYOffset - 80; window.scrollTo({ top, behavior: 'smooth' }); } }}>
+                  View My Work
+                </a>
+                <a href="#contact" className="cta-secondary" onClick={(e) => { e.preventDefault(); const el = document.getElementById('contact'); if (el) { const top = el.getBoundingClientRect().top + window.pageYOffset - 80; window.scrollTo({ top, behavior: 'smooth' }); } }}>
+                  Get in Touch
+                </a>
+              </motion.div>
+            </div>
+            {/* Right column: headshot */}
+            <motion.div
+              className="hero-image"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="headshot-glow">
+                <Image 
+                  src="/images/Headshot.webp" 
                   alt="Headshot of William Fagan"
+                  width={400}
+                  height={400}
+                  priority
+                  style={{ borderRadius: '10px', objectFit: 'contain', width: '100%', height: 'auto' }}
                 />
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
       
-      <style jsx>{`
+      <style jsx global>{`
         .hero {
-          padding: 100px 0;
+          padding: 80px 0 40px;
           color: #fff;
           position: relative;
           overflow: hidden;
@@ -444,175 +489,213 @@ export default function Hero() {
         }
         
         .hero-container {
-          padding: 0 20px;
-          max-width: 1200px;
+          padding: 0 clamp(1rem, 3vw, 3rem);
+          max-width: 1800px;
           width: 100%;
+          margin: 0 auto;
           position: relative;
           z-index: 10;
         }
         
         /* New glassmorphic wrapper that sits on top of everything */
-        .glassmorphic-wrapper {
-          position: relative;
-          z-index: 20;
-          width: 100%;
-          background: rgba(20, 20, 20, 0.65);
-          border-radius: 20px;
-          overflow: hidden;
-          
-          /* Enhanced glassmorphism effect with stronger shadow */
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-          box-shadow: 0 0.75rem 3rem rgba(0, 0, 0, 0.7),
-                      0 0.25rem 1rem rgba(124, 58, 237, 0.15),
-                      0 -0.25rem 1rem rgba(16, 185, 129, 0.1); // Multi-layered shadow with subtle color
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          padding: 1.75rem;
-          
-          /* Metallic highlight at top */
-          background-image: linear-gradient(
-            180deg, 
-            rgba(255, 255, 255, 0.12) 0%, 
-            rgba(255, 255, 255, 0.03) 5%,
-            rgba(255, 255, 255, 0) 20%
-          );
-          
-          /* Add subtle shadow glow on hover */
-          transition: all 0.3s ease-out;
-        }
-        
-        /* Optional subtle hover effect */
-        .glassmorphic-wrapper:hover {
-          box-shadow: 0 0.85rem 3.5rem rgba(0, 0, 0, 0.7),
-                      0 0.35rem 1.25rem rgba(124, 58, 237, 0.2),
-                      0 -0.35rem 1.25rem rgba(16, 185, 129, 0.15);
-          transform: translateY(-3px);
-        }
-        
         .hero-content {
           padding: 10px;
           position: relative;
           z-index: 25;
+          display: grid;
+          grid-template-columns: 1fr clamp(200px, 18vw, 320px);
+          gap: 2rem;
+          align-items: center;
+        }
+        
+        .hero-text-col {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          min-width: 0;
         }
         
         .hero-title h1 {
-          font-family: 'Zilap Orion', sans-serif;
-          margin: 0 0 5px; /* Reset top margin and keep reduced bottom margin */
-          font-size: clamp(1.5rem, 4vw, 3.5rem); /* Reduced minimum size by 0.5rem from 1.75rem to 1.25rem */
+          font-family: 'Orbitron', sans-serif;
+          font-weight: 700;
+          margin: 0 0 5px;
+          font-size: clamp(2.2rem, 5vw, 4rem);
           letter-spacing: 0.05em;
-          text-align: center;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+          text-align: left;
           padding: 0 1rem 0.5rem 1rem;
+          background: linear-gradient(135deg, #fff 0%, #c4b5fd 40%, #10b981 70%, #fff 100%);
+          background-size: 200% 200%;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: heroGradient 6s ease infinite;
+        }
+        
+        @keyframes heroGradient {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
         }
         
         .hero-subtitle h2 {
           font-family: 'BankGothic Md BT', sans-serif;
-          font-size: clamp(1.25rem, 3vw, 2.5rem);
+          font-size: clamp(1rem, 2vw, 1.4rem);
           margin: 0 0 0.5rem 0;
           padding: 0.5rem 1rem;
           text-align: left;
-          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+          color: rgba(255, 255, 255, 0.5);
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
           line-height: 1.3;
-          white-space: normal; /* Allow wrapping on small screens */
+          white-space: normal;
           overflow: visible;
         }
         
         .hero-text p {
           font-family: 'Nexa Bold', sans-serif;
-          font-size: 1.25rem; /* Updated to match global minimum for paragraphs */
-          margin: 1.5rem 0 0 0;
+          font-size: 1.25rem;
+          margin: 0;
           text-align: left;
           line-height: 1.6;
           padding: 0 1rem 1rem 1rem;
         }
         
-        .hero-body {
-          display: flex;
-          align-items: flex-end; /* Changed from center to flex-end to align with bottom of paragraph */
-          justify-content: space-between;
-          margin-top: 0px;
-          gap: 1rem;
-        }
-        
         .hero-image {
-          flex-basis: 30%;
-          flex-shrink: 0;
-          padding: 1rem;
           display: flex;
           justify-content: center;
-          align-items: flex-end; /* Added to align the image at the bottom */
-          max-width: 220px; /* Increased from 200px for a slightly bigger minimum size */
+          align-items: center;
         }
         
         .hero-image img {
           width: 100%;
           height: auto;
-          min-width: 180px; /* Added minimum width to ensure image isn't too small */
-          max-width: 220px; /* Increased from 200px to match container */
           border-radius: 10px;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
           object-fit: contain;
         }
         
+        .headshot-glow {
+          position: relative;
+          display: inline-block;
+        }
+        .headshot-glow::before {
+          content: '';
+          position: absolute;
+          inset: -4px;
+          border-radius: 14px;
+          background: linear-gradient(135deg, rgba(124, 58, 237, 0.5), rgba(16, 185, 129, 0.5));
+          filter: blur(12px);
+          opacity: 0.6;
+          z-index: -1;
+          animation: glowPulse 3s ease-in-out infinite;
+        }
+        @keyframes glowPulse {
+          0%, 100% { opacity: 0.4; }
+          50% { opacity: 0.7; }
+        }
+        
         @media (max-width: 768px) {
-          .hero-body {
-            flex-direction: row;
-            align-items: flex-end; /* Updated to maintain bottom alignment on tablets/mobile */
-            justify-content: space-between;
-            flex-wrap: wrap;
-          }
-          
-          .hero-text {
-            flex: 1;
-            min-width: 65%;
+          .hero-content {
+            grid-template-columns: 1fr;
+            text-align: center;
           }
           
           .hero-image {
-            flex-basis: 30%;
-            flex-shrink: 0;
-            max-width: 170px; /* Increased from 150px for larger minimum size */
-            min-width: 150px; /* Added minimum width */
-            margin: 0;
-            padding: 0.5rem; /* Adjusted padding */
-            align-items: flex-end; /* Keep alignment consistent */
+            order: -1;
+            max-width: 250px;
+            margin: 0 auto;
+          }
+          
+          .hero-title h1 {
+            text-align: center;
+          }
+          
+          .hero-subtitle h2 {
+            text-align: center;
           }
           
           .hero-text p {
-            font-size: 1.25rem;
-            padding-right: 0.5rem;
+            text-align: center;
+            font-size: 1.1rem;
+          }
+          
+          .hero-image {
+            flex: 0 0 auto;
+            max-width: 250px;
           }
         }
         
-        /* Add extra breakpoint for very small screens */
         @media (max-width: 480px) {
-          .hero-body {
-            flex-direction: row; /* Keep side-by-side layout instead of stacking */
-            align-items: flex-end; /* Maintain bottom alignment */
-            justify-content: space-between;
-          }
-          
-          .hero-text {
-            flex: 1;
-            min-width: 60%; /* Reduced to give more space to image */
-            padding-right: 0.5rem;
+          .hero-text p {
+            font-size: 1rem;
+            padding: 0 0.5rem 1rem;
           }
           
           .hero-image {
-            flex-basis: 35%; /* Slightly increased from larger screens */
-            min-width: 120px; /* Set minimum width for smallest screens */
-            max-width: 150px;
-            margin: 0;
-            padding: 0.5rem;
+            max-width: 180px;
           }
-          
-          /* Adjust paragraph text for very small screens */
-          .hero-text p {
-            font-size: 1rem; /* Slightly smaller font */
-            padding-right: 0.5rem;
-            margin-bottom: 0; /* Ensure no extra space at bottom */
+        }
+        .hero-cta {
+          display: flex;
+          gap: 1rem;
+          padding: 0.5rem 1rem 0;
+        }
+        .cta-primary {
+          display: inline-flex;
+          align-items: center;
+          padding: 0.75rem 1.75rem;
+          font-family: 'Nexa Bold', sans-serif;
+          font-size: 1rem;
+          color: #fff;
+          background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #10b981 100%);
+          background-size: 200% 200%;
+          border: none;
+          border-radius: 8px;
+          text-decoration: none;
+          letter-spacing: 0.04em;
+          transition: transform 0.25s ease, box-shadow 0.25s ease, background-position 0.4s ease;
+          box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3);
+          cursor: pointer;
+        }
+        .cta-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 24px rgba(124, 58, 237, 0.45);
+          background-position: 100% 50%;
+        }
+        .cta-secondary {
+          display: inline-flex;
+          align-items: center;
+          padding: 0.75rem 1.75rem;
+          font-family: 'Nexa Bold', sans-serif;
+          font-size: 1rem;
+          color: rgba(255, 255, 255, 0.8);
+          background: transparent;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 8px;
+          text-decoration: none;
+          letter-spacing: 0.04em;
+          transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+          cursor: pointer;
+        }
+        .cta-secondary:hover {
+          transform: translateY(-2px);
+          border-color: rgba(124, 58, 237, 0.5);
+          color: #fff;
+        }
+        
+        @media (max-width: 768px) {
+          .hero-cta {
+            justify-content: center;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .hero-cta {
+            flex-direction: column;
+            align-items: stretch;
+          }
+          .cta-primary, .cta-secondary {
+            justify-content: center;
+            text-align: center;
           }
         }
       `}</style>

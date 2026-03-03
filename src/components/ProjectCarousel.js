@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Slider from 'react-slick';
 
 const ProjectCarousel = ({ images, title }) => {
@@ -22,10 +23,12 @@ const ProjectCarousel = ({ images, title }) => {
     return (
       <div className="carousel-loading">
         {images.length > 0 && (
-          <img 
+          <Image 
             src={images[0]} 
             alt={`${title} image 1`} 
-            className="static-image" 
+            width={800}
+            height={500}
+            style={{ objectFit: 'contain', width: '100%', height: 'auto', maxHeight: '500px' }}
           />
         )}
       </div>
@@ -37,7 +40,13 @@ const ProjectCarousel = ({ images, title }) => {
       <Slider {...settings}>
         {images.map((img, idx) => (
           <div key={idx} className="carousel-slide">
-            <img src={img} alt={`${title} image ${idx + 1}`} />
+            <Image
+              src={img}
+              alt={`${title} image ${idx + 1}`}
+              width={800}
+              height={500}
+              style={{ objectFit: 'contain', width: '100%', height: 'auto', maxHeight: '500px', borderRadius: '8px' }}
+            />
           </div>
         ))}
       </Slider>

@@ -43,7 +43,14 @@ export default function Contact() {
   };
 
   return (
-    <section className="contact-section">
+    <motion.section
+      id="contact"
+      className="contact-section"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
       <div className="contact-container">
         <div className="glassmorphic-wrapper">
           <motion.div 
@@ -59,24 +66,34 @@ export default function Contact() {
             </p>
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="input-row">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
+                <div className="form-field">
+                  <label htmlFor="contact-name" className="sr-only">Your Name</label>
+                  <input
+                    id="contact-name"
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="form-field">
+                  <label htmlFor="contact-email" className="sr-only">Your Email</label>
+                  <input
+                    id="contact-email"
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
+              <label htmlFor="contact-message" className="sr-only">Your Message</label>
               <textarea
+                id="contact-message"
                 name="message"
                 placeholder="Your Message"
                 rows="5"
@@ -95,58 +112,21 @@ export default function Contact() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style jsx global>{`
         .contact-section {
           background-color: transparent;
           color: #fff;
-          padding: 1.875rem 1.25rem; // 60px 20px
+          padding: 0;
         }
         
         .contact-container {
-          max-width: 75rem; // 1200px
-          margin: 0 auto;
           width: 100%;
-          padding: 0 1.25rem; // 0 20px
           display: flex;
           justify-content: center;
         }
         
-        .glassmorphic-wrapper {
-          position: relative;
-          z-index: 20;
-          width: 100%;
-          max-width: 37.5rem; // 600px
-          background: rgba(20, 20, 20, 0.65);
-          border-radius: 1.25rem; // 20px
-          overflow: hidden;
-          padding: 1.75rem;
-          
-          /* Enhanced glassmorphism effect with stronger shadow */
-          backdrop-filter: blur(0.75rem); // 12px
-          -webkit-backdrop-filter: blur(0.75rem); // 12px
-          box-shadow: 0 0.75rem 3rem rgba(0, 0, 0, 0.7),
-                      0 0.25rem 1rem rgba(124, 58, 237, 0.15),
-                      0 -0.25rem 1rem rgba(16, 185, 129, 0.1); // Multi-layered shadow with subtle color
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          
-          /* Metallic highlight at top */
-          background-image: linear-gradient(
-            180deg, 
-            rgba(255, 255, 255, 0.12) 0%, 
-            rgba(255, 255, 255, 0.03) 5%,
-            rgba(255, 255, 255, 0) 20%
-          );
-          
-          /* Add subtle shadow glow on hover */
-          transition: all 0.3s ease-out;
-        }
-        
-        /* Optional subtle hover effect */
-        .glassmorphic-wrapper:hover {
-          box-shadow: 0 0.85rem 3.5rem rgba(0, 0, 0, 0.7),
-                      0 0.35rem 1.25rem rgba(124, 58, 237, 0.2),
-                      0 -0.35rem 1.25rem rgba(16, 185, 129, 0.15);
-          transform: translateY(-3px);
+        .contact-section .glassmorphic-wrapper {
+          max-width: 37.5rem;
         }
         
         .contact-content {
@@ -154,14 +134,15 @@ export default function Contact() {
           width: 100%;
         }
         
-        h2 {
+        .contact-section h2 {
           font-family: 'BankGothic Md BT', sans-serif;
           font-size: 2rem;
-          margin-top: 0; /* Reset top margin */
-          margin-bottom: 1.25rem; // 20px
+          margin-top: 0;
+          margin-bottom: 1.25rem;
+          text-shadow: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 40px rgba(124, 58, 237, 0.15);
         }
         
-        p {
+        .contact-section p {
           font-family: 'Nexa Bold', sans-serif;
           font-size: 1rem;
           margin-bottom: 1.875rem; // 30px
@@ -180,27 +161,31 @@ export default function Contact() {
         }
         
         .input-row input {
+          width: 100%;
+          padding: 0.625rem 0.9375rem; // 10px 15px
+          border-radius: 0.3125rem; // 5px
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          font-family: 'Nexa Bold', sans-serif;
+          font-size: 1rem;
+          background-color: rgba(255, 255, 255, 0.1);
+          color: #fff;
+        }
+        
+        .form-field {
           flex: 1;
-          padding: 0.625rem 0.9375rem; // 10px 15px
-          border-radius: 0.3125rem; // 5px
-          border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-form textarea {
+          padding: 0.625rem 0.9375rem;
+          border-radius: 0.3125rem;
+          border: 1px solid rgba(255, 255, 255, 0.15);
           font-family: 'Nexa Bold', sans-serif;
           font-size: 1rem;
           background-color: rgba(255, 255, 255, 0.1);
           color: #fff;
         }
         
-        textarea {
-          padding: 0.625rem 0.9375rem; // 10px 15px
-          border-radius: 0.3125rem; // 5px
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          font-family: 'Nexa Bold', sans-serif;
-          font-size: 1rem;
-          background-color: rgba(255, 255, 255, 0.1);
-          color: #fff;
-        }
-        
-        input::placeholder, textarea::placeholder {
+        .contact-form input::placeholder, .contact-form textarea::placeholder {
           color: #ccc;
         }
         
@@ -210,11 +195,11 @@ export default function Contact() {
         }
         
         .error {
-          color: #D9534F;
+          color: #ef4444;
         }
         
         .success {
-          color: #5CB85C;
+          color: #10b981;
         }
         
         @media (max-width: 37.5rem) { // 600px
@@ -224,6 +209,6 @@ export default function Contact() {
           }
         }
       `}</style>
-    </section>
+    </motion.section>
   );
 }

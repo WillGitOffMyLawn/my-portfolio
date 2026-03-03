@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
@@ -12,7 +13,7 @@ const passionsData = [
     items: [
       {
         mediaType: "image",
-        src: "/images/travel1.jpg",
+        src: "/images/travel1.webp",
         title: "Experienced the majesty of Zion National Park",
       },
       {
@@ -67,12 +68,12 @@ const passionsData = [
       },
       {
         mediaType: "image",
-        src: "/images/travel9.jpg",
+        src: "/images/travel9.webp",
         title: "Admired the stave church architecture in Norway",
       },
       {
         mediaType: "image",
-        src: "/images/travel10.jpg",
+        src: "/images/travel10.webp",
         title: "Sailed around Croatia's islands",
       },
     ],
@@ -133,17 +134,18 @@ const passionsData = [
   {
     title: "Learning New Skills",
     items: [
-      { mediaType: "image", src: "/images/newskill3dprinting.jpg", title: "3D Printing" },
-      { mediaType: "image", src: "/images/newskillpcbuilding.jpg", title: "PC Building" },
-      { mediaType: "image", src: "/images/newskillcad.jpg", title: "CAD" },
+      { mediaType: "image", src: "/images/newskill3dprinting.webp", title: "3D Printing" },
+      { mediaType: "image", src: "/images/newskillpcbuilding.webp", title: "PC Building" },
+      { mediaType: "image", src: "/images/newskillcad.webp", title: "CAD" },
       { 
         mediaType: "video", 
         src: "/videos/newskillblacksmithing.mp4", 
         title: "Blacksmithing" 
       },
-      { mediaType: "image", src: "/images/newskillmotorcycle.png", title: "Riding a motorcycle" },
-      { mediaType: "image", src: "/images/newskilljewelry.jpg", title: "Jewelry Design" },
-      { mediaType: "image", src: "/images/newskillcryptomining.jpg", title: "Crypto Mining" },
+      { mediaType: "image", src: "/images/newskillmotorcycle.webp", title: "Riding a motorcycle" },
+      { mediaType: "image", src: "/images/newskilljewelry.webp", title: "Jewelry Design" },
+      { mediaType: "image", src: "/images/newskillcryptomining.webp", title: "Crypto Mining" },
+      { mediaType: "image", src: "/images/carresto1.webp", title: "Car Restoration" },
     ],
   },
 ];
@@ -166,7 +168,14 @@ export default function About() {
   return (
     <>
       {/* Passions Section */}
-      <section className="passions-section">
+      <motion.section
+        id="about"
+        className="passions-section"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="glassmorphic-wrapper">
           <h2>Passions</h2>
           <p className="passions-intro">
@@ -195,9 +204,13 @@ export default function About() {
                       <div className="slider-card">
                         {item.mediaType === "image" && (
                           <>
-                            <img
+                            <Image
                               src={item.src}
                               alt={item.title || passion.title}
+                              width={600}
+                              height={400}
+                              loading="lazy"
+                              style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
                             />
                             {item.title && (
                               <p className="media-title">{item.title}</p>
@@ -223,62 +236,25 @@ export default function About() {
           </div>
         </div>
 
-        <style jsx>{`
+        <style jsx global>{`
           .passions-section {
-            padding: 1.875rem 1.25rem; // Reduced from 3.75rem to 1.875rem (60px to 30px)
+            padding: 0;
             background-color: transparent;
             color: #fff;
-            max-width: 75rem; // 1200px
-            margin: 0 auto;
-            position: relative;
             width: 100%;
+            position: relative;
           }
           
-          .glassmorphic-wrapper {
-            position: relative;
-            z-index: 20;
-            width: 100%;
-            background: rgba(20, 20, 20, 0.65);
-            border-radius: 1.25rem; // 20px
-            overflow: hidden;
-            padding: 1.75rem; // 20px
-            
-            /* Enhanced glassmorphism effect with stronger shadow */
-            backdrop-filter: blur(0.75rem); // 12px
-            -webkit-backdrop-filter: blur(0.75rem); // 12px
-            box-shadow: 0 0.75rem 3rem rgba(0, 0, 0, 0.7),
-                        0 0.25rem 1rem rgba(124, 58, 237, 0.15),
-                        0 -0.25rem 1rem rgba(16, 185, 129, 0.1); // Multi-layered shadow with subtle color
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            
-            /* Metallic highlight at top */
-            background-image: linear-gradient(
-              180deg, 
-              rgba(255, 255, 255, 0.12) 0%, 
-              rgba(255, 255, 255, 0.03) 5%,
-              rgba(255, 255, 255, 0) 20%
-            );
-            
-            /* Add subtle shadow glow on hover */
-            transition: all 0.3s ease-out;
-          }
-          
-          /* Optional subtle hover effect */
-          .glassmorphic-wrapper:hover {
-            box-shadow: 0 0.85rem 3.5rem rgba(0, 0, 0, 0.7),
-                        0 0.35rem 1.25rem rgba(124, 58, 237, 0.2),
-                        0 -0.35rem 1.25rem rgba(16, 185, 129, 0.15);
-            transform: translateY(-3px);
-          }
-          h2 {
+          .passions-section h2 {
             font-family: 'BankGothic Md BT', sans-serif;
             font-size: 2rem;
             margin-top: 0;
             margin-bottom: 2rem;
             text-align: left;
+            text-shadow: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 40px rgba(124, 58, 237, 0.15);
           }
           
-          h3 {
+          .passions-section h3 {
             font-family: 'BankGothic Md BT', sans-serif;
             font-size: 1.75rem;
             margin-top: 0; /* Reset top margin */
@@ -301,10 +277,10 @@ export default function About() {
           
           .passion-slider {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 1.25rem; // 20px
-            padding: 1.25rem; // 20px
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.3); // 4px 16px
+            border-radius: 1.25rem;
+            padding: 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.3);
             max-width: 100%;
             overflow: hidden; // Prevent content from overflowing
           }
@@ -329,15 +305,15 @@ export default function About() {
           
           .slider-card {
             background: rgba(30, 30, 30, 0.4);
-            backdrop-filter: blur(0.3125rem); // 5px
-            -webkit-backdrop-filter: blur(0.3125rem); // 5px
-            border-radius: 0.9375rem; // 15px
+            backdrop-filter: blur(0.75rem);
+            -webkit-backdrop-filter: blur(0.75rem);
+            border-radius: 0.9375rem;
             margin: auto;
             width: 100%;
-            max-width: 25rem; // Reduced from 31.25rem (500px) to 25rem (400px)
+            max-width: 25rem;
             text-align: center;
-            padding: 0.75rem 1.25rem; /* Reduced vertical padding from 1.25rem to 0.75rem */
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.75rem 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
           }
           
           .slider-card img,
@@ -356,7 +332,7 @@ export default function About() {
             color: #f0f0f0;
           }
         `}</style>
-      </section>
+      </motion.section>
     </>
   );
 }

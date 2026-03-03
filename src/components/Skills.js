@@ -112,7 +112,10 @@ export default function SkillsWithFlexBadges() {
   }, []);
 
   return (
-    <section className="skills-badges">
+    <section
+      id="skills"
+      className="skills-badges"
+    >
       <div className="glassmorphic-wrapper">
         {/* Title and inline proficiency key */}
         <div className="skills-header">
@@ -121,12 +124,12 @@ export default function SkillsWithFlexBadges() {
             {proficiencyLevels.map((p) => (
               <Badge 
                 key={p.level}
+                variant="outline"
                 style={{ 
-                  "--badge-bg-color": p.color,
-                  "--badge-text-color": "#1a1a1a",
                   backgroundColor: p.color,
                   color: "#1a1a1a",
-                  fontWeight: 'bold'
+                  fontWeight: 'bold',
+                  borderColor: 'transparent'
                 }}
               >
                 {p.label}
@@ -160,12 +163,12 @@ export default function SkillsWithFlexBadges() {
                       {skills.map((skill) => (
                         <Badge 
                           key={skill.name}
+                          variant="outline"
                           style={{ 
-                            "--badge-bg-color": getBadgeColor(skill.level),
-                            "--badge-text-color": "#1a1a1a",
                             backgroundColor: getBadgeColor(skill.level),
                             color: "#1a1a1a",
-                            fontWeight: 'bold'
+                            fontWeight: 'bold',
+                            borderColor: 'transparent'
                           }}
                         >
                           {skill.name}
@@ -180,52 +183,15 @@ export default function SkillsWithFlexBadges() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style jsx global>{`
         .skills-badges {
-          padding: 1.875rem 1.25rem; // 30px 20px
+          padding: 0;
           background-color: transparent;
           color: #fff;
           font-family: 'Nexa Bold', sans-serif;
           position: relative;
         }
         
-        .glassmorphic-wrapper {
-          position: relative;
-          z-index: 20;
-          width: 100%;
-          background: rgba(20, 20, 20, 0.65);
-          border-radius: 1.25rem; // 20px
-          overflow: hidden;
-          padding: 1.75rem; // 20px
-          
-          /* Enhanced glassmorphism effect with stronger shadow */
-          backdrop-filter: blur(0.75rem); // 12px
-          -webkit-backdrop-filter: blur(0.75rem); // 12px
-          box-shadow: 0 0.75rem 3rem rgba(0, 0, 0, 0.7),
-                      0 0.25rem 1rem rgba(124, 58, 237, 0.15),
-                      0 -0.25rem 1rem rgba(16, 185, 129, 0.1); // Multi-layered shadow with subtle color
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          
-          /* Metallic highlight at top */
-          background-image: linear-gradient(
-            180deg, 
-            rgba(255, 255, 255, 0.12) 0%, 
-            rgba(255, 255, 255, 0.03) 5%,
-            rgba(255, 255, 255, 0) 20%
-          );
-          
-          /* Add subtle shadow glow on hover */
-          transition: all 0.3s ease-out;
-        }
-        
-        /* Optional subtle hover effect */
-        .glassmorphic-wrapper:hover {
-          box-shadow: 0 0.85rem 3.5rem rgba(0, 0, 0, 0.7),
-                      0 0.35rem 1.25rem rgba(124, 58, 237, 0.2),
-                      0 -0.35rem 1.25rem rgba(16, 185, 129, 0.15);
-          transform: translateY(-3px);
-        }
-
         .skills-header {
           display: flex;
           flex-wrap: wrap;
@@ -237,8 +203,9 @@ export default function SkillsWithFlexBadges() {
         .skills-header h2 {
           font-family: 'BankGothic Md BT', sans-serif;
           font-size: 2rem;
-          margin-top: 0; /* Remove top margin */
-          margin-bottom: 1.25rem; // 20px
+          margin-top: 0;
+          margin-bottom: 1.25rem;
+          text-shadow: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 40px rgba(124, 58, 237, 0.15);
         }
 
         /* Proficiency key as badge-style items */
@@ -259,12 +226,10 @@ export default function SkillsWithFlexBadges() {
 
         .skill-category {
           background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(0.5rem); // 8px
-          -webkit-backdrop-filter: blur(0.5rem); // 8px
-          border-radius: 1.25rem; // 20px
-          padding: 1.25rem; // 20px
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2); // 4px 16px
+          border-radius: 1.25rem;
+          padding: 1.25rem;
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.3);
         }
         
         .skill-category h3 {
