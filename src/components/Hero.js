@@ -428,10 +428,10 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
               >
-                <a href="#projects" className="cta-primary" onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                <a href="#projects" className="cta-primary" onClick={(e) => { e.preventDefault(); const el = document.getElementById('projects'); if (el) { const top = el.getBoundingClientRect().top + window.pageYOffset - 80; window.scrollTo({ top, behavior: 'smooth' }); } }}>
                   View My Work
                 </a>
-                <a href="#contact" className="cta-secondary" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                <a href="#contact" className="cta-secondary" onClick={(e) => { e.preventDefault(); const el = document.getElementById('contact'); if (el) { const top = el.getBoundingClientRect().top + window.pageYOffset - 80; window.scrollTo({ top, behavior: 'smooth' }); } }}>
                   Get in Touch
                 </a>
               </motion.div>
