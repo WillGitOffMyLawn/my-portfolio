@@ -85,9 +85,24 @@ function MyApp({ Component, pageProps }) {
     overlay.classList.add('bg-gradient-overlay');
     document.body.appendChild(overlay);
 
-    // Add grain texture overlay
+    // Add grain texture overlay — use canvas-generated PNG instead of SVG feTurbulence (much cheaper for GPU)
     const grain = document.createElement('div');
     grain.classList.add('grain-overlay');
+    const grainCanvas = document.createElement('canvas');
+    grainCanvas.width = 128;
+    grainCanvas.height = 128;
+    const gCtx = grainCanvas.getContext('2d');
+    const imageData = gCtx.createImageData(128, 128);
+    for (let i = 0; i < imageData.data.length; i += 4) {
+      const v = Math.random() * 255;
+      imageData.data[i] = v;
+      imageData.data[i + 1] = v;
+      imageData.data[i + 2] = v;
+      imageData.data[i + 3] = 255;
+    }
+    gCtx.putImageData(imageData, 0, 0);
+    grain.style.backgroundImage = `url(${grainCanvas.toDataURL()})`;
+    grain.style.backgroundRepeat = 'repeat';
     document.body.appendChild(grain);
     
     const existingShapes = document.querySelectorAll('.geometric-shape');

@@ -149,8 +149,9 @@ export default function Navbar() {
           right: 0;
           z-index: 1000;
           padding: 0.75rem 1.5rem;
-          transition: all 0.4s ease;
+          transition: background 0.4s ease, border-bottom 0.4s ease, box-shadow 0.4s ease;
           background: transparent;
+          will-change: transform;
         }
         .navbar.scrolled {
           background: rgba(10, 10, 15, 0.85);
