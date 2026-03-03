@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa';
 import { HiOutlineMail } from 'react-icons/hi';
 
 export default function Footer() {
@@ -8,9 +8,6 @@ export default function Footer() {
         <div className="footer-fade" />
         <div className="footer-inner">
           <div className="footer-links">
-            <a href="https://github.com/WillGitOffMyLawn" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <FaGithub size={20} />
-            </a>
             <a href="https://linkedin.com/in/williamhfagan" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <FaLinkedin size={20} />
             </a>

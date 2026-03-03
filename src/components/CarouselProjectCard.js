@@ -118,9 +118,9 @@ export default function CarouselProjectCard({ project, index = 0 }) {
             text-transform: uppercase;
             letter-spacing: 0.08em;
             border-radius: 999px;
-            background: rgba(124, 58, 237, 0.2);
-            color: rgba(124, 58, 237, 0.9);
-            border: 1px solid rgba(124, 58, 237, 0.3);
+            background: rgba(124, 58, 237, 0.35);
+            color: #e0d0ff;
+            border: 1px solid rgba(124, 58, 237, 0.5);
           }
         `}</style>
       </a>

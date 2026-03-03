@@ -6,59 +6,25 @@ import { Badge } from '@/components/ui/badge';
 const skillsData = {
   Technical: {
     Software: [
-      { name: 'Jira', level: 3 },
-      { name: 'Asana', level: 3 },
-      { name: 'Trello', level: 3 },
-      { name: 'Hubspot', level: 3 },
-      { name: 'Figma', level: 3 },
-      { name: 'Excel', level: 4 },
-      { name: 'PowerPoint', level: 4 },
-      { name: 'AWS', level: 2 },
-      { name: 'Zapier', level: 2 },
-      { name: 'Word', level: 4 },
+      'Jira', 'Asana', 'Trello', 'Hubspot', 'Figma',
+      'Excel', 'PowerPoint', 'AWS', 'Zapier', 'Word',
     ],
     Coding: [
-      { name: 'HTML', level: 2 },
-      { name: 'CSS', level: 2 },
-      { name: 'JavaScript', level: 2 },
-      { name: 'React', level: 2 },
-      { name: 'Python', level: 3 },
-      { name: 'Nextjs', level: 2 },
-      { name: 'PHP', level: 2 },
-      { name: 'Git', level: 2 },
-      { name: 'Terraform', level: 1 },
+      'HTML', 'CSS', 'JavaScript', 'React', 'Python',
+      'Nextjs', 'PHP', 'Git', 'Terraform',
     ],
   },
   'Cross-Functional': {
     Leadership: [
-      { name: 'Team Management', level: 3 },
-      { name: 'Strategic Planning', level: 2 },
-      { name: 'Communication', level: 4 },
-      { name: 'Agile', level: 3 },
-      { name: 'Waterfall', level: 3 },
+      'Team Management', 'Strategic Planning', 'Communication',
+      'Agile', 'Waterfall',
     ],
     Product: [
-      { name: 'SEO', level: 3 },
-      { name: 'Google Analytics', level: 3 },
-      { name: 'Wireframing', level: 2 },
-      { name: 'UX/UI', level: 3 },
-      { name: 'Market Analysis', level: 3 },
+      'SEO', 'Google Analytics', 'Wireframing', 'UX/UI',
+      'Market Analysis',
     ],
   },
 };
-
-const proficiencyLevels = [
-  { level: 1, label: 'Novice',       color: '#2ecc71' }, 
-  { level: 2, label: 'Competent', color: '#3498db' }, 
-  { level: 3, label: 'Advanced',     color: '#9b59b6' }, 
-  { level: 4, label: 'Expert',       color: '#e74c3c' }, 
-];
-
-// Helper to get color for a given level
-function getBadgeColor(level) {
-  const found = proficiencyLevels.find((p) => p.level === level);
-  return found ? found.color : '#aaa'; // fallback color
-}
 
 export default function SkillsWithFlexBadges() {
   const [expanded, setExpanded] = useState({});
@@ -117,25 +83,8 @@ export default function SkillsWithFlexBadges() {
       className="skills-badges"
     >
       <div className="glassmorphic-wrapper">
-        {/* Title and inline proficiency key */}
         <div className="skills-header">
           <h2>Skills</h2>
-          <div className="proficiency-key">
-            {proficiencyLevels.map((p) => (
-              <Badge 
-                key={p.level}
-                variant="outline"
-                style={{ 
-                  backgroundColor: p.color,
-                  color: "#1a1a1a",
-                  fontWeight: 'bold',
-                  borderColor: 'transparent'
-                }}
-              >
-                {p.label}
-              </Badge>
-            ))}
-          </div>
         </div>
 
         <div className="skills-grid">
@@ -162,16 +111,16 @@ export default function SkillsWithFlexBadges() {
                     <div className="badge-flex">
                       {skills.map((skill) => (
                         <Badge 
-                          key={skill.name}
+                          key={skill}
                           variant="outline"
                           style={{ 
-                            backgroundColor: getBadgeColor(skill.level),
-                            color: "#1a1a1a",
+                            backgroundColor: 'rgba(124, 58, 237, 0.35)',
+                            color: '#e0d0ff',
                             fontWeight: 'bold',
-                            borderColor: 'transparent'
+                            borderColor: 'rgba(124, 58, 237, 0.5)'
                           }}
                         >
-                          {skill.name}
+                          {skill}
                         </Badge>
                       ))}
                     </div>
