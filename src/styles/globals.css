@@ -562,3 +562,26 @@
     animation: none !important;
   }
 }
+
+/* Mobile: strip all fixed-position overlays that crash iOS Safari */
+@media (max-width: 768px) {
+  body::before {
+    display: none !important;
+  }
+  .bg-gradient-overlay,
+  .grain-overlay {
+    display: none !important;
+  }
+  .star {
+    position: absolute !important;
+  }
+  /* Static gradient replacement for the canvas lava lamp on mobile */
+  .lava-lamp-canvas {
+    display: none !important;
+  }
+  .hero-background {
+    background: radial-gradient(ellipse at 30% 40%, rgba(191, 0, 255, 0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 60%, rgba(72, 149, 239, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(247, 37, 133, 0.15) 0%, transparent 50%) !important;
+  }
+}

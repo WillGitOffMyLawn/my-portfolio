@@ -24,10 +24,15 @@ export default function Hero() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    // On mobile, skip the entire canvas animation — iOS Safari crashes from
+    // continuous requestAnimationFrame with gradients and polygon paths.
+    if (isMobile) return;
+
     const ctx = canvas.getContext('2d');
     const blobs = [];
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    const blobCount = isMobile ? 5 : 9;
+    const blobCount = 9;
     const colors = ['rgba(191, 0, 255, 0.4)', 'rgba(247, 37, 133, 0.4)', 'rgba(72, 149, 239, 0.4)', 'rgba(88, 24, 69, 0.4)'];
     
     // Set canvas dimensions
@@ -351,14 +356,12 @@ export default function Hero() {
         ctx.closePath();
         ctx.fill();
         
-        // Add glow effect — skip on mobile (canvas shadow is expensive on iOS)
-        if (!isMobile) {
-          ctx.shadowBlur = 30;
-          ctx.shadowColor = blob.color.replace(/[^,]+\)/, '0.25)');
-          ctx.shadowOffsetX = 0;
-          ctx.shadowOffsetY = 0;
-          ctx.fill();
-        }
+        // Add glow effect
+        ctx.shadowBlur = 30;
+        ctx.shadowColor = blob.color.replace(/[^,]+\)/, '0.25)');
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+        ctx.fill();
         
         // Restore context
         ctx.restore();

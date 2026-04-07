@@ -17,8 +17,8 @@ function MyApp({ Component, pageProps }) {
 
     const createStars = () => {
       const container = document.body;
-      // Fewer stars on mobile to reduce compositing layers
-      const maxStars = isMobile ? 30 : 100;
+      // Minimal stars on mobile — each fixed-position element is a compositing layer on iOS
+      const maxStars = isMobile ? 15 : 100;
       const starCount = Math.min(Math.floor(window.innerWidth / 4), maxStars);
       const existingStars = document.querySelectorAll('.star');
       existingStars.forEach(star => star.remove());
@@ -56,14 +56,14 @@ function MyApp({ Component, pageProps }) {
 
     window.addEventListener('resize', handleResize);
     createStars();
-    
-    const overlay = document.createElement('div');
-    overlay.classList.add('bg-gradient-overlay');
-    document.body.appendChild(overlay);
 
-    // Add grain texture overlay — skip on mobile (iOS Safari crashes with mix-blend-mode fixed overlays)
-    let grain;
+    // Skip all fixed-position overlays on mobile — iOS Safari crashes from too many compositing layers
+    let overlay, grain;
     if (!isMobile) {
+      overlay = document.createElement('div');
+      overlay.classList.add('bg-gradient-overlay');
+      document.body.appendChild(overlay);
+
       grain = document.createElement('div');
       grain.classList.add('grain-overlay');
       const grainCanvas = document.createElement('canvas');
@@ -104,8 +104,7 @@ function MyApp({ Component, pageProps }) {
     return () => {
       window.removeEventListener('resize', handleResize);
       if (shootingInterval) clearInterval(shootingInterval);
-      const overlayElement = document.querySelector('.bg-gradient-overlay');
-      if (overlayElement) overlayElement.remove();
+      if (overlay) overlay.remove();
       if (grain) grain.remove();
     };
   }, []);
