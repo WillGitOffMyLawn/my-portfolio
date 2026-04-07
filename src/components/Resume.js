@@ -1,16 +1,15 @@
-import { pdfjs, Document, Page } from 'react-pdf';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
-import AnimatedCounterComponent from './AnimatedCounter';
 import { Button } from '@/components/ui/button';
 import { FaUsers, FaRocket, FaHandshake, FaTools } from 'react-icons/fa';
 
-pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.mjs';
+// Dynamic imports — these components need the DOM and can crash during SSR/hydration
+const AnimatedCounterComponent = dynamic(() => import('./AnimatedCounter'), { ssr: false });
+const PDFViewer = dynamic(() => import('./PDFViewer'), { ssr: false });
 
 export default function Resume() {
-  const onDocumentLoadSuccess = () => {};
-
   return (
     <motion.section
       id="resume"
@@ -74,9 +73,7 @@ export default function Resume() {
               className="resume-right"
             >
               <div className="pdf-preview">
-                <Document file="/William_Fagan_Resume.pdf" onLoadSuccess={onDocumentLoadSuccess}>
-                  <Page pageNumber={1} width={300} />
-                </Document>
+                <PDFViewer file="/William_Fagan_Resume.pdf" width={300} />
               </div>
               <div className="resume-buttons" style={{ marginTop: '1.25rem', display: 'flex', gap: '0.625rem', justifyContent: 'center' }}>
                 <Button asChild variant="default">

@@ -534,6 +534,12 @@
   border: 0;
 }
 
+/* Ensure main content is visible even if Framer Motion animation fails */
+#main-content {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 /* Keyboard focus styles */
 *:focus-visible {
   outline: none;
